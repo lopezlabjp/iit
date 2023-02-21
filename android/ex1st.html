@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja"> 
+    <head>
+        <title>ITX1:Aoyama Gakuin University</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/itx1.css">
+        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+        <link href="assets/plugins/highlight/styles/default.css" rel="stylesheet">
+        <script href="assets/plugins/highlight/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+    <body>
+    <div class="container">
+        <div class="title">
+            <h1>第1回：Android Studioアプリケーション開発</h1>
+            <p style="text-align: right;">
+                最終更新日：2021年4月6日
+              </p>
+        </div>
+        <div class="practice practice-checkpoint">
+            <h3>今回の実験において実行確認・提出するもの</h3>
+            <p><strong>実行確認は、TA・教員からのチェックを受けて下さい。</strong></p>
+            <ul>
+                <li>Hello Worldアプリ実行（Fig.8）</li>
+                <li>演習問題1_1の実行確認（Fig.1_1）＆　スクリーンショットの提出（<a href="https://canvas.instructure.com/courses/2540504" target="_blank" rel="noopener noreferrer">CANVAS</a>）</li>
+                <li>演習問題1_2の回答入力（<a href="https://canvas.instructure.com/courses/2540504" target="_blank" rel="noopener noreferrer">CANVAS</a>）</li>
+                <li>SampleActivity1_2の実行確認</li>
+                <li>演習問題1_3の実行確認（Fig.1_3_1 & Fig.1_3_2）＆　スクリーンショットの提出（<a href="https://canvas.instructure.com/courses/2540504" target="_blank" rel="noopener noreferrer">CANVAS</a>）</li>
+                <li>演習問題1_4（LifeCycleActivity）の実行確認（Fig.1_4）＆　スクリーンショットの提出（<a href="https://canvas.instructure.com/courses/2540504" target="_blank" rel="noopener noreferrer">CANVAS</a>）</li>
+            </ul>
+        </div>
+        <div class="contents">
+            <h3>イントロダクション</h3>
+            <p>Android Studio は、<a class="external-link" href="https://www.jetbrains.com/idea/">「IntelliJ IDEA」</a>をベースとした、Android アプリ開発用の公式の統合開発環境（IDE）です。IntelliJ の強力なコードエディタと開発ツールに加えて、Android アプリ作成の生産性を高める様々な機能を利用できます。
+                <br />「IntelliJ IDEA」はチェコに本社を置く<a class="external-link" href="https://www.jetbrains.com/ja-jp/company/">JetBrains社</a>が開発し、OpenSourse化したIDEです。「IntelliJ IDEA」はJavaで実装されており、多言語をサポートしており、Eclipceの次に世界的に人気のあるIDEです。主に、Java・Python・Javascriptを用いたプロジェクト開発に向いています。さらに、開発・デバッグ・テスト・パフォーマンス向上のためのツールが含まれており、アプリの開発をより迅速かつ簡単に行うことができます。作成したアプリは、あらかじめ設定された様々なエミュレータや自分のモバイル端末でテストしたり、本番用アプリを作成したり、Google Playストアで公開することができます。
+            </p>
+            <p>Eclipseを用いたAndroid開発の経験のある人は、Eclipse ADT（Android Development Tool）と何が違うのか、Eclipse ADTで作成したProjectは互換性があるかが懸念点ですが、基本的には互換性があると考えて頂いて構いません。詳しくは様々な解説サイト（例：<a class="external-link" href="https://www.atmarkit.co.jp/ait/articles/1306/13/news028_2.html">Eclipse ADTに代わるIDEとなるか？Android Studioの基礎知識</a>）をご参照ください。</p>
+            <p>Android Studioは、WindowsやLinuxを搭載したコンピューター、およびmacOSを搭載したMacで利用できます。Android Studioには、最新のOpenJDK（Java Development Kit）がバンドルされています。</p>
+        </div>
+        <div class="contents">
+            <h3>Task 1: Android Studioのインストール</h3>
+            <p>Task 1では、<a class="external-link" href="https://developer.android.com/studio/install?hl=ja">Android Studioをインストールする方法</a>を学びます。なお、本ページでは4.1.1 for Mac版を例にしていますが、Windows版やバージョンの違いにより、GUIや選択肢が変更されている場合がありますので、各自がインストールしたバージョンに合わせて操作していきましょう。（いずれのバージョンでも機能に違いはありません。）</p>
+        </div>
+        <div class="contents">
+            <ul>
+                <li>Android Developersのサイト（<a class="external-link" href="https://developer.android.com/studio/install?hl=ja">Android Studioのインストール</a>）にアクセスし、指示に従ってAndroid Studioをダウンロードしてインストールします。</li>
+                <li>すべてのステップでデフォルトの設定を受け入れ、すべてのコンポーネントがインストール用に選択されていることを確認してください。</li>
+                <li>インストールが完了すると、セットアップ・ウィザードがAndroid SDKを含むいくつかの追加コンポーネントをダウンロードしてインストールします。</li>
+                <li>インターネットの速度によっては時間がかかり、手順が重複する場合があります。ダウンロードが完了すると、Android Studioが起動し、最初のプロジェクトを作成する準備が整います。</li>
+            </ul>
+            <figure class="figure">
+                <img src="assets/images/ex1st/fig1.png" class="figure-img img-fluid rounded" alt="fig1.png">
+                <figcaption class="figure-caption text-center">Fig.1 Install Typeは Standard を選択しましょう。 </figcaption>
+            </figure>
+            <figure class="figure">
+                <img src="assets/images/ex1st/fig2.png" class="figure-img img-fluid rounded" alt="fig2.png">
+                <figcaption class="figure-caption text-center">Fig.2 Verify Settingは各デバイスのバージョンに合わせて設定しましょう。 </figcaption>
+            </figure>
+        </div>
+        <div class="contents">
+            <h3>Task 2: 使用端末（タブレット）の設定</h3>
+            <p>Task 2では、使用端末（タブレット）の設定をします。</p>
+            <ul>
+                <li>設定 -&gt; 端末情報 -&gt; ビルド番号を7回タップ（気にせずタップしまくる） -&gt; PIN入れてデベロッパーになります。</li>
+                <li>設定 -&gt; システム -&gt; 詳細設定 -&gt; 開発者向けオプション -&gt; USBデバッグをオン（許可）-&gt; "USBデバッグが接続されました"と表示されるのを確認してください。</li>
+                <li>設定 -&gt; セキュリティ -&gt; 提供元不明のアプリをオン（許可）</li>
+            </ul>
+            <div class="contents">
+                <h3>Task 3: 「Hello World」アプリの作成</h3>
+                <p>Task 3では、最初のAndroidアプリ「Hello World」を作成し、アンドロイドデバイス（実機）もしくはエミュレータ上で実行します。</p>
+                <ol>
+                    <li>Android Studioがまだ開かれていない場合は、Android Studioを開きます。</li>
+                    <li>「Welcome to Android Studio」ウィンドウ内の、"Start a new Android Studio project"または"<strong>Create New Project</strong>"をクリックします。
+                        <br />
+                        <figure class="figure">
+                            <img src="assets/images/ex1st/fig5.png" class="figure-img img-fluid rounded" alt="fig5.png">
+                            <figcaption class="figure-caption text-center">Fig.3 Android Studioの起動画面 </figcaption>
+                        </figure>
+                    </li>
+                    <li>デフォルトのプロジェクトの場所が、Hello Worldアプリやその他のAndroid Studioプロジェクトを保存する場所であることを確認するか、任意のディレクトリに変更します。</li>
+                    <li>Company Domain（会社のドメイン）としてデフォルトのandroid.example.comを受け入れるか、独自のドメインを作成します。package名は所属組織のドメイン名を逆から書くのが暗黙のルールです。本演習でのpackage名は<strong>「学生番号.組織.国」</strong>とします。e.g. a000001.aoyama.jp</li>
+                    <li>「Create Android Project」ウィンドウ内、"Select a Project Template"の "<strong>Empty Activity</strong>"を選択し、「<strong>Next</strong>」をクリックします。Activityとは、"Androidアプリの画面"に相当します。ボタンやリストが配置された画面、Webページが表示されている画面、3Dグラフィックスが表示されている画面を作成するためにActivityはAndroidアプリには欠かせない要素となります。
+                        <br/>
+                        <figure class="figure">
+                            <img src="assets/images/ex1st/fig3.png" class="figure-img img-fluid rounded" alt="fig3.png">
+                            <figcaption class="figure-caption text-center">Fig.4 「Create Android Project」ウィンドウ内の"Select a Project Template"画面例</figcaption>
+                        </figure>
+                    </li>
+                    <li>"Configure Your Project"で、"Name"、"Package name"、"Save location"、"Language"、"Minimum SDK"を設定します。本演習では、"Name:<strong>Sample1_1</strong>"、"Package name:<strong>jp.aoyama.aから始まる学籍番号.sample1_1</strong>"、"Save location：デフォルト"、"Language:<strong>Java</strong>"、"Minimum SDK: <strong>使用端末のAndroidのバージョン以下に合わせること</strong>"に変更して下さい。
+                        <br />
+                        <figure class="figure">
+                            <img src="assets/images/ex1st/fig4.png" class="figure-img img-fluid rounded" alt="fig4.png">
+                            <figcaption class="figure-caption text-center">Fig.5 「Create Android Project」ウィンドウ内の"Configure Your Project"画面例</figcaption>
+                        </figure>
+                    </li>
+                    <li>Android StudioのEditorが表示されます。activity_main.xmlタブをクリックして、レイアウト・エディタを表示します。レイアウト・エディタの「Design」タブが選択されていない場合は、これをクリックすると、以下のようにレイアウトのグラフィカルな表示を確認できます。
+                        <br />
+                        <figure class="figure">
+                            <img src="assets/images/ex1st/fig6.png" class="figure-img img-fluid rounded" alt="fig6.png">
+                            <figcaption class="figure-caption text-center">Fig.6 "Design Editor"画面例</figcaption>
+                        </figure>
+                    </li>
+                    <li>MainActivity.javaタブをクリックすると、以下のようなコードエディタが表示されます。
+                        <br />
+                        <figure class="figure">
+                            <img src="assets/images/ex1st/fig7.png" class="figure-img img-fluid rounded" alt="fig7.png">
+                            <figcaption class="figure-caption text-center">Fig.7 "Code Editor"画面例</figcaption>
+                        </figure>
+                    </li>
+                    <li>PCとタブレットが接続された状態で、Runボタン「
+                        <img src="assets/images/ex1st/run.png" alt="run.png"/>」を押下します。タブレット画面内で「Hello World!」が表示されたら、「Hello World」アプリの完成です。デバッグした端末のスクリーンショットを保存したい場合は、View -&gt; Tool Windows -&gt; Logcat -&gt; "&gt;&gt;"を押下 -&gt; カメラアイコンを押下してください。
+                        <br />
+                        <figure class="figure">
+                            <img src="assets/images/ex1st/fig8.png" class="figure-img img-fluid rounded" alt="fig8.png"/>
+                            <figcaption class="figure-caption text-center">Fig.8 "Hello World"アプリの実行例</figcaption>
+                        </figure>
+                        <figure class="figure">
+                            <img src="assets/images/ex1st/cameraUI.png" class="figure-img img-fluid rounded" alt="cameraUI.png"/>
+                            <figcaption class="figure-caption text-center">Fig.9 Android Studioからスクリーンショットを撮影する方法</figcaption>
+                        </figure>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="contents">
+            <h3>機能説明: Android Studioのコード編集機能</h3>
+            <p><strong>Androidアプリ開発では、プログラミング（実装したい機能・動作など）はJavaファイルとして実装、レイアウトのデザイン（実装したいGUI・画面構成など）はXMLファイルとして実装します。</strong></p>
+            <figure class="figure">
+                <img src="assets/images/ex1st/as-GUI.png" class="figure-img img-fluid rounded" alt="as-GUI.png"/>
+                <figcaption class="figure-caption text-center">Fig.10 Android StudioのGUI例</figcaption>
+            </figure>
+            <figure class="figure">
+                <img src="assets/images/ex1st/as-editor.png" class="figure-img img-fluid rounded" alt="as-editor.png"/>
+                <figcaption class="figure-caption text-center">Fig.11 Android Studioのソースコードエディタ画面例</figcaption>
+            </figure>
+            <p><code>setContentView(R.layout.activity_main);</code>をコメントアウトして、アプリを起動するとなにが起きるかを確かめてみましょう。</p>
+            <figure class="figure">
+                <img src="assets/images/ex1st/as-codeassist.png" class="figure-img img-fluid rounded" alt="codeassist.png"/>
+                <figcaption class="figure-caption text-center">Fig.12 コードアシストの実行例</figcaption>
+            </figure>
+            <p><strong>「CTRL」＋「SPACE」キー</strong>を押下するとコードアシストのpop-upが起動します。<br>
+                エディタ左側のNavigation windowから<code>manifests</code>, <code>layout</code>, <code>menu</code>, <code>values</code>の各項目を展開（►）すると、アプリの設定・内容・属性の定義などに用いる複数のXML形式のファイルを確認することができます。
+            </p>
+            <h4>AndroidManifest.xml</h4>
+            <p>Manifestがアプリケーションに関する必要不可欠な情報を表現し、それをAndroidシステムに伝え、アプリケーションのコードが実行される前に、この情報をシステムが持っていなければなりません。Manifestの主な役割は以下の通りです。</p>
+            <ul>
+                <li>アプリケーションのJava<strong>パッケージ名</strong>を指定する</li>
+                <li>アプリケーションは<strong>アクティビティ</strong>・<strong>サービス</strong>・<strong>ブロードキャストレシーバ</strong>・<strong>コンテンツプロバイダ</strong>で構成される。そのアプリケーションのコンポーネントを記述する。それぞれコンポーネントを実装したクラスの名前およびその機能 (例えば、 Intent メッセージをハンドリングできるコンポーネントの選択) を公開する。 </li>
+                <li><strong>ホスト（起動時呼び出すファイル）</strong>となるアプリケーションのコンポーネントを決定する。</li>
+                <li>保護されたAPI部品（INTERNET、位置情報等々）にアクセスするためや、他のアプリケーションと相互作用するために、アプリケーションに付与すべき<strong>許可（PERMISSION）</strong>を宣言する。</li>
+                <li>このアプリケーションのコンポーネントと相互作用するために、外部の他のアプリに付与されるべき許可を宣言する（intent-filter機能）。</li>
+                <li>アプリケーションがリンクする必要があるライブラリをリストする。</li>
+            </ul>
+            <h4>resフォルダ</h4>
+            <p>resフォルダはアプリケーションリソース（<strong>resources</strong>）で構成されています。Resourcesには、画像（<strong>drawable</strong>）・画面設計（<strong>layout</strong>）・メニュー（<strong>menu</strong>）・値（<strong>values</strong>）が含まれています。</p>
+            <p>valueは寸法（<code>dimens.xml</code>）・文字列（<code>strings.xml</code>）・スタイル（<code>styles.xml</code>）の３つがあります。<br>
+                アプリケーション全体で繰り返して利用する情報をXMLで定義します。例えば、デフォルトのタイトル”Sample1_1”の文字列は、resフォルダ内の<code>strings.xml</code>で定義されています。同様に、デフォルトの“Hello World!”の文字列は、resフォルダ内の<code>strings.xml</code>で定義されています。<br>
+                文字列の場合には、専用エディタも提供されています。</p>
+        </div>
+        <div class="practice practice-primary">
+            <h3>演習課題1_1: 「Hello IT Practice1」アプリの作成</h3>
+            <p>「Hello IT Practice1」アプリを実装し、Landscapeモード（横向き）にした時の結果のスクリーンショットを取りましょう。</p>
+            <ul>
+                <li>Task3で実装した"Hello World"から"<strong>Hello IT Practice 2</strong>"が画面左上に表示されるように変更する。</li>
+                <li>画面右下に"<strong>&copy;自分のイニシャル 学籍番号</strong>" e.g. &copy;AY 24703 が常に表示されるように変更する。</li>
+            </ul>
+            <figure class="figure">
+                <img src="assets/images/ex1st/practice1_1.png" class="figure-img img-fluid rounded" alt="practice1_1.png"/>
+                <figcaption class="figure-caption text-center">Fig.1_1 演習問題1_1の実行結果のスクリーンショット例</figcaption>
+            </figure>
+        </div>
+        <div class="contents">
+            <h3>機能説明: Android Studioのデザイン編集機能</h3>
+            <p><code>activity_main.xml</code>タブをクリック、もしくは<code>resources</code>ディレクトリ直下の<code>layout</code>ディレクトリ内にある<code>activity_main.xml</code>を選択してGUI（グラフィカル・ユーザ・インタフェース）設計ツールを開きましょう。</p>
+            <figure class="figure">
+                <img src="assets/images/ex1st/as-designEditor.png" class="figure-img img-fluid rounded" alt="as-designEditor.png"/>
+                <figcaption class="figure-caption text-center">Fig.13 デザインエディタの画面例</figcaption>
+            </figure>
+            <figure class="figure">
+                <img src="assets/images/ex1st/as-designEditor2.png" class="figure-img img-fluid rounded" alt="as-designEditor2.png"/>
+                <figcaption class="figure-caption text-center">Fig.14 デザインエディタから各コンポーネントの表示位置を青矢印を用いて指定する様子</figcaption>
+            </figure>
+            
+        </div>
+
+        <div class="practice">
+            <h3>演習課題1_2: AndroidManifestの理解</h3>
+            <p>AndroidManifest.xmlを読んで、以下の質問に回答しましょう。</p>
+            <ul>
+                <li>アプリケーションの Java パッケージ名</li>
+                <li>アプリケーションを構成するコンポーネント種類</li>
+                <li>ホストとなるアプリケーションのコンポーネント名</li>
+                <li>許可（PERMISSION）の宣言があるかどうか</li>
+                <li>他のアプリに付与されるべき許可の宣言があるかどうか</li>
+            </ul>
+        </div>
+        <div class="contents">
+            <h3>Task 4: アプリにログステートメントを追加する（Logcatの使い方）</h3>
+            <p>Androidではログを取得する機能として、<strong>Logcat</strong>が用意されています。下記のように、Logcatのタグ（TAG）の部分に<strong>現在実行中のクラス名を書くのが定番</strong>となっています。</p>
+            <pre><code class="java">private static final String TAG = "SampleActivity1_2";</code></pre>
+            <pre>
+                <code class="java">
+    public class SampleActivity1_2{
+        /** Logcatのタグに含める文字列. */
+        private static final String TAG = " SampleActivity1_2";
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            Log.v(TAG,"メッセージ");
+            Log.d(TAG,"メッセージ");
+            Log.i(TAG,"メッセージ");
+            Log.w(TAG,"メッセージ");
+            Log.e(TAG,"メッセージ");
+        }
+    }
+                </code>
+            </pre>
+            <figure class="figure">
+                <img src="assets/images/ex1st/logcat_message.png" class="figure-img img-fluid rounded" alt="logcat_message.png"/>
+                <figcaption class="figure-caption text-center">Fig.15 Sample1_2の実行時のEditorとLogcatの画面例</figcaption>
+            </figure>
+            <p>上記メッセージは、<strong>Logcatビュー</strong>で簡単に確認することができます。<br>
+                Logcatのビューが表示されていない場合は Android Studio [View]→[Tool Window]→[Android]で表示してください。<br>
+                Logcatではタグでログを絞り込むことができるので、機械的に設定しておけば、着目したいクラスのログがすぐに絞り込めて便利です。ログを出力するのとしないのとでは、開発効率がかなり違うので、できるだけログを活用しましょう！</p>
+            <p>ログを入れたい場所に、以下のいずれかの関数を各用途に合わせて使用しましょう。</p>
+            <pre>
+                <code class="java">
+    /* 簡易メッセージ */
+    Log.v(TAG,"メッセージ");
+    /* デバッグメッセージ */
+    Log.d(TAG,"メッセージ");
+    /* 情報 */
+    Log.i(TAG,"メッセージ");
+    /* 警告 */
+    Log.w(TAG,"メッセージ");
+    /* エラー */
+    Log.e(TAG,"メッセージ");
+                </code>
+            </pre>
+        </div>
+        <div class="practice">
+            <h3>演習課題1_3: Logcatの理解</h3>
+            <p>SampleActivity1_2という新しいプロジェクトを作成し、以下の通りにコードを追加する。必要なクラスのImportも忘れずに（エラーが残っている時、このアイコン「」が表示され、クリックすると追加すべきImportを教えてくれます！）。</p>
+            <ul>
+                <li>Fig.15のように実行結果を確認する。実行結果のスクリーンショットを撮ること。</li>
+                <li>"メッセージ"の代わりに上記のようにぞれぞれの用途にあったメッセージを入力し、アプリを再実行した際Logcatのlog level機能を用いて、警告とエラーしかlogcat内に表示されないようにする（Fig.1_3_1を参照）。実行結果のスクリーンショットを撮ること。</li>
+                <li>LogcatのFilter機能を用いて、アプリを再実行した際SampleActivity1_2で設定したTAGのログしか表示されないようにする（Fig.1_3_2を参照）。実行結果のスクリーンショットを撮ること。</li>
+            </ul>
+            <figure class="figure">
+                <img src="assets/images/ex1st/SampleActivity1_2_log1.png" class="figure-img img-fluid rounded" alt="SampleActivity1_2_log1.png"/>
+                <figcaption class="figure-caption text-center">Fig.1_3_1 警告とエラーログしかlogcatに表示されない時の画面例</figcaption>
+            </figure>
+            <figure class="figure">
+                <img src="assets/images/ex1st/SampleActivity1_2_log.png" class="figure-img img-fluid rounded" alt="SampleActivity1_2_log.png"/>
+                <figcaption class="figure-caption text-center">Fig.1_3_2 SampleActivity1_2で設定したTAGのログしかlogcatに表示されない時の画面例</figcaption>
+            </figure>
+        </div>
+        <div class="contents">
+            <h3>Task 5: Activityのライフサイクル（Lifecycle）</h3>
+            <p>ユーザーがアプリの内外を移動してからアプリに戻ると、アプリ内のActivityインスタンスはライフサイクルのさまざまな状態の間を遷移します。Activityクラスには、システムがActivityを作成、停止、再開している、またはActivityが存在するプロセスを破棄しているなど、状態が変化したことをActivityが認識できるようにするコールバックが備えられています。</p>
+            <p>ライフサイクル コールバック メソッド内で、ユーザーがActivityを離れてから戻った場合のActivityの動作を宣言できます。たとえば、ストリーミング動画プレーヤーを作成している場合は、ユーザーが別のアプリに切り替えたときに動画を一時停止し、ネットワーク接続を終了するようにできます。ユーザーが戻ってきた際に、ネットワークに再接続して、ユーザーが同じ場所から動画の再生を再開できるようにします。つまり、各コールバックにより、特定の状態変化に対して適した作業を実行できます。適切な作業を適切なタイミングで行い、移行を正しく処理することで、アプリの堅牢性とパフォーマンスが向上します。 たとえば、ライフサイクル コールバックを適切に実装することで、アプリで次の状況を回避できます。</p>
+            <ul>
+                <li>アプリの使用中にユーザーが電話を受信したり、別のアプリに切り替えたりするとクラッシュする。</li>
+                <li>ユーザーが実際に使用していない場合に、貴重なシステム リソースが消費される。</li>
+                <li>ユーザーがアプリを離れてから後で戻ると、ユーザーの進捗状況が失われる。</li>
+                <li>画面が横向きと縦向きの表示を切り替えている間に、クラッシュする、またはユーザーの進捗状況が失われる。</li>
+            </ul>
+            <p>Activityのライフサイクルにおけるステージ間を移動するために、Activityクラスには <strong>onCreate()</strong>、<strong>onStart()</strong>、<strong>onResume()</strong>、<strong>onPause()</strong>、<strong>onStop()</strong>、<strong>onDestroy()</strong>の 6 つのコールバックのコアセットがあります。Activityが新しい状態になると、これらの各コールバックが呼び出されます。以下の図は、ライフサイクルを視覚的に示したものです。
+                <br />
+                <figure class="figure">
+                    <img src="assets/images/ex1st/activity_lifecycle.png" class="figure-img img-fluid rounded" alt="activity_lifecycle.png"/>
+                    <figcaption class="figure-caption text-center">Fig.16 ActivityのLifecycleに関する簡略図</figcaption>
+                </figure>
+            </p>
+            <h4>
+                <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#oncreate">onCreate()</a>
+            </h4>
+            <p>onCreate()は、システムが最初にActivityを作成したときに呼び出されます。Activityが作成されると、Activityは作成済みの状態になります。 onCreate()メソッドでは、Activityのライフサイクルの全期間で1回のみ実行する必要がある基本的なアプリの起動ロジックを実行します。例えば、onCreate() の実装では、データをリストにバインドし、Activityを ViewModel に関連付け、一部のクラススコープ変数をインスタンス化します。このメソッドはパラメータsavedInstanceStateを受け取ります。これは、Activityの以前に保存された状態を含むBundleオブジェクトです。Activityがこれまで存在しなかった場合、Bundleオブジェクトの値はnullになります。</p>
+            <h4>
+                <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#onstart">onStart()</a>
+            </h4>
+            <p>Activityが<strong>開始状態</strong>になると、システムはこのコールバックを呼び出します。アプリがActivityをフォアグラウンドに移動して操作可能な状態にする準備を行うと、onStart() の呼び出しによってActivityがユーザーに表示されます。 たとえば、このメソッドでは、UI を保持するコードをアプリが初期化します。</p>
+            <h4>
+                <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#onresume">onResume()</a>
+            </h4>
+            <p>Activityが<strong>再開状態（実行状態）</strong>になるとフォアグラウンドに移動し、システムは onResume() コールバックを呼び出します。これは、アプリがユーザーと対話する状態です。フォーカスがアプリから他の対象に移動する状況が発生するまで、アプリはこの状態を保持します。このようなイベントには、電話の着信、別のActivityへのユーザーの移動、デバイス画面をオフにする操作などがあります。</p>
+            <p>Activityが再開状態に移行すると、Activityのライフサイクルに関連付けられているライフサイクル対応コンポーネントは、すべて ON_RESUME イベントを受け取ります。この時点で、ライフサイクル コンポーネントは、コンポーネントが表示されフォアグラウンドにある状態で実行する必要がある機能（カメラ プレビューの開始など）を有効にできます。</p>
+            <p>onResume()後の再開状態（実行状態）では、Activityがフォアグラウンドで実行され、ユーザはそこで操作を行うことができます。</p>
+            <p>割り込みイベントが発生すると、Activityは一時停止状態になり、システムは onPause() コールバックを呼び出します。</p>
+            <h4>
+                <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#onpause">onPause()</a>
+            </h4>
+            <p>ユーザーがActivityを離れることを最初に示すために、システムはこのメソッドを呼び出します（Activityが破棄されることを意味するとは限りません）。これは、Activityがフォアグラウンドにないことを示します（ユーザーがマルチウィンドウ モードの場合は、Activityが引き続き表示されます）。 Activityが<strong>一時停止状態</strong>であり、間もなく再開する予定である場合は、onPause() メソッドを使用して、続行しない（または適度に続行する）必要がある操作を一時停止または調整します。</p>
+            <p>onPause後の一時停止状態では、Activityは別のActivityによって部分的に隠されています。フォアグラウンドにある別のActivityは半透明になっているか、全画面をカバーしていません。 一時停止したActivityはユーザの入力を受信せず、一切のコードを実行できません。</p>
+            <h4>
+                <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#onstop">onStop()</a>
+            </h4>
+            <p>ユーザーに表示されなくなったActivityは、<strong>停止状態</strong>になり、システムは onStop() コールバックを呼び出します。これは、新たに開始されたActivityが画面全体を占有する場合などに発生します。Activityの実行が終了し、間もなく消滅する場合に、システムによって onStop() も呼び出されることがあります。</p>
+            <p>Activityが停止状態に移行すると、Activityのライフサイクルに関連付けられているライフサイクル対応コンポーネントは、ON_STOP イベントを受け取ります。この時点で、ライフサイクル コンポーネントは、コンポーネントが画面に表示されていない間に実行する必要のない機能を停止できます。</p>
+            <p>onStop後の停止状態では、Activityは完全に隠され、ユーザには表示されません。バックグラウンドに存在するとみなされます。 停止状態の間、Activity インスタンスとメンバ変数のようなそのすべての状態情報は保持されますが、Activity インスタンスは一切のコードを実行できません。</p>
+            <h4>
+                <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#ondestroy">onDestroy()</a>
+            </h4>
+            <p>onDestroy() はActivityが破棄される前に呼び出されます。このコールバックは、次のいずれかの理由でシステムによって呼び出されます。</p>
+            <ul>
+                <li>Activityが終了する（ユーザーがActivityを完全に閉じるか、Activityに対して finish() が呼び出さたことによる）。</li>
+                <li>構成の変更（デバイスの向きの変更やマルチウィンドウ モードなど）に伴いActivityが一時的に破棄される。</li>
+            </ul>
+        </div>
+        <div class="practice">
+            <h3>演習課題1_4: LifeCycleの理解</h3>
+            <p>LifeCycleActivityという新しいプロジェクトを作成し、コードアシストを利用しながら、下記名称のメソッドを追加しましょう。</p>
+            <ul>
+                <li>onDestroy(), onStop(), onPause(), onResume(), onRestart(), onStart()</li>
+                <li>上記各メソッド内、ログのデバッグメッセージを追加し、どんな操作をした時メッセージがlogcatに表示されるかを確認すること。</li>
+            </ul>
+            <figure class="figure">
+                <img src="assets/images/ex1st/lifecycle_log.png" class="figure-img img-fluid rounded" alt="lifecycle_log.png"/>
+                <figcaption class="figure-caption text-center">Fig.1_4 LifeCycleActivityを実行した時のLogcat画面例</figcaption>
+            </figure>
+        </div>
+        <!--div class="contents">
+            <h3>Option: Virtual Deviceの使い方</h3>
+            <p>&nbsp;</p>
+        </div-->
+    </div>
+    </body>
+</html>
