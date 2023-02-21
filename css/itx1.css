@@ -1,0 +1,29 @@
+.practice {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #2ca9e1;
+}
+
+.practice p:last-child {
+    margin-bottom: 0;
+}
+.practice code {
+    border-radius: 3px;
+}
+.practice+.practice {
+    margin-top: -5px;
+}
+.practice-checkpoint{
+    border-left-color:#ec6d71;
+}
+
+.practice-checkpoint h3 {
+    color: #ec6d71;
+}
+
+.contents strong{
+    color: #ec6d71;
+}
