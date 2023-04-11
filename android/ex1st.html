@@ -189,11 +189,11 @@
             <h3>演習課題1_2: AndroidManifestの理解</h3>
             <p>AndroidManifest.xmlを読んで、以下の質問に回答しましょう。</p>
             <ul>
-                <li>アプリケーションの Java パッケージ名</li>
-                <li>アプリケーションを構成するコンポーネント種類</li>
-                <li>ホストとなるアプリケーションのコンポーネント名</li>
-                <li>許可（PERMISSION）の宣言があるかどうか</li>
-                <li>他のアプリに付与されるべき許可の宣言があるかどうか</li>
+                <li>今回のアプリケーションの Java パッケージ名は？　　<em>（○○.javaを参照）</em></li>
+                <li>一般的に、アプリケーションを構成するコンポーネント種類は？</li>
+                <li>今回、ホストとなるアプリケーションのコンポーネント名は？</li>
+                <li>許可（PERMISSION）の宣言がありますか？</li>
+                <li>他のアプリに付与されるべき許可の宣言（intent-filter）がありますか</li>
             </ul>
         </div>
         <div class="contents">
@@ -242,15 +242,16 @@
         </div>
         <div class="practice">
             <h3>演習課題1_3: Logcatの理解</h3>
-            <p>SampleActivity1_2という新しいプロジェクトを作成し、以下の通りにコードを追加する。必要なクラスのImportも忘れずに（エラーが残っている時、このアイコン「」が表示され、クリックすると追加すべきImportを教えてくれます！）。</p>
+            <p>SampleActivity1_2という新しいプロジェクトを作成し、上記の通りにコードを追加する。必要なクラスのImportも忘れずに（エラーが残っている時、電球アイコン「💡」が表示され、クリックすると追加すべきImportを教えてくれます！）。</p>
             <ul>
                 <li>Fig.15のように実行結果を確認する。実行結果のスクリーンショットを撮ること。</li>
                 <li>"メッセージ"の代わりに上記のようにぞれぞれの用途にあったメッセージを入力し、アプリを再実行した際Logcatのlog level機能を用いて、警告とエラーしかlogcat内に表示されないようにする（Fig.1_3_1を参照）。実行結果のスクリーンショットを撮ること。</li>
                 <li>LogcatのFilter機能を用いて、アプリを再実行した際SampleActivity1_2で設定したTAGのログしか表示されないようにする（Fig.1_3_2を参照）。実行結果のスクリーンショットを撮ること。</li>
             </ul>
+          <p>Android Studio Dolphin 6以降のlog level および、Tagによるフィルタの設定方法は<a href="https://androidstudio.googleblog.com/2022/03/android-studio-dolphin-canary-6-now.html">User guide</a>を参照して下さい。</p>
             <figure class="figure">
                 <img src="assets/images/ex1st/SampleActivity1_2_log1.png" class="figure-img img-fluid rounded" alt="SampleActivity1_2_log1.png"/>
-                <figcaption class="figure-caption text-center">Fig.1_3_1 警告とエラーログしかlogcatに表示されない時の画面例</figcaption>
+              <figcaption class="figure-caption text-center">Fig.1_3_1 警告とエラーログしかlogcatに表示されない時の画面例</figcaption>
             </figure>
             <figure class="figure">
                 <img src="assets/images/ex1st/SampleActivity1_2_log.png" class="figure-img img-fluid rounded" alt="SampleActivity1_2_log.png"/>
