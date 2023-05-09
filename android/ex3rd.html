@@ -17,7 +17,7 @@
     <h1>第3回 Get Input from the User / ユーザーから入力を取得する</h1>
   </div>
   <p style="text-align: right;">
-    最終更新日：2022年6月29日
+    最終更新日：2023年05月09日
   </p>
   <div class="contents">
     <h3>PREPARATION / 準備</h3>
@@ -244,11 +244,19 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
 	</p>
 	<p>
 		<strong> Spinner の選択結果イベント</strong>を取得するため、onClick ではなく、<strong>Listener</strong> を用いる。
-	  Spinner とそのリスナーをアクティブ化するには、<strong>AdapterView.OnItemSelectedListener</strong> <strong>インターフェイスを実装</strong>する。これには、<strong>onItemSelected()</strong> および <strong>onNothingSelected() </strong>コールバックメソッドも追加する必要がある。<br>
+	  Spinner とそのリスナーをアクティブ化するには、<strong>AdapterView.OnItemSelectedListener</strong> <strong>インターフェイスを実装</strong>する。これには、<strong>onItemSelected()</strong> および <strong>onNothingSelected() </strong>コールバックメソッドも追加する必要がある。また、Spinnerオブジェクトに対して <strong>setOnItemSelectedListener(this)</strong> メソッドを呼び出すことで、そのSpinnerオブジェクトとListenerとなったclassを対応させる。<br>
 <pre>
 <code class="java hljs">
-	public class SetActivity extends AppCompatActivity implements　AdapterView.OnItemSelectedListener {
+public class SetActivity extends AppCompatActivity implements　AdapterView.OnItemSelectedListener {
 		//...
+    protected void onCreate(Bundle savedInstanceState) {
+        //...
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
+        //...
+    }
+    //...
+}
 </code>
 </pre>
 	</p>
