@@ -15,30 +15,45 @@
                 <h3>Android Studioについて</h3>
                 <p>Android Studio は、<a class="external-link" href="https://www.jetbrains.com/idea/">「IntelliJ IDEA」</a>をベースとした、Android アプリ開発用の公式の統合開発環境（IDE）です。IntelliJ の強力なコードエディタと開発ツールに加えて、Android アプリ作成の生産性を高める様々な機能を利用できます。
                     <br />「IntelliJ IDEA」はチェコに本社を置く<a class="external-link" href="https://www.jetbrains.com/ja-jp/company/">JetBrains社</a>が開発し、OpenSourse化したIDEです。「IntelliJ IDEA」はJavaで実装されており、多言語をサポートしており、Eclipseの次に世界的に人気のあるIDEです。主に、Java・Kotlin・Python・Javascriptを用いたプロジェクト開発に向いています。さらに、開発・デバッグ・テスト・パフォーマンス向上のためのツールが含まれており、アプリの開発をより迅速かつ簡単に行うことができます。作成したアプリは、あらかじめ設定された様々なエミュレータや自分のモバイル端末でテストしたり、本番用アプリを作成したり、Google Playストアで公開することができます。
-                </p>
+              </p>
                 <p>Eclipseを用いたAndroid開発の経験のある人は、Eclipse ADT（Android Development Tool）と何が違うのか、Eclipse ADTで作成したProjectは互換性があるかが懸念点ですが、基本的には互換性があると考えて頂いて構いません。詳しくは様々な解説サイト（例：<a class="external-link" href="https://www.atmarkit.co.jp/ait/articles/1306/13/news028_2.html">Eclipse ADTに代わるIDEとなるか？Android Studioの基礎知識</a>）をご参照ください。</p>
                 <p>Android Studioは、WindowsやLinuxを搭載したコンピューター、およびmacOSを搭載したMacで利用できます。Android Studioには、最新のOpenJDK（Java Development Kit）がバンドルされています。</p>
             </div>
             <div class="contents">
-                <h3>Task 1: Android Studioのダウンロードとインストール</h3>
+                <h3>Task 0: Android Studioのダウンロードとインストール</h3>
                 <p>まず、Android開発者（Android Developers）のウェブサイトから、<a href="https://developer.android.com/studio?hl=ja"><em><strong>Android Studioの最新版</strong></em></a>をダウンロードして下さい。なお、本ページでは<strong>Android Studio Iguana | 2023.2.1</strong>（2024/3/11現在の最新版）を例にしています。Windows/Mac版やバージョンの違いにより、GUIや選択肢が変更されている場合がありますので、各自がインストールしたバージョンに合わせて操作して下さい。より詳しい説明を必要とする方はAndroid Developersウェブの<strong><a href="https://developer.android.com/studio/intro?hl=ja">Android Studioの概要</a></strong>を参照してい下さい。</p>
             </div>
             <div class="contents">
                 <ul>
-                    <li>Android Developersのサイト（<a class="external-link" href="https://developer.android.com/studio?hl=ja">Android Studioのインストール</a>）にアクセスし、指示に従ってAndroid Studioをダウンロードしてインストールします。</li>
+                    <li>Android Developersのサイト（<a class="external-link" href="https://developer.android.com/studio?hl=ja">Android Studioのインストール</a>）にアクセスし、指示に従ってAndroid Studioをダウンロードしてインストールします。
+                      <strong> 【注意】インストールパスはAlphabetのみで構成されるようにすること！ </strong><br>
+                      <figure class="figure"> <img width="200" src="assets/images/ex0/fig0 (1).png" class="figure-img img-fluid rounded" alt="fig1.png"> <img width="200" src="assets/images/ex0/fig0 (2).png" class="figure-img img-fluid rounded" alt="fig1.png"> <img width="200" src="assets/images/ex0/fig0 (3).png" class="figure-img img-fluid rounded" alt="fig1.png">
+                        <figcaption class="figure-caption text-center">Fig.1 Installの再出現する画面。 </figcaption>
+                      </figure>
+                  </li>
                     <li>すべてのステップでデフォルトの設定を受け入れ、すべてのコンポーネントがインストール用に選択されていることを確認してください。</li>
                     <li>インストールが完了すると、セットアップ・ウィザードがAndroid SDKを含むいくつかの追加コンポーネントをダウンロードしてインストールします。</li>
                     <li>インターネットの速度によっては時間がかかり、手順が重複する場合があります。ダウンロードが完了すると、Android Studioが起動し、最初のプロジェクトを作成する準備が整います。</li>
                 </ul>
-
+               
+<!--
                 <figure class="figure">
-                    <img src="assets/images/ex0/fig1.png" class="figure-img img-fluid rounded" alt="fig1.png">
-                    <figcaption class="figure-caption text-center">Fig.1 Install Typeは Standard を選択しましょう。 </figcaption>
+                    <img src="assets/images/ex0/fig0 (4).png" class="figure-img img-fluid rounded" alt="fig1.png">
+                  <figcaption class="figure-caption text-center">Fig.1 Install Typeは Standard を選択しましょう。 </figcaption>
                 </figure>
+-->
                 <figure class="figure">
-                    <img src="assets/images/ex0/fig2.png" class="figure-img img-fluid rounded" alt="fig2.png">
+                    <img src="assets/images/ex0/fig0 (5).png" class="figure-img img-fluid rounded" alt="fig0 (5).png">
                     <figcaption class="figure-caption text-center">Fig.2 Verify Settingは各デバイスのバージョンに合わせて設定しましょう。 </figcaption>
                 </figure>
+                <figure class="figure">
+                    <img src="assets/images/ex0/fig0 (6).png" class="figure-img img-fluid rounded" alt="fig0 (6).png">
+                    <figcaption class="figure-caption text-center">Fig.3 Android Studioの基本的な使い方はLearnメニューにあるリンク（Getting started, YouTube等）にて事前にチェックしておきましょう。 </figcaption>
+                </figure>
+              <figure class="figure">
+                    <img src="assets/images/ex0/fig0 (7).png" class="figure-img img-fluid rounded" alt="fig0 (7).png">
+                    <figcaption class="figure-caption text-center">Fig.4 新規Project作成の際、このようなPop-upが出現した場合、素直に従いましょう。プログラム内容と関係ない多くのエラーは様々なツール・プラグインのバージョンがすり合っていないことが原因。</figcaption>
+              </figure>
             </div>
         </div>
     </body>

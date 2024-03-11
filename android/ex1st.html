@@ -1,128 +1,155 @@
-<!DOCTYPE html>
-<html lang="ja"> 
-    <head>
-        <title>ITX1:Aoyama Gakuin University</title>
-        <link rel="stylesheet" type="text/css" href="assets/css/itx1.css">
-        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
-        <link href="assets/plugins/highlight/styles/default.css" rel="stylesheet">
-        <script href="assets/plugins/highlight/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
+  <!DOCTYPE html>
+  <html lang="ja"> 
+      <head>
+          <title>ITX1:Aoyama Gakuin University</title>
+          <link rel="stylesheet" type="text/css" href="assets/css/itx1.css">
+          <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+          <link href="assets/plugins/highlight/styles/default.css" rel="stylesheet">
+          <script href="assets/plugins/highlight/highlight.pack.js"></script>
+          <script>hljs.initHighlightingOnLoad();</script>
 
-    </head>
-    <body>
-    <div class="container">
+      </head>
+      <body>
+      <div class="container">
         <div class="title">
-            <h1>第1回：Android Studioアプリケーション開発</h1>
-            <p style="text-align: right;">
-                最終更新日：2021年4月6日
-              </p>
+          <h1>第1回：Android Studioアプリケーション開発</h1>
+          <p style="text-align: right;">
+            最終更新日：2024年3月11日
+          </p>
         </div>
         <div class="practice practice-checkpoint">
-            <h3>今回の実験において実行確認・提出するもの</h3>
-            <p><strong>実行確認は、TA・教員からのチェックを受けて下さい。</strong></p>
+              <h3>今回の実験において実行確認・提出するもの</h3>
+              <p><strong>実行確認は、TA・教員からのチェックを受けて下さい。<br>
+                【チェック合格条件】</strong>各スクリーンショットと内容が一致すること（色は問わない）</p>
+              <ul>
+                  <li>Hello Worldアプリ実行（Fig.8）</li>
+                  <li>演習問題1_1の実行確認（Fig.1_1）＆　スクリーンショットの提出（CANVAS）</li>
+                  <li>演習問題1_2の回答入力（CANVAS）</li>
+                  <li>SampleActivity1_2の実行確認</li>
+                  <li>演習問題1_3の実行確認（Fig.1_3_1 & Fig.1_3_2）＆　スクリーンショットの提出（CANVAS）</li>
+                  <li>演習問題1_4（LifeCycleActivity）の実行確認（Fig.1_4）＆　スクリーンショットの提出（CANVAS）</li>
+              </ul>
+          </div>
+        <div class="contents">
+          <h3>イントロダクション</h3>
+          <p>今回の目標はAndroid Studioを用いた開発環境とその補助機能になれることです。本資料を注意深く読めば、十分実施できる内容です。Android Studioの使い方に関するより詳細な説明は<a href="https://developer.android.com/studio/intro?hl=ja"><strong>Android Developersサイトを参照</strong></a>することをお勧めします（それでも分からない場合はネット・○○GPTで検索してみましょう）。
+          </p>
+        </div>
+
+        <div class="contents">
+            <h3>Task 1: 使用端末（Tablet or Smartphone or Emulator）の設定</h3>
+          <p>Task 1では、使用端末（Tablet or Smartphone or Emulator）の設定をします。</p>
+          <h4>実機の場合（Tablet or Smartphone）</h2>
             <ul>
-                <li>Hello Worldアプリ実行（Fig.8）</li>
-                <li>演習問題1_1の実行確認（Fig.1_1）＆　スクリーンショットの提出（<a href="https://canvas.instructure.com/courses/2540504" target="_blank" rel="noopener noreferrer">CANVAS</a>）</li>
-                <li>演習問題1_2の回答入力（<a href="https://canvas.instructure.com/courses/2540504" target="_blank" rel="noopener noreferrer">CANVAS</a>）</li>
-                <li>SampleActivity1_2の実行確認</li>
-                <li>演習問題1_3の実行確認（Fig.1_3_1 & Fig.1_3_2）＆　スクリーンショットの提出（<a href="https://canvas.instructure.com/courses/2540504" target="_blank" rel="noopener noreferrer">CANVAS</a>）</li>
-                <li>演習問題1_4（LifeCycleActivity）の実行確認（Fig.1_4）＆　スクリーンショットの提出（<a href="https://canvas.instructure.com/courses/2540504" target="_blank" rel="noopener noreferrer">CANVAS</a>）</li>
+                <li>設定 -&gt; 端末情報 -&gt; <strong>ビルド番号を7回タップ</strong>（気にせずタップしまくる） -&gt; PIN入れてデベロッパーになります。</li>
+                <li>設定 -&gt; システム -&gt; 詳細設定 -&gt; 開発者向けオプション -&gt; <strong>USBデバッグをオン</strong>（許可）-&gt; "USBデバッグが接続されました"と表示されるのを確認してください。</li>
+                <li>設定 -&gt; セキュリティ -&gt; <strong>提供元不明のアプリをオン</strong>（許可）</li>
             </ul>
+          <h4>Emulatorの場合</h2>
+          <ol>
+            <li>Android Studio起動後、Optionメニューから「Virtual Device Manager」をクリックする（Fig.１)<br>
+              <figure class="figure">
+                <img width="600" src="assets/images/ex1st/start_VDManager.png" class="figure-img img-fluid rounded" alt="fig1">
+                <figcaption class="figure-caption text-center">Fig.1 Android Studioの起動画面とOptionメニュー</figcaption>
+              </figure>                    
+            </li>
+            <li>Device Managerの画面から「＋」アイコンをクリックして、新しいVirtual Deviceの作成を開始する（Fig.2）。<br>
+              <figure class="figure">
+                <img width="500" src="assets/images/ex1st/Virtual_Device_SetUp (1).png" class="figure-img img-fluid rounded" alt="fig2">
+                <figcaption class="figure-caption text-center">Fig.2 Device Managerの画面</figcaption>
+              </figure>
+            </li>
+            <li>Virtual Device Configurationでは、新しく作成する仮想デバイスの設定を行う。まずは使いたいハードウェアを選ぶ。「Tablet＞Pixel」を選択して、「NEXT/次」に進む。（Fig.3）<br>
+              <figure class="figure">
+                <img width="600" src="assets/images/ex1st/Virtual_Device_SetUp (2).png" class="figure-img img-fluid rounded" alt="fig3">
+                <figcaption class="figure-caption text-center">Fig.3 仮想デバイスの設定画面（ハードウェアの選択）</figcaption>
+              </figure>
+            </li>
+            <li>次に、その仮想デバイス上で動作するAndroid OSのバージョンを決める。そのため、使いたいOSのバージョンの“イメージ”をAndroid Studioにインストールする必要がある。各バージョン名の横にあるダウンロードアイコンをクリックすれば、そのバージョンのインストールができる。今回は、現時点での最新ＯＳである「VanillaCream」をダウンロード・インストールする。（Fig.4）<br>
+              <figure class="figure">
+                <img width="600" src="assets/images/ex1st/Virtual_Device_SetUp (3).png" class="figure-img img-fluid rounded" alt="fig4left">
+                <img width="500" src="assets/images/ex1st/Virtual_Device_SetUp (4).png" class="figure-img img-fluid rounded" alt="fig4">
+                <figcaption class="figure-caption text-center">Fig.4 開発したいAndroid OSのイメージを選定する画面（左）と新規イメージインストール中の画面（右）</figcaption>
+              </figure>
+            </li>
+            <li>OSイメージのダウンロードが終わると、仮想デバイスの詳細設定画面が表示される（Fig.5）。「AVD Name」の入力欄に「Pixel Tablet LOPEZ」のように入力する。「LOPEZ」の部分はご<strong>自分の苗字をAlphabetで入力</strong>し（同姓の学生がいる場合、名も苗字の後に追記すること）し、「Finish」をクリックする。<br>
+              <figure class="figure">
+                <img width="600" src="assets/images/ex1st/Virtual_Device_SetUp (5).png" class="figure-img img-fluid rounded" alt="fig5">
+                <figcaption class="figure-caption text-center">Fig.5 仮想デバイスの詳細設定画面</figcaption>
+              </figure>
+            </li>
+            <li>仮想デバイス一覧に作成した仮想デバイスが表示されていることを確認し、「再生▶」ボタンをクリックする（Fig.6）。<br>
+              <figure class="figure">
+                <img width="600" src="assets/images/ex1st/Virtual_Device_SetUp (6).png" class="figure-img img-fluid rounded" alt="fig6">
+                <figcaption class="figure-caption text-center">Fig.6　仮想デバイス一覧の画面</figcaption>
+              </figure>
+            </li>
+            <li>正しく設定できていれば、Fig.7のように、仮想Pixel Tablet が表示される。<br>
+              <figure class="figure">
+                <img width="600" src="assets/images/ex1st/Virtual_Device_SetUp (7).png" class="figure-img img-fluid rounded" alt="fig2.png">
+                <figcaption class="figure-caption text-center">Fig.7 起動中の仮想PIXEL TABLET</figcaption>
+              </figure>
+            </li>
+          </ol>
         </div>
+
         <div class="contents">
-            <h3>イントロダクション</h3>
-            <p>Android Studio は、<a class="external-link" href="https://www.jetbrains.com/idea/">「IntelliJ IDEA」</a>をベースとした、Android アプリ開発用の公式の統合開発環境（IDE）です。IntelliJ の強力なコードエディタと開発ツールに加えて、Android アプリ作成の生産性を高める様々な機能を利用できます。
-                <br />「IntelliJ IDEA」はチェコに本社を置く<a class="external-link" href="https://www.jetbrains.com/ja-jp/company/">JetBrains社</a>が開発し、OpenSourse化したIDEです。「IntelliJ IDEA」はJavaで実装されており、多言語をサポートしており、Eclipceの次に世界的に人気のあるIDEです。主に、Java・Python・Javascriptを用いたプロジェクト開発に向いています。さらに、開発・デバッグ・テスト・パフォーマンス向上のためのツールが含まれており、アプリの開発をより迅速かつ簡単に行うことができます。作成したアプリは、あらかじめ設定された様々なエミュレータや自分のモバイル端末でテストしたり、本番用アプリを作成したり、Google Playストアで公開することができます。
-            </p>
-            <p>Eclipseを用いたAndroid開発の経験のある人は、Eclipse ADT（Android Development Tool）と何が違うのか、Eclipse ADTで作成したProjectは互換性があるかが懸念点ですが、基本的には互換性があると考えて頂いて構いません。詳しくは様々な解説サイト（例：<a class="external-link" href="https://www.atmarkit.co.jp/ait/articles/1306/13/news028_2.html">Eclipse ADTに代わるIDEとなるか？Android Studioの基礎知識</a>）をご参照ください。</p>
-            <p>Android Studioは、WindowsやLinuxを搭載したコンピューター、およびmacOSを搭載したMacで利用できます。Android Studioには、最新のOpenJDK（Java Development Kit）がバンドルされています。</p>
-        </div>
-        <div class="contents">
-            <h3>Task 1: Android Studioのインストール</h3>
-            <p>Task 1では、<a class="external-link" href="https://developer.android.com/studio/install?hl=ja">Android Studioをインストールする方法</a>を学びます。なお、本ページでは4.1.1 for Mac版を例にしていますが、Windows版やバージョンの違いにより、GUIや選択肢が変更されている場合がありますので、各自がインストールしたバージョンに合わせて操作していきましょう。（いずれのバージョンでも機能に違いはありません。）</p>
-        </div>
-        <div class="contents">
-            <ul>
-                <li>Android Developersのサイト（<a class="external-link" href="https://developer.android.com/studio/install?hl=ja">Android Studioのインストール</a>）にアクセスし、指示に従ってAndroid Studioをダウンロードしてインストールします。</li>
-                <li>すべてのステップでデフォルトの設定を受け入れ、すべてのコンポーネントがインストール用に選択されていることを確認してください。</li>
-                <li>インストールが完了すると、セットアップ・ウィザードがAndroid SDKを含むいくつかの追加コンポーネントをダウンロードしてインストールします。</li>
-                <li>インターネットの速度によっては時間がかかり、手順が重複する場合があります。ダウンロードが完了すると、Android Studioが起動し、最初のプロジェクトを作成する準備が整います。</li>
-            </ul>
-            <figure class="figure">
-                <img src="assets/images/ex0/fig1.png" class="figure-img img-fluid rounded" alt="fig1.png">
-                <figcaption class="figure-caption text-center">Fig.1 Install Typeは Standard を選択しましょう。 </figcaption>
-            </figure>
-            <figure class="figure">
-                <img src="assets/images/ex0/fig2.png" class="figure-img img-fluid rounded" alt="fig2.png">
-                <figcaption class="figure-caption text-center">Fig.2 Verify Settingは各デバイスのバージョンに合わせて設定しましょう。 </figcaption>
-            </figure>
-        </div>
-        <div class="contents">
-            <h3>Task 2: 使用端末（タブレット）の設定</h3>
-            <p>Task 2では、使用端末（タブレット）の設定をします。</p>
-            <ul>
-                <li>設定 -&gt; 端末情報 -&gt; ビルド番号を7回タップ（気にせずタップしまくる） -&gt; PIN入れてデベロッパーになります。</li>
-                <li>設定 -&gt; システム -&gt; 詳細設定 -&gt; 開発者向けオプション -&gt; USBデバッグをオン（許可）-&gt; "USBデバッグが接続されました"と表示されるのを確認してください。</li>
-                <li>設定 -&gt; セキュリティ -&gt; 提供元不明のアプリをオン（許可）</li>
-            </ul>
-            <div class="contents">
-                <h3>Task 3: 「Hello World」アプリの作成</h3>
-                <p>Task 3では、最初のAndroidアプリ「Hello World」を作成し、アンドロイドデバイス（実機）もしくはエミュレータ上で実行します。</p>
-                <ol>
-                    <li>Android Studioがまだ開かれていない場合は、Android Studioを開きます。</li>
-                    <li>「Welcome to Android Studio」ウィンドウ内の、"Start a new Android Studio project"または"<strong>Create New Project</strong>"をクリックします。
-                        <br />
-                        <figure class="figure">
-                            <img src="assets/images/ex1st/fig5.png" class="figure-img img-fluid rounded" alt="fig5.png">
-                            <figcaption class="figure-caption text-center">Fig.3 Android Studioの起動画面 </figcaption>
-                        </figure>
-                    </li>
-                    <li>デフォルトのプロジェクトの場所が、Hello Worldアプリやその他のAndroid Studioプロジェクトを保存する場所であることを確認するか、任意のディレクトリに変更します。</li>
-                    <li>Company Domain（会社のドメイン）としてデフォルトのandroid.example.comを受け入れるか、独自のドメインを作成します。package名は所属組織のドメイン名を逆から書くのが暗黙のルールです。本演習でのpackage名は<strong>「学生番号.組織.国」</strong>とします。e.g. a000001.aoyama.jp</li>
-                    <li>「Create Android Project」ウィンドウ内、"Select a Project Template"の "<strong>Empty Activity</strong>"を選択し、「<strong>Next</strong>」をクリックします。Activityとは、"Androidアプリの画面"に相当します。ボタンやリストが配置された画面、Webページが表示されている画面、3Dグラフィックスが表示されている画面を作成するためにActivityはAndroidアプリには欠かせない要素となります。
-                        <br/>
-                        <figure class="figure">
-                            <img src="assets/images/ex1st/fig3.png" class="figure-img img-fluid rounded" alt="fig3.png">
-                            <figcaption class="figure-caption text-center">Fig.4 「Create Android Project」ウィンドウ内の"Select a Project Template"画面例</figcaption>
-                        </figure>
-                    </li>
-                    <li>"Configure Your Project"で、"Name"、"Package name"、"Save location"、"Language"、"Minimum SDK"を設定します。本演習では、"Name:<strong>Sample1_1</strong>"、"Package name:<strong>jp.aoyama.aから始まる学籍番号.sample1_1</strong>"、"Save location：デフォルト"、"Language:<strong>Java</strong>"、"Minimum SDK: <strong>使用端末のAndroidのバージョン以下に合わせること</strong>"に変更して下さい。
-                        <br />
-                        <figure class="figure">
-                            <img src="assets/images/ex1st/fig4.png" class="figure-img img-fluid rounded" alt="fig4.png">
-                            <figcaption class="figure-caption text-center">Fig.5 「Create Android Project」ウィンドウ内の"Configure Your Project"画面例</figcaption>
-                        </figure>
-                    </li>
-                    <li>Android StudioのEditorが表示されます。activity_main.xmlタブをクリックして、レイアウト・エディタを表示します。レイアウト・エディタの「Design」タブが選択されていない場合は、これをクリックすると、以下のようにレイアウトのグラフィカルな表示を確認できます。
-                        <br />
-                        <figure class="figure">
-                            <img src="assets/images/ex1st/fig6.png" class="figure-img img-fluid rounded" alt="fig6.png">
-                            <figcaption class="figure-caption text-center">Fig.6 "Design Editor"画面例</figcaption>
-                        </figure>
-                    </li>
-                    <li>MainActivity.javaタブをクリックすると、以下のようなコードエディタが表示されます。
-                        <br />
-                        <figure class="figure">
-                            <img src="assets/images/ex1st/fig7.png" class="figure-img img-fluid rounded" alt="fig7.png">
-                            <figcaption class="figure-caption text-center">Fig.7 "Code Editor"画面例</figcaption>
-                        </figure>
-                    </li>
-                    <li>PCとタブレットが接続された状態で、Runボタン「
-                        <img src="assets/images/ex1st/run.png" alt="run.png"/>」を押下します。タブレット画面内で「Hello World!」が表示されたら、「Hello World」アプリの完成です。デバッグした端末のスクリーンショットを保存したい場合は、View -&gt; Tool Windows -&gt; Logcat -&gt; "&gt;&gt;"を押下 -&gt; カメラアイコンを押下してください。
-                        <br />
-                        <figure class="figure">
-                            <img src="assets/images/ex1st/fig8.png" class="figure-img img-fluid rounded" alt="fig8.png"/>
-                            <figcaption class="figure-caption text-center">Fig.8 "Hello World"アプリの実行例</figcaption>
-                        </figure>
-                        <figure class="figure">
-                            <img src="assets/images/ex1st/cameraUI.png" class="figure-img img-fluid rounded" alt="cameraUI.png"/>
-                            <figcaption class="figure-caption text-center">Fig.9 Android Studioからスクリーンショットを撮影する方法</figcaption>
-                        </figure>
-                    </li>
-                </ol>
-            </div>
+            <h3>Task 2: 「Hello World」アプリの作成</h3>
+            <p>Task 2では、最初のAndroidアプリ「Hello World」を作成し、アンドロイドデバイス（実機）もしくはエミュレータ上で実行します。</p>
+            <ol>
+              <li>Android Studioがまだ開かれていない場合は、Android Studioを開きます。</li>
+                <li>「Welcome to Android Studio」ウィンドウ内の、"Start a new Android Studio project"または"<strong>Create New Project</strong>"をクリックします。
+                    <br />
+                    <figure class="figure">
+                        <img src="assets/images/ex1st/fig5.png" class="figure-img img-fluid rounded" alt="fig5.png">
+                        <figcaption class="figure-caption text-center">Fig.3 Android Studioの起動画面 </figcaption>
+                    </figure>
+                </li>
+                <li>デフォルトのプロジェクトの場所が、Hello Worldアプリやその他のAndroid Studioプロジェクトを保存する場所であることを確認するか、任意のディレクトリに変更します。</li>
+                <li>Company Domain（会社のドメイン）としてデフォルトのandroid.example.comを受け入れるか、独自のドメインを作成します。package名は所属組織のドメイン名を逆から書くのが暗黙のルールです。本演習でのpackage名は<strong>「学生番号.組織.国」</strong>とします。e.g. a000001.aoyama.jp</li>
+                <li>「Create Android Project」ウィンドウ内、"Select a Project Template"の "<strong>Empty Activity</strong>"を選択し、「<strong>Next</strong>」をクリックします。Activityとは、"Androidアプリの画面"に相当します。ボタンやリストが配置された画面、Webページが表示されている画面、3Dグラフィックスが表示されている画面を作成するためにActivityはAndroidアプリには欠かせない要素となります。
+                    <br/>
+                    <figure class="figure">
+                        <img src="assets/images/ex1st/fig3.png" class="figure-img img-fluid rounded" alt="fig3.png">
+                        <figcaption class="figure-caption text-center">Fig.4 「Create Android Project」ウィンドウ内の"Select a Project Template"画面例</figcaption>
+                    </figure>
+                </li>
+                <li>"Configure Your Project"で、"Name"、"Package name"、"Save location"、"Language"、"Minimum SDK"を設定します。本演習では、"Name:<strong>Sample1_1</strong>"、"Package name:<strong>jp.aoyama.aから始まる学籍番号.sample1_1</strong>"、"Save location：デフォルト"、"Language:<strong>Java</strong>"、"Minimum SDK: <strong>使用端末のAndroidのバージョン以下に合わせること</strong>"に変更して下さい。
+                    <br />
+                    <figure class="figure">
+                        <img src="assets/images/ex1st/fig4.png" class="figure-img img-fluid rounded" alt="fig4.png">
+                        <figcaption class="figure-caption text-center">Fig.5 「Create Android Project」ウィンドウ内の"Configure Your Project"画面例</figcaption>
+                    </figure>
+                </li>
+                <li>Android StudioのEditorが表示されます。activity_main.xmlタブをクリックして、レイアウト・エディタを表示します。レイアウト・エディタの「Design」タブが選択されていない場合は、これをクリックすると、以下のようにレイアウトのグラフィカルな表示を確認できます。
+                    <br />
+                    <figure class="figure">
+                        <img src="assets/images/ex1st/fig6.png" class="figure-img img-fluid rounded" alt="fig6.png">
+                        <figcaption class="figure-caption text-center">Fig.6 "Design Editor"画面例</figcaption>
+                    </figure>
+                </li>
+                <li>MainActivity.javaタブをクリックすると、以下のようなコードエディタが表示されます。
+                    <br />
+                    <figure class="figure">
+                        <img src="assets/images/ex1st/fig7.png" class="figure-img img-fluid rounded" alt="fig7.png">
+                        <figcaption class="figure-caption text-center">Fig.7 "Code Editor"画面例</figcaption>
+                    </figure>
+                </li>
+                <li>PCとタブレットが接続された状態で、Runボタン「
+                    <img src="assets/images/ex1st/run.png" alt="run.png"/>」を押下します。タブレット画面内で「Hello World!」が表示されたら、「Hello World」アプリの完成です。デバッグした端末のスクリーンショットを保存したい場合は、View -&gt; Tool Windows -&gt; Logcat -&gt; "&gt;&gt;"を押下 -&gt; カメラアイコンを押下してください。
+                    <br />
+                    <figure class="figure">
+                        <img src="assets/images/ex1st/fig8.png" class="figure-img img-fluid rounded" alt="fig8.png"/>
+                        <figcaption class="figure-caption text-center">Fig.8 "Hello World"アプリの実行例</figcaption>
+                    </figure>
+                    <figure class="figure">
+                        <img src="assets/images/ex1st/cameraUI.png" class="figure-img img-fluid rounded" alt="cameraUI.png"/>
+                        <figcaption class="figure-caption text-center">Fig.9 Android Studioからスクリーンショットを撮影する方法</figcaption>
+                    </figure>
+                </li>
+            </ol>
         </div>
         <div class="contents">
             <h3>機能説明: Android Studioのコード編集機能</h3>
@@ -182,7 +209,7 @@
                 <img src="assets/images/ex1st/as-designEditor2.png" class="figure-img img-fluid rounded" alt="as-designEditor2.png"/>
                 <figcaption class="figure-caption text-center">Fig.14 デザインエディタから各コンポーネントの表示位置を青矢印を用いて指定する様子</figcaption>
             </figure>
-            
+
         </div>
 
         <div class="practice">
@@ -322,10 +349,10 @@
                 <figcaption class="figure-caption text-center">Fig.1_4 LifeCycleActivityを実行した時のLogcat画面例</figcaption>
             </figure>
         </div>
-        <!--div class="contents">
-            <h3>Option: Virtual Deviceの使い方</h3>
-            <p>&nbsp;</p>
-        </div-->
-    </div>
-    </body>
-</html>
+          <!--div class="contents">
+              <h3>Option: Virtual Deviceの使い方</h3>
+              <p>&nbsp;</p>
+          </div-->
+      </div>
+      </body>
+  </html>

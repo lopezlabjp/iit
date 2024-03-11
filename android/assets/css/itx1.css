@@ -27,3 +27,7 @@
 .contents strong{
     color: #ec6d71;
 }
+.contents h4{
+  font-style: italic;
+  text-underline-position: below;
+}
