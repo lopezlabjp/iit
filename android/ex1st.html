@@ -14,7 +14,7 @@
       <body>
       <div class="container">
         <div class="title">
-          <h1>第1回：Android Studioアプリケーション開発</h1>
+          <h1>第１回：Android Studioアプリケーション開発</h1>
           <p style="text-align: right;">
             最終更新日：2024年3月11日
           </p>
@@ -24,12 +24,12 @@
               <p><strong>実行確認は、TA・教員からのチェックを受けて下さい。<br>
                 【チェック合格条件】</strong>各スクリーンショットと内容が一致すること（色は問わない）</p>
               <ul>
-                  <li>Hello Worldアプリ実行（Fig.8）</li>
-                  <li>演習問題1_1の実行確認（Fig.1_1）＆　スクリーンショットの提出（CANVAS）</li>
-                  <li>演習問題1_2の回答入力（CANVAS）</li>
-                  <li>SampleActivity1_2の実行確認</li>
-                  <li>演習問題1_3の実行確認（Fig.1_3_1 & Fig.1_3_2）＆　スクリーンショットの提出（CANVAS）</li>
-                  <li>演習問題1_4（LifeCycleActivity）の実行確認（Fig.1_4）＆　スクリーンショットの提出（CANVAS）</li>
+                  <li>Hello Worldアプリ実行（Fig.15）</li>
+                  <li><a href="#演習課題1_1">演習問題1_1</a>の実行確認（Fig.1_1）＆　スクリーンショットの提出（CANVAS）</li>
+                  <li><a href="#演習課題1_2">演習問題1_2</a>の回答入力（CANVAS）</li>
+                  <li><a href="#SampleActivity1_2">SampleActivity1_2</a>の実行確認</li>
+                  <li><a href="#演習課題1_3">演習問題1_3</a>の実行確認（Fig.1_3_1 & Fig.1_3_2）＆　スクリーンショットの提出（CANVAS）</li>
+                  <li><a href="#演習課題1_4">演習問題1_4</a>（LifeCycleActivity）の実行確認（Fig.1_4）＆　スクリーンショットの提出（CANVAS）</li>
               </ul>
           </div>
         <div class="contents">
@@ -96,76 +96,109 @@
         </div>
 
         <div class="contents">
-            <h3>Task 2: 「Hello World」アプリの作成</h3>
+            <h3>Task 2: プロジェクト作成とアプリの実行</h3>
             <p>Task 2では、最初のAndroidアプリ「Hello World」を作成し、アンドロイドデバイス（実機）もしくはエミュレータ上で実行します。</p>
             <ol>
               <li>Android Studioがまだ開かれていない場合は、Android Studioを開きます。</li>
-                <li>「Welcome to Android Studio」ウィンドウ内の、"Start a new Android Studio project"または"<strong>Create New Project</strong>"をクリックします。
+                <li>「Welcome to Android Studio」ウィンドウ内の、"Projects"タブでは、これまで作成したプロジェクトのリストが表示されます。上にある"<strong>New Project</strong>"ボタンをクリックします。
                     <br />
                     <figure class="figure">
-                        <img src="assets/images/ex1st/fig5.png" class="figure-img img-fluid rounded" alt="fig5.png">
-                        <figcaption class="figure-caption text-center">Fig.3 Android Studioの起動画面 </figcaption>
+                        <img width="800" src="assets/images/ex1st/newproject (1).png" class="figure-img img-fluid rounded" alt="fig5.png">
+                        <figcaption class="figure-caption text-center">Fig.8 Android Studioの起動画面 </figcaption>
                     </figure>
                 </li>
-                <li>デフォルトのプロジェクトの場所が、Hello Worldアプリやその他のAndroid Studioプロジェクトを保存する場所であることを確認するか、任意のディレクトリに変更します。</li>
-                <li>Company Domain（会社のドメイン）としてデフォルトのandroid.example.comを受け入れるか、独自のドメインを作成します。package名は所属組織のドメイン名を逆から書くのが暗黙のルールです。本演習でのpackage名は<strong>「学生番号.組織.国」</strong>とします。e.g. a000001.aoyama.jp</li>
-                <li>「Create Android Project」ウィンドウ内、"Select a Project Template"の "<strong>Empty Activity</strong>"を選択し、「<strong>Next</strong>」をクリックします。Activityとは、"Androidアプリの画面"に相当します。ボタンやリストが配置された画面、Webページが表示されている画面、3Dグラフィックスが表示されている画面を作成するためにActivityはAndroidアプリには欠かせない要素となります。
+                <li>「New Project」ウィンドウ内、"Phone and Tablet" タブにおいて、様々なプロジェクトのテンプレートが表示されています。ここで必ず "<strong>Empty Views Activity</strong>"（必ず）を選択し、「<strong>Next</strong>」をクリックします。Activityとは、"Androidアプリの画面"に相当します。ボタンやリストが配置された画面、Webページが表示されている画面、3Dグラフィックスが表示されている画面を作成するためにActivityはAndroidアプリには欠かせない要素です。
                     <br/>
                     <figure class="figure">
-                        <img src="assets/images/ex1st/fig3.png" class="figure-img img-fluid rounded" alt="fig3.png">
-                        <figcaption class="figure-caption text-center">Fig.4 「Create Android Project」ウィンドウ内の"Select a Project Template"画面例</figcaption>
+                        <img width="800" src="assets/images/ex1st/newproject (2).png" class="figure-img img-fluid rounded" alt="fig3.png">
+                        <figcaption class="figure-caption text-center">Fig.9 「Create Android Project」ウィンドウ内の"Select a Project Template"画面例</figcaption>
                     </figure>
                 </li>
-                <li>"Configure Your Project"で、"Name"、"Package name"、"Save location"、"Language"、"Minimum SDK"を設定します。本演習では、"Name:<strong>Sample1_1</strong>"、"Package name:<strong>jp.aoyama.aから始まる学籍番号.sample1_1</strong>"、"Save location：デフォルト"、"Language:<strong>Java</strong>"、"Minimum SDK: <strong>使用端末のAndroidのバージョン以下に合わせること</strong>"に変更して下さい。
+                <li>「New Project」ウィンドウの、"Name"、"Package name"、"Save location"、"Language"、"Minimum SDK"を設定します。本演習では、
+                  <ul>
+                    <li>"Name: <strong>Sample1_1</strong>"</li>
+                    <li>"Package name" は、独自のドメインを作成します。package名は所属組織のドメイン名を逆から書くのが暗黙のルールです。本演習でのpackage名は<strong>「国.組織.学生番号」</strong>とします。e.g. 学生番号15823001の場合 <strong>jp.aoyama.a5823001</strong> になります。</li>
+                    <li>"Save location："　は各自のPCの環境に合わせたもので良いが、<strong>半角アルファベットしか含まれていないパス</strong>にして下さい（漢字等含まれると後々困ることがある）。</li>
+                    <li>"Language:　<strong>Java</strong>　に変更して下さい。"デフォルトのLanguage（プログラミング言語）は「Kotlin」になっていますので、必ず<strong>Java</strong>に変更すること。</li>
+                    <li>"Minimum SDK: <strong>使用端末のAndroidのバージョン以下に合わせること</strong>"に変更して下さい（エミュレータの場合、Fig.10の例と同じで良い）。</li>
+                  </ul>
                     <br />
                     <figure class="figure">
-                        <img src="assets/images/ex1st/fig4.png" class="figure-img img-fluid rounded" alt="fig4.png">
-                        <figcaption class="figure-caption text-center">Fig.5 「Create Android Project」ウィンドウ内の"Configure Your Project"画面例</figcaption>
+                        <img width="800" src="assets/images/ex1st/newproject (3).png" class="figure-img img-fluid rounded" alt="fig4.png">
+                        <figcaption class="figure-caption text-center">Fig.10 「Create Android Project」ウィンドウ内の"Configure Your Project"画面例</figcaption>
                     </figure>
                 </li>
-                <li>Android StudioのEditorが表示されます。activity_main.xmlタブをクリックして、レイアウト・エディタを表示します。レイアウト・エディタの「Design」タブが選択されていない場合は、これをクリックすると、以下のようにレイアウトのグラフィカルな表示を確認できます。
-                    <br />
+                <li>Android StudioのEditorが表示され、デフォルトでは「<strong>activity_main.xml</strong>」と「<strong>MainActivity.java</strong>」の２つのファイルが開かれます。activity_main.xmlタブをクリックして、レイアウト・エディタを表示します。暫く、プロジェクト関連の様々なファイルの自動生成や、プロジェクトの・ビルドが自動で実施されるため、暫く待つこと。Fig.11の左下にある「金槌」アイコンを栗生すれば、ビルド中の詳細状況が表示されます。そのウィンドウで「BUILD SUCCESSFUL」が表示されたら、プロジェクト作成が（無事）終了したことになります。<br>
                     <figure class="figure">
-                        <img src="assets/images/ex1st/fig6.png" class="figure-img img-fluid rounded" alt="fig6.png">
-                        <figcaption class="figure-caption text-center">Fig.6 "Design Editor"画面例</figcaption>
+                        <img width="800" src="assets/images/ex1st/newproject (6).png" class="figure-img img-fluid rounded" alt="fig6.png">
+                        <figcaption class="figure-caption text-center">Fig.11 "Java File Code Editor"画面例</figcaption>
                     </figure>
                 </li>
-                <li>MainActivity.javaタブをクリックすると、以下のようなコードエディタが表示されます。
+                <li>activity_main.xmlファイルのタブをクリックすると、以下のようなUIデザインの画面が表示されます。アプリUI画面の真ん中<strong>Hello World</strong>が表示されていることが確認できます。
                     <br />
                     <figure class="figure">
-                        <img src="assets/images/ex1st/fig7.png" class="figure-img img-fluid rounded" alt="fig7.png">
-                        <figcaption class="figure-caption text-center">Fig.7 "Code Editor"画面例</figcaption>
+                        <img width="800" src="assets/images/ex1st/newproject (7).png" class="figure-img img-fluid rounded" alt="fig7.png">
+                        <figcaption class="figure-caption text-center">Fig.12 "アプリUI Editor"画面例</figcaption>
                     </figure>
                 </li>
-                <li>PCとタブレットが接続された状態で、Runボタン「
-                    <img src="assets/images/ex1st/run.png" alt="run.png"/>」を押下します。タブレット画面内で「Hello World!」が表示されたら、「Hello World」アプリの完成です。デバッグした端末のスクリーンショットを保存したい場合は、View -&gt; Tool Windows -&gt; Logcat -&gt; "&gt;&gt;"を押下 -&gt; カメラアイコンを押下してください。
+              
+                <li>UI Editorはデフォルトの端末の種類に合わせてUIのサイズなどを表示しています。そこで、本実験で用いるEmulatorに合わせたデザインに変更します。先ほどはPixel TabletのEmulatorを作成したので、Fig.12に示しているように、このUIもPixel Tabletの仕様に合わせて表示されるようにします（三日月のアイコンの隣に端末名が表示されていない場合「＞」を押せば現れる）。<br>
+                    <figure class="figure">
+                        <img width="800" src="assets/images/ex1st/newproject (8).png" class="figure-img img-fluid rounded" alt="fig6.png">
+                        <figcaption class="figure-caption text-center">Fig.12 "UI design"の目的端末選定画面</figcaption>
+                    </figure>
+                </li>
+              
+                <li>作成したPixel Tablet仮想デバイスがまだ立ち上げられていない、Android Studioのウィンドウの右側にあるアイコンから、Fig.13に示すように、Device Managerを開き、Pixel Tableの仮想デバイスを起動します。<br>
+                    <figure class="figure">
+                        <img width="800" src="assets/images/ex1st/device_manager (1).png" class="figure-img img-fluid rounded" alt="device_manager (1)">
+                        <figcaption class="figure-caption text-center">Fig.13 Device Managerウィンドウの表示と仮想デバイスの起動</figcaption>
+                    </figure>
+                </li>
+              
+                <li>作成したPixel Tablet仮想デバイスが立ち上がっている場合、Android Studioのウィンドウの右側にある「Running Devices」アイコンを押せば、Fig.14に示すように、仮想端末が表示されます。Android Studioウィンドウの上に並ばれているアイコンから、<strong>「実行ボタン<img src="assets/images/ex1st/run.png" alt="run.png"/>」</strong>を押して、アプリを起動します。<br>
+                    <figure class="figure">
+                        <img width="800" src="assets/images/ex1st/newproject (9).png" class="figure-img img-fluid rounded" alt="device_manager (1)">
+                        <figcaption class="figure-caption text-center">Fig.14 起動中の仮想端末の表示と、アプリの実行方法</figcaption>
+                    </figure>
+                </li>
+              
+              
+                <li>Fig.15に示すように、アプリが起動し、タブレット画面内で「Hello World!」が表示されたら、「Hello World」アプリの完成です（デフォールトでは文字サイズはこの例より小さい）。<br />
+                    <figure class="figure">
+                        <img width="800" src="assets/images/ex1st/app_start (1).png" class="figure-img img-fluid rounded" alt="fig8.png"/>
+                        <figcaption class="figure-caption text-center">Fig.15 "Hello World"アプリの実行例</figcaption>
+                    </figure>
+                </li>
+                <li>Fig.16に示すように、「猫」に似たアイコンをクリックすると、デバッグ画面（Logcat）を表示することが出来ます。デバッグした端末のスクリーンショットを保存したい場合は、View -&gt; Tool Windows -&gt; Logcat -&gt; "&gt;&gt;"を押下 -&gt; カメラアイコンを押下してください。
                     <br />
                     <figure class="figure">
-                        <img src="assets/images/ex1st/fig8.png" class="figure-img img-fluid rounded" alt="fig8.png"/>
-                        <figcaption class="figure-caption text-center">Fig.8 "Hello World"アプリの実行例</figcaption>
+                      <img width="500" src="assets/images/ex1st/app_start (2).png" class="figure-img img-fluid rounded" alt="fig8.png"/>
+                        <figcaption class="figure-caption text-center">Fig.16 デバッグ情報を表示する方法</figcaption>
                     </figure>
                     <figure class="figure">
-                        <img src="assets/images/ex1st/cameraUI.png" class="figure-img img-fluid rounded" alt="cameraUI.png"/>
-                        <figcaption class="figure-caption text-center">Fig.9 Android Studioからスクリーンショットを撮影する方法</figcaption>
+                      <img src="assets/images/ex1st/cameraUI.png" class="figure-img img-fluid rounded" alt="cameraUI.png"/>
+                        <figcaption class="figure-caption text-center">Fig.17 Android Studioからスクリーンショットを撮影する方法</figcaption>
                     </figure>
                 </li>
             </ol>
         </div>
         <div class="contents">
             <h3>機能説明: Android Studioのコード編集機能</h3>
-            <p><strong>Androidアプリ開発では、プログラミング（実装したい機能・動作など）はJavaファイルとして実装、レイアウトのデザイン（実装したいGUI・画面構成など）はXMLファイルとして実装します。</strong></p>
+            <p>ここでは、簡単な機能紹介しか行いません。使っていけば、慣れていきます。Android Studioの使い方に関するより詳細な説明は<a href="https://developer.android.com/studio/intro?hl=ja"><strong>Android Developersサイトを参照</strong></a>することをお勧めします（それでも分からない場合はネット・○○GPTで検索してみましょう）。<br>
+          <strong>Androidアプリ開発では、プログラミング（実装したい機能・動作など）はJavaファイルとして実装、レイアウトのデザイン（実装したいGUI・画面構成など）はXMLファイルとして実装します。</strong></p>
             <figure class="figure">
                 <img src="assets/images/ex1st/as-GUI.png" class="figure-img img-fluid rounded" alt="as-GUI.png"/>
-                <figcaption class="figure-caption text-center">Fig.10 Android StudioのGUI例</figcaption>
+                <figcaption class="figure-caption text-center">Fig.18 Android StudioのGUI例</figcaption>
             </figure>
             <figure class="figure">
                 <img src="assets/images/ex1st/as-editor.png" class="figure-img img-fluid rounded" alt="as-editor.png"/>
-                <figcaption class="figure-caption text-center">Fig.11 Android Studioのソースコードエディタ画面例</figcaption>
+                <figcaption class="figure-caption text-center">Fig.19 Android Studioのソースコードエディタ画面例</figcaption>
             </figure>
             <p><code>setContentView(R.layout.activity_main);</code>をコメントアウトして、アプリを起動するとなにが起きるかを確かめてみましょう。</p>
             <figure class="figure">
                 <img src="assets/images/ex1st/as-codeassist.png" class="figure-img img-fluid rounded" alt="codeassist.png"/>
-                <figcaption class="figure-caption text-center">Fig.12 コードアシストの実行例</figcaption>
+                <figcaption class="figure-caption text-center">Fig.20 コードアシストの実行例</figcaption>
             </figure>
             <p><strong>「CTRL」＋「SPACE」キー</strong>を押下するとコードアシストのpop-upが起動します。<br>
                 エディタ左側のNavigation windowから<code>manifests</code>, <code>layout</code>, <code>menu</code>, <code>values</code>の各項目を展開（►）すると、アプリの設定・内容・属性の定義などに用いる複数のXML形式のファイルを確認することができます。
@@ -187,6 +220,7 @@
                 文字列の場合には、専用エディタも提供されています。</p>
         </div>
         <div class="practice practice-primary">
+          <a name="演習課題1_1"></a>
             <h3>演習課題1_1: 「Hello IT Practice1」アプリの作成</h3>
             <p>「Hello IT Practice1」アプリを実装し、Landscapeモード（横向き）にした時の結果のスクリーンショットを取りましょう。</p>
             <ul>
