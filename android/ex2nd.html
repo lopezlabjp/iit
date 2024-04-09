@@ -136,8 +136,8 @@
               <h4>ソースコードEDITOR機能の使い方</h4>
               <div class="practice">
                 <h3>演習問題2_1: </h3>
-                a~gの手順を参考に（他のやり方もあります）、<strong>「h」に書いてある操作ができる</strong>ようなアプリＧＵＩを作りましょう。<br>
-                まず、a~cを参考に、実行時図５と同じ（色は違っても良い）になるように必要な修正をしましょう。
+                ａ～ｉの手順を参考に（他のやり方もあります）、<strong>「ｉ」に書いてある操作ができる</strong>ようなアプリＧＵＩを作りましょう。<br>
+                まず、ａ～ｃを参考に、実行時図５と同じ（色は異なっても良い）になるように必要な修正をしましょう。
                 <ol type="a">
                   <li>activity_main.xmlのTextViewオブジェクトの文字を修正する（内容は<strong><u>自分の名前の頭文字</u>・<u>自分の学生番号</u></strong>にすること！）</li>
                   <li>また、その文字列が画面の右下に常に表示されるように調整する。</li>
@@ -160,96 +160,106 @@
               <h4>XML形式で作成したリソース（Layout、Strings等々）をJavaのコードで扱う方法</h4>
               <p>
                 XMLで定義した各<strong>Viewオブジェクトに対応したID</strong>を設定することができる。そのため、XMLファイル内のViewの開始～終了タグ間下記のようなコードを追加する。例えば、「res/layout」にある"<strong>activity_main.xml</strong>"にある"TextView"オブジェクトの場合、以下のように、<code>android:id="@+id/author"</code>を追加することがで、IDが付与されます。UIのDesignモードでそのオブジェクトを選択したうえで、Attributes（属性）リストの一番上にある「id」に直接入力することも可能です。<br><br>
-                  <code>
-                    &lt;TextView<br>
-                      &emsp;android:id="@+id/author"<br>
-                      &emsp;android:layout_width="wrap_content"<br>
-                      &emsp;android:layout_height="wrap_content"<br>
-                      &emsp;android:text="©LG23428"<br>
-                      &emsp;...
-                    /&gt;
-                      
-                </code><br /><br>
+                  <pre><code>
+  &lt;TextView
+    &emsp;android:id="@+id/author"
+    &emsp;android:layout_width="wrap_content"
+    &emsp;android:layout_height="wrap_content"
+    &emsp;android:text="©LG23428"
+    &emsp;...
+  /&gt;                      
+                </code></pre><br />
                 上記のように設定したIDを用いて、XMLで定義した各Viewオブジェクト（TextView、Button、Layout等は全て"View型"です）をJavaのコードから参照して、そのオブジェクトに対応したClassのInstanceを生成することができる。<br />
                 そのため、<strong>Javaファイル内</strong>（Instanceを生成・利用したいメソッドの範囲内）下記のように<strong>findViewById</strong>メソッドを用いる。<br /><br>
-                  <code>TextView appliAuthor = (TextView)findViewById(R.id.author);</code><br /><br>
+                <pre><code>TextView appliAuthor = (TextView)findViewById(R.id.author);</code></pre><br /><br>
                 このように、生成されたInstanceに対して通常のオブジェクトのように、各methodを呼び出すことができます。<strong>(Rは全てのXML resources（layout、strings、values…）から自動生成 されたJava Class)</strong>。例えば、<strong>appliAuthor</strong>変数は<strong>TextView Class</strong>オブジェクトのInstanceとなり、javaのコードにて様々な操作ができるようになります。例えば、アプリ操作の途中、右下の署名を消したいとすると、以下のようなコードで処理できます。<br>
                 <br>
-                <code>appliAuthor.setText("");</code>
-                <br><br>
-                
+                <pre><code>appliAuthor.setText("");</code></pre>              
               </p>
+      
               <div class="practice">
-                <h3>演習問題2_1: </h3>
+                <h3>演習問題2_1（続き）: </h3>
                 <p>
-                図 ６と同じくなるように必要なところを書きかえる。（d~fは参考方法。他の方法有り）</p>
+                d~fの説明を参考にして（他の方法有り）、図８と同じくなるように必要なところを書きかえる。</p>
                 <ol type="a">
                   <li value="4"> アプリのレイアウトファイル、<strong> activity_main.xml</strong>　に１つ目の<strong>Buttonを追加</strong>する。XMLコードを直接書くより、UIのDesignモードにて、「Palette」から、「Button」<strong>要素をdrag &amp; drop</strong>する方をお勧する。ボタンに<strong>"btn1"というID</strong>を付与し、幅がウィンドウの幅に、高さがボタンの内容（後で設定する文字や画像）に<strong>自動的に合わさるように設定</strong>する（"Constraint"の設定も忘れないように注意）。<strong>layout_width</strong>/<strong>layout_height</strong>属性の値は数字ではなく、<strong>wrap_content</strong>/<strong>match_parent</strong>という値を上手に使いましょう。</li>
                   <li>Buttonに<strong>表示したい文字列</strong>（例：LG First Button）を<strong>strings.xml</strong>で定義し、ボタンの「text」属性がstrings.xmlで定義した文字列と紐づける（Designモードを使えば簡単）。</li>
                   <li>２つ目のボタンを追加し、<strong>"btn2"というID</strong>を付与し、幅がボタンの内容（後で設定する文字や画像）に、高さがウィンドウの高さに<strong>自動的に合わさるように設定</strong>する（"Constraint"の設定も忘れないように注意）。</li>
                 </ol>
               </div>
+              <p>
+                XMLレイアウト編集ウィンドウ右上にあるタブを用いて "Code"（図６）と"Design"（図７）で直接XMLタグコーディング（"code"）で行なうか、レイアウトの設計を drag &amp; drop などでグラフィカル（"design"）で行なうかは切り替えができる。基本的に design モードを利用した方が便利で速い。
+              </p>
+              <figure class="figure">
+                  <img src="assets/images/ex2nd/fig8.png" class="figure-img img-fluid rounded" alt="fig8.png">
+                  <figcaption class="figure-caption text-center">図６　"Code"によるデザイン編集</figcaption>
+              </figure><br />
+              <figure class="figure">
+                  <img src="assets/images/ex2nd/fig9.png" class="figure-img img-fluid rounded" alt="fig9.png">
+                  <figcaption class="figure-caption text-center">図７　"Design"によるグラフィカルなデザイン編集</figcaption>
+              </figure>
+      
               <figure class="figure">
                   <img src="assets/images/ex2nd/fig6.png" class="figure-img img-fluid rounded" alt="fig6.png" border="4px">
-                  <figcaption class="figure-caption text-center">図６　演習2_1（f）のアプリ実行時のスクリーンショット</figcaption>
+                  <figcaption class="figure-caption text-center">図８　演習2_1（f）のアプリ実行時のスクリーンショット</figcaption>
               </figure>
-              <h4>Viewオブジェクトをクリックした際のイベントを発生させる方法</h4>
+              <h4>Viewオブジェクトをタップした際のイベントを発生させる方法</h4>
               <p>
-                Buttonをクリックした際の行動も下記のようにXML内に定義することができる。定義したクリック時アクション名がJavaプログラムコード内のmethod名になる。<br />
-                行動メソッドの引数として、Viewオブジェクトを設定することで複数のView（例：複数のボタン）が同じクリック時行動methodを用いる際<br />
-                methodの処理コード内にどのViewから呼ばれたかによって、処理を変えることができる。
+                Button をクリックした際のアクションも下記のようにXML内に事前定義することができる。定義したクリック時イベント名が Java プログラムコード内の method 名と紐づけられる。
+                クリックアクション用のメソッドの引数として、View オブジェクトを設定することで複数の View（例：複数のボタン）が同じクリック時アクション method を用いる際。
+                その method の処理コード内に、例えばどの Button がクリックされたかによって、処理を変えることができる。
               </p>
               <table class="table">
                 <tr>
-                  <th>XMLレイアウト</th>
-                  <th>Javaプログラムコード</th>
+                  <th>XMLレイアウト（activity_main.xml内）</th>
+                  <th>Javaプログラムコード（MainActivity.java内）</th>
                 </tr>
                 <tr>
-                  <td><code>android:onClick="myBtnClick"</code></td>
-                  <td>
-                    <pre>
-                      <code>
+                  <td><pre><code>
+  &lt;Button
+    android:id="@+id/btn1"
+    android:onClick="myBtnClick"
+    android:text="@string/btn1_str"
+    ...
+    /&gt;
+                  </code></pre></td>
+                  <td><pre><code>                    
     public void myBtnClick(View v){
-      if (v.getId()==R.id.my_button){
-        //何らかの処理
+      if (v.getId()==R.id.btn1){
+        //ボタン１を栗生した場合の処理
+      }
+      else if (v.getId()==R.id.btn2){
+        //ボタン２を栗生した場合の処理
       }
     }
-                      </code>
-                    </pre>
-                  </td>
+                  </code></pre></td>
                 </tr>
               </table>
               <div class="practice">
-                <h3>演習問題2_1: 図 7に合せるように必要なところを書きかえる。（gは参考方法。他の方法有り）</h3>
+                <h3>演習問題2_1（終わり）:</h3>
+                 ｇ～ｉの説明を参考にして（他の方法有り）、図９と同じくなるように必要なところを書き加える。
                 <ol type="a">
-                  <li value="7">各ボタンを押した際に表示するメッセージ用のTextViewを追加する。Buttonの処理として、クリックしたボタンのテキストがTextView内に表示されるようにする。</li>
+                  <li value="7"><strong>新しい TextView</strong> オブジェクトをGUIに追加する。図 7に示すように、<strong>ボタン１の下とボタン２の右</strong>に表示されるように Constraint を設定する。なお、文字列はボタン操作に合わせて変えるため、その初期値は空のままにする。そのTextView の ID を "<strong>btn_tv_id</strong>" にする。</li>
+                  <li value="8">上記に説明されている、「Viewオブジェクトをタップした際のイベントを発生させる方法」を参考に、各ボタンにタップした際の処理を行う "<strong>myBtnClick</strong>" という method を作成し、ボタンと紐づける。</li>
+                  <li value="9"><strong>押したボタンに合わせて</strong>、btn_tv_id <strong>TextView で表示する文字列を変える処理</strong>を追加する。ボタン１を押した際「○○ First Button」、ボタン２を押した際「○○ Second Button」というテキストを表示させる（"○○"を自分の名前の頭文字にすること）（上の方に説明した findViewById() および、setText() methods を上手く利用して下さい）。 </li>
                 </ol>
               </div>
               <figure class="figure">
                   <img src="assets/images/ex2nd/fig7.png" class="figure-img img-fluid rounded" alt="fig7.png" border="4px">
-                  <figcaption class="figure-caption text-center">図７　演習問題2_1：ｇを実行し、“LG Second Button”ボタンを押した際のスクリーンショット</figcaption>
+                  <figcaption class="figure-caption text-center">図９　演習問題2_1：ｉを実行し、“LG Second Button”ボタンを押した際のスクリーンショット</figcaption>
               </figure>
-              <p>
-                XMLレイアウト編集ウィンドウ右上にあるタブを用いて“Code”と“Design”で直接XMLタグコーディングで行なうか、レイアウトの設計をグラフィカルで行なうかは切り替えができる。
-              </p>
-              <figure class="figure">
-                  <img src="assets/images/ex2nd/fig8.png" class="figure-img img-fluid rounded" alt="fig8.png">
-                  <figcaption class="figure-caption text-center">図８　"Code"によるデザイン編集</figcaption>
-              </figure><br />
-              <figure class="figure">
-                  <img src="assets/images/ex2nd/fig9.png" class="figure-img img-fluid rounded" alt="fig9.png">
-                  <figcaption class="figure-caption text-center">図９　"Design"によるグラフィカルなデザイン編集</figcaption>
-              </figure>
+              
             </div>
-
-            <div class="contents">
+  <p></p><p></p>
+          <div class="contents">
               <h3>レイアウト（LAYOUT）でviewの配置を整える</h3>
-              <p>
-                Androidアプリ開発では、アプリの画面を簡単に作成できるレイアウトが数多く用意されている。
-              </p>
-              <figure class="figure" >
-                  <img src="assets/images/ex2nd/fig10.png" class="figure-img img-fluid rounded" alt="fig10.png">
-                  <figcaption class="figure-caption text-center">図１０　View階層と各Viewに対応したLayoutの可視化の一例（©Android Developerウェブサイト）</figcaption>
+            <p>
+            Androidアプリ開発では、アプリの画面を簡単に作成できるレイアウトが数多く用意されている。<strong>レイアウトを上手く活用すること</strong>で、テキスト、ボタン、イメージなどの各 View 要素の配置がシンプルとなるだけではなく、端末の Portrait/Landscape 切り替えや、様々な端末のサイズに合わせて自動的に調整される。 </p>
+            <p>GUI（activity_main.xml）のデフォールトレイアウトは ConstraintLayout ですが、<strong>本実験（演習2_2～7）では、LinearLayout （リニアレイアウト）を上手に活用すれば、GUIの要素の配置が素早くできる</strong>ため、その仕組みを理解することが大事（以下簡易紹介されている）。
+            </p>
+            <figure class="figure" >
+                <img src="assets/images/ex2nd/fig10.png" class="figure-img img-fluid rounded" alt="fig10.png">
+              <figcaption class="figure-caption text-center">図１０　View階層と各Viewに対応したLayoutの可視化の一例（©Android Developerウェブサイト）</figcaption>
               </figure>
               <p>
                 主なレイアウトを紹介する。画像も見ながらイメージをつかむこと。各レイアウトの詳細な使い方は<a class="external-link" href="https://developer.android.com/guide/topics/ui/declaring-layout?hl=ja">Android Developerウェブサイト</a>、Tutorialウェブサイトや、市販の教科書を参照。<br />
@@ -293,11 +303,12 @@
 
               <h4>LinearLayout</h4>
               <p>
-                パーツを縦（vertical）もしくは横（horizontal）一列に並べたい場合に使う。
-              </p>
+                LinearLayoutとは、パーツを縦一列（vertical）もしくは横一列（horizontal）に並べる場合に使用するレイアウト。View の要素（テキスト、ボタン等）を１列に並べたいとき一番便利。「<strong>orientation</strong>」属性を「vertical」と「horizontal」に切り替えることで、並べ方を縦と横に切り替えることができる。<br>
+また、レイアウトの「<strong>gravity</strong>」属性を用いることで、レイアウト内の View 要素を左詰め（left）・中央揃え（center_horizontal）・右詰め（right）・幅を埋める（fill）・上詰め（top）・下詰め（bottom）等々、様々な並び方の自動調整が可能になる。<br>
+例えば、二つのボタンを画面の中央に横並びにしたい場合、horizontalなLinearLayoutの中に２つのボタンを配置し、gravityをcenterにすれば良い。 </p>
               <figure class="figure">
                   <img src="assets/images/ex2nd/fig12.png" class="figure-img img-fluid rounded" alt="fig12.png">
-                  <figcaption class="figure-caption text-center">図１４　LinearLayoutの一例：vertical（左）とhorizontal（右）</figcaption>
+                <figcaption class="figure-caption text-center">図１４　LinearLayoutの一例：vertical（左）とhorizontal（右）</figcaption>
               </figure>
               <h4>TableLayoutとGridLayout</h4>
               <p>
