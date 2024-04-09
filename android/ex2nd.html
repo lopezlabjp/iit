@@ -17,16 +17,20 @@
                 <h1>第2回： Android GUI</h1>
             </div>
             <p style="text-align: right;">
-              最終更新日：2021年4月26日
+              最終更新日：2024年3月16日
             </p>
+          <p><a href="index.html">ホームへ戻る</a></p>
 
             <div class="contents">
               <h2>Androidにおける GUI ( Graphical User Interface) の仕組み</h2>
 
             <div class="practice practice-checkpoint">
               <h3>本日の授業中に実行確認する内容（TA・教員のチェック有）</h3>
+              <p><strong>各演習課題を実施・確認・提出して下さい。実行確認は、TA・教員からのチェックを受けて下さい。</strong></p>
+              <p><strong>
+          【チェック合格条件】</strong>各スクリーンショットと内容が一致すること（色は問わない）</p>
               <ul>
-                  <li><strong>演習問題2_1：a～g（必須）</strong></li>
+                  <li><strong>演習問題2_1：「h」の操作ができていること（必須）</strong></li>
                   <li><strong>演習問題2_2：a～hの実行（必須）</strong></li>
                   <li><strong>演習問題2_3：a～bの実行（必須）</strong></li>
                   <li>[任意] 演習問題2_4：a～dの実行</li>
@@ -35,7 +39,7 @@
               <p>CANVASのAssignmentsの指示に従うこと。</p>
           </div>
 				
-              <h3>ACTIVITYの役割</h3>
+              <h3>ACTIVITYの役割（一般的な説明）</h3>              
               <p>
                 ActivityはAndroidアプリの基本的なコンポネントである。Activityの役割はUser Interfaceを提示することとともに、システムやユーザの入力に反応することである。<br />
                 ユーザインタフェイスを用いるアプリは<strong>少なくとも１つのActivity</strong>もしくは複数のActivitiesで構成される。
@@ -44,8 +48,8 @@
               </p>
               <ul>
                 <li>
-                  新しいJava Classを作成し、<strong>Activity Classを継承</strong> (extends予約語) させる。例えばアプリの関連情報をユーザに入力させるための設定画面が用意したい。
-                </li>
+                新しいJava Classを作成し、<strong>Activity</strong> (もしくは<strong>AppCompatAcitivity</strong>) <strong>Classを継承</strong> (extends予約語) させる。
+                <br>例えばアプリの関連情報をユーザに入力させるための設定画面が用意したい。</li>
                 <li>
                   作成した“Settings” ActivityアプリのManifest.xmlに定義しておく。
                 </li>
@@ -53,7 +57,7 @@
               <pre>
                 <code class="xml">
         &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; package=&quot;jp.aoyama.a00001&quot; &gt;
+        &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; package=&quot;jp.aoyama.a5822000.sample1_1&quot; &gt;
           &lt;application&gt;
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -61,7 +65,7 @@
             android:theme="@style/AppTheme" >
             //既存のActivity
             &lt;activity
-              android:name=".SampleActivity1_2" android:label="@string/app_name" >
+              android:name=".Sample1_1" android:label="@string/app_name" >
               &lt;intent-filter>
                   //アプリ起動時、最初に起動可能と設定したいActivity
                   &lt;action android:name="android.intent.action.MAIN" />
@@ -83,6 +87,8 @@
 
             <div class="contents">
               <h3>ACTIVITYによるGUI表示の仕組み</h3>
+              <p>今回の目標はAndroidアプリのGUI開発の基礎を把握することです。本資料を注意深く読めば、各演習課題は十分実施できる内容です。UI開発に関するより詳細な説明は、Android Developersサイトの<a href="https://developer.android.com/studio/write/layout-editor"><strong>「Develop a UI with Views」を参照</strong></a>することをお勧めします（それでも分からない場合はネット・○○GPTで検索してみましょう）。
+              </p>
               <p>
                 各<strong>Activity</strong>に対して、テキストなどのUI要素が描けるように、<u>デフォルトのウィンドウ</u>が与えられている。<br />
                 基本的にウィンドウは画面全体を埋めるが、画面より小さくしたり、他のウィンドウの上にポップアップのように浮かせたりすることが可能。<br />
@@ -109,26 +115,32 @@
 
             <div class="contents">
               <h2>Android におけるGUI開発、デザイン編集機能と、コード編集機能</h2>
+              <h3>（第２回の演習課題説明はここから！）</h3>
               <p>
-              <strong>Androidの開発において、プログラミング（実現したい機能、動作など）は<u>Javaファイル</u>として作成、レイアウトのデザイン（実装したい見た目、画面構成など）は<u>XMLファイル</u>として作成する。</strong><br />
-                下記の属性を持った新しいAndroid Projectを作成する。ただし、<strong><u>自分の名前の頭文字</u>・<u>自分の学生番号</u></strong>を使用すること（LGのままにしないこと！）。
+              <strong>Androidの開発において、プログラミング（実現したい機能、動作など）は<u>Javaファイル</u>として作成、レイアウトのデザイン（実装したい見た目、画面構成など）は<u>XMLファイル</u>として作成する。</strong></p>
+              
+            <h4>第２回～利用する新しいプロジェクトの作成</h4>
+
+              <p>
+                下記の属性を持った新しいAndroid Projectを作成する。ただし、<strong><u>自分の名前の頭文字</u>・<u>自分の学生番号</u></strong>を使用すること（LGのままにしないこと！LGとはLopez Guillaumeの頭文字．．．）。
               </p>
               <pre>
                 <code class="java">
-      Activity: Empty Activity
+      Activity: Empty Views Activity
       Name: <strong>LG</strong> First Android GUI
-      Package name: jp.aoyama.<strong>a00001</strong>.lgfirstandroidgui
+      Package name: jp.aoyama.<strong>a5822000</strong>.<strong>lg</strong>firstandroidgui
       Save location: 任意
       Language: Java
-      Minimum SDK: 使用端末のAndroidバージョン以下を選択
                 </code>
               </pre>
               <h4>ソースコードEDITOR機能の使い方</h4>
               <div class="practice">
-                <h3>演習問題2_1: 図 4に合せるように必要なところを書きかえる。（a~cは参考方法。他の方法有り）</h3>
+                <h3>演習問題2_1: </h3>
+                a~gの手順を参考に（他のやり方もあります）、<strong>「h」に書いてある操作ができる</strong>ようなアプリＧＵＩを作りましょう。<br>
+                まず、a~cを参考に、実行時図５と同じ（色は違っても良い）になるように必要な修正をしましょう。
                 <ol type="a">
-                  <li>MainActivity.javaから不要なコードを削除する。</li>
-                  <li>activity_main.xmlのTextViewオブジェクトを修正する（内容は<strong><u>自分の名前の頭文字</u>・<u>自分の学生番号</u></strong>にすること！）</li>
+                  <li>activity_main.xmlのTextViewオブジェクトの文字を修正する（内容は<strong><u>自分の名前の頭文字</u>・<u>自分の学生番号</u></strong>にすること！）</li>
+                  <li>また、その文字列が画面の右下に常に表示されるように調整する。</li>
                   <li>必要に応じてresources（style.xml、strings.xmlなど）も修正する。</li>
                 </ol>
               </div>
@@ -137,13 +149,15 @@
                   <figcaption class="figure-caption text-center">図３　Javaプログラム（MainActivity.java）とXMLレイアウト（activity_main.xml）の関係</figcaption>
               </figure><br />
               <figure class="figure">
-                  <img src="assets/images/ex2nd/fig4.png" class="figure-img img-fluid rounded" alt="fig4.png" border="4px">
-                  <figcaption class="figure-caption text-center">図４　演習問題2_1の実施結果スクリーンショット例</figcaption>
+                  <img src="assets/images/ex2nd/fig5.png" class="figure-img img-fluid rounded" alt="fig5.png" border="4px">
+                  <figcaption class="figure-caption text-center">図４　タイトルバーが表示されない場合、Show System UIにチェックを入れる</figcaption>
               </figure>
               <figure class="figure">
-                  <img src="assets/images/ex2nd/fig5.png" class="figure-img img-fluid rounded" alt="fig5.png" border="4px">
-                  <figcaption class="figure-caption text-center">図５　タイトルバーが表示されない場合、Show System UIにチェックを入れる</figcaption>
+                  <img src="assets/images/ex2nd/fig4.png" class="figure-img img-fluid rounded" alt="fig4.png" border="4px">
+                  <figcaption class="figure-caption text-center">図５　演習問題2_1(c)の実施結果スクリーンショット例</figcaption>
               </figure>
+              
+              <h4>XML形式で作成したリソース（Layout、Strings等々）をJavaのコードで扱う方法</h4>
               <p>
                 XMLで定義した各<strong>Viewオブジェクトに対応したID</strong>を設定することができる。そのため、XMLファイル内のViewの開始～終了タグ間下記のようなコードを追加する（例えばButtonのID）<br />
                   <code>android:id="@+id/my_button"</code><br />
