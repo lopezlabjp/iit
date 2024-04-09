@@ -156,30 +156,44 @@
                   <img src="assets/images/ex2nd/fig4.png" class="figure-img img-fluid rounded" alt="fig4.png" border="4px">
                   <figcaption class="figure-caption text-center">図５　演習問題2_1(c)の実施結果スクリーンショット例</figcaption>
               </figure>
-              
+              <p></p>
               <h4>XML形式で作成したリソース（Layout、Strings等々）をJavaのコードで扱う方法</h4>
               <p>
-                XMLで定義した各<strong>Viewオブジェクトに対応したID</strong>を設定することができる。そのため、XMLファイル内のViewの開始～終了タグ間下記のようなコードを追加する（例えばButtonのID）<br />
-                  <code>android:id="@+id/my_button"</code><br />
-                上記のように設定したIDを用いて、XMLで定義した各ViewオブジェクトをJavaのコードから参照して、そのClassのInstanceを生成することができる。<br />
-                そのため、Javaファイル内（Instanceを生成・利用したいところ）下記のように<strong>findViewById</strong>メソッドを用いる。<br />
-                  <code>Button myButton = (Button)findViewById(R.id.my_button);</code><br />
-                生成されたInstanceに対して通常のオブジェクトのように、各methodを呼び出すことができる。<strong>(Rは全てのXML resources（layout、strings、values…）から自動生成 されたJava Class)</strong><br />
-                  <code>myButton.setText(<b>R</b>.string.btn_str);</code>
+                XMLで定義した各<strong>Viewオブジェクトに対応したID</strong>を設定することができる。そのため、XMLファイル内のViewの開始～終了タグ間下記のようなコードを追加する。例えば、「res/layout」にある"<strong>activity_main.xml</strong>"にある"TextView"オブジェクトの場合、以下のように、<code>android:id="@+id/author"</code>を追加することがで、IDが付与されます。UIのDesignモードでそのオブジェクトを選択したうえで、Attributes（属性）リストの一番上にある「id」に直接入力することも可能です。<br><br>
+                  <code>
+                    &lt;TextView<br>
+                      &emsp;android:id="@+id/author"<br>
+                      &emsp;android:layout_width="wrap_content"<br>
+                      &emsp;android:layout_height="wrap_content"<br>
+                      &emsp;android:text="©LG23428"<br>
+                      &emsp;...
+                    /&gt;
+                      
+                </code><br /><br>
+                上記のように設定したIDを用いて、XMLで定義した各Viewオブジェクト（TextView、Button、Layout等は全て"View型"です）をJavaのコードから参照して、そのオブジェクトに対応したClassのInstanceを生成することができる。<br />
+                そのため、<strong>Javaファイル内</strong>（Instanceを生成・利用したいメソッドの範囲内）下記のように<strong>findViewById</strong>メソッドを用いる。<br /><br>
+                  <code>TextView appliAuthor = (TextView)findViewById(R.id.author);</code><br /><br>
+                このように、生成されたInstanceに対して通常のオブジェクトのように、各methodを呼び出すことができます。<strong>(Rは全てのXML resources（layout、strings、values…）から自動生成 されたJava Class)</strong>。例えば、<strong>appliAuthor</strong>変数は<strong>TextView Class</strong>オブジェクトのInstanceとなり、javaのコードにて様々な操作ができるようになります。例えば、アプリ操作の途中、右下の署名を消したいとすると、以下のようなコードで処理できます。<br>
+                <br>
+                <code>appliAuthor.setText("");</code>
+                <br><br>
+                
               </p>
               <div class="practice">
-                <h3>演習問題2_1: 図 6に合せるように必要なところを書きかえる。（d~fは参考方法。他の方法有り）</h3>
+                <h3>演習問題2_1: </h3>
+                <p>
+                図 ６と同じくなるように必要なところを書きかえる。（d~fは参考方法。他の方法有り）</p>
                 <ol type="a">
-                  <li value="4"> activity_main.xmlにButtonを追加する。幅がウィンドウを埋める、高さを内容に合せるように設定し、IDを付与する。</li>
-                  <li>Buttonに表示したい文字列をstrings.xmlで定義する。</li>
-                  <li>MainActivity.javaにButtonのインスタンスを生成し、strings.xmlからその文字列を設定する（setText() method）。</li>
+                  <li value="4"> アプリのレイアウトファイル、<strong> activity_main.xml</strong>　に１つ目の<strong>Buttonを追加</strong>する。XMLコードを直接書くより、UIのDesignモードにて、「Palette」から、「Button」<strong>要素をdrag &amp; drop</strong>する方をお勧する。ボタンに<strong>"btn1"というID</strong>を付与し、幅がウィンドウの幅に、高さがボタンの内容（後で設定する文字や画像）に<strong>自動的に合わさるように設定</strong>する（"Constraint"の設定も忘れないように注意）。<strong>layout_width</strong>/<strong>layout_height</strong>属性の値は数字ではなく、<strong>wrap_content</strong>/<strong>match_parent</strong>という値を上手に使いましょう。</li>
+                  <li>Buttonに<strong>表示したい文字列</strong>（例：LG First Button）を<strong>strings.xml</strong>で定義し、ボタンの「text」属性がstrings.xmlで定義した文字列と紐づける（Designモードを使えば簡単）。</li>
+                  <li>２つ目のボタンを追加し、<strong>"btn2"というID</strong>を付与し、幅がボタンの内容（後で設定する文字や画像）に、高さがウィンドウの高さに<strong>自動的に合わさるように設定</strong>する（"Constraint"の設定も忘れないように注意）。</li>
                 </ol>
               </div>
               <figure class="figure">
                   <img src="assets/images/ex2nd/fig6.png" class="figure-img img-fluid rounded" alt="fig6.png" border="4px">
-                  <figcaption class="figure-caption text-center">図６　XMLレイアウトでのButtonの追加とJavaコードによる文字列設定を行なった際のAndroid Studio内レイアウトpreview画面（上）とアプリ実行時のスクリーンショット（下）</figcaption>
+                  <figcaption class="figure-caption text-center">図６　演習2_1（f）のアプリ実行時のスクリーンショット</figcaption>
               </figure>
-              <h4>ADDING EVENT TO VIEW OBJECT</h4>
+              <h4>Viewオブジェクトをクリックした際のイベントを発生させる方法</h4>
               <p>
                 Buttonをクリックした際の行動も下記のようにXML内に定義することができる。定義したクリック時アクション名がJavaプログラムコード内のmethod名になる。<br />
                 行動メソッドの引数として、Viewオブジェクトを設定することで複数のView（例：複数のボタン）が同じクリック時行動methodを用いる際<br />
@@ -208,7 +222,7 @@
               <div class="practice">
                 <h3>演習問題2_1: 図 7に合せるように必要なところを書きかえる。（gは参考方法。他の方法有り）</h3>
                 <ol type="a">
-                  <li value="7">縦長のButtonとボタンを押した際に表示するメッセージ用のTextViewを追加する。Buttonの処理として、クリックしたボタンのテキストがTextView内に表示されるようにする。</li>
+                  <li value="7">各ボタンを押した際に表示するメッセージ用のTextViewを追加する。Buttonの処理として、クリックしたボタンのテキストがTextView内に表示されるようにする。</li>
                 </ol>
               </div>
               <figure class="figure">
