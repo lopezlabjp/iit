@@ -241,7 +241,7 @@
                 <ol type="a">
                   <li value="7"><strong>新しい TextView</strong> オブジェクトをGUIに追加する。図 7に示すように、<strong>ボタン１の下とボタン２の右</strong>に表示されるように Constraint を設定する。なお、文字列はボタン操作に合わせて変えるため、その初期値は空のままにする。そのTextView の ID を "<strong>btn_tv_id</strong>" にする。</li>
                   <li value="8">上記に説明されている、「Viewオブジェクトをタップした際のイベントを発生させる方法」を参考に、各ボタンにタップした際の処理を行う "<strong>myBtnClick</strong>" という method を作成し、ボタンと紐づける。</li>
-                  <li value="9"><strong>押したボタンに合わせて</strong>、btn_tv_id <strong>TextView で表示する文字列を変える処理</strong>を追加する。ボタン１を押した際「○○ First Button」、ボタン２を押した際「○○ Second Button」というテキストを表示させる（"○○"を自分の名前の頭文字にすること）（上の方に説明した findViewById() および、setText() methods を上手く利用して下さい）。 </li>
+                  <li value="9"><strong>押したボタンに合わせて</strong>、btn_tv_id <strong>TextView で表示する文字列を変える処理</strong>を追加する。ボタン１を押した際「I Pressed ○○ First Button」、ボタン２を押した際「I Pressed ○○ Second Button」というテキストを表示させる（"○○"を自分の名前の頭文字にすること）（上の方に説明した findViewById() および、setText() methods を上手く利用して下さい）。 </li>
                 </ol>
               </div>
               <figure class="figure">
@@ -328,43 +328,45 @@
                   <img src="assets/images/ex2nd/fig14.png" class="figure-img img-fluid rounded" alt="fig14.png">
                   <figcaption class="figure-caption text-center">図１６　FrameLayoutの一例とその応用例</figcaption>
               </figure>
-              <h4>COMPONENT TREEやPROPERTIESを用いたGUIのデザイン変更</h4>
-              <p>
-                まず、次の演習にもちいるMorphing機能の使い方を紹介する。
-                Component Treeにおいて、Buttonに右クリックし、Morphing機能によりImageButtonに変更する（図１５を参照）。<br />
-                Propertiesにおいて、ボタンのIDを変更すれば、関連するXMLファイルに自動的に変更される（図１６を参照）。
-              </p>
-              <figure class="figure">
-                  <img src="assets/images/ex2nd/fig15.png" class="figure-img img-fluid rounded" alt="fig15.png">
-                  <figcaption class="figure-caption text-center">図１７　MorphingによるView種類変更</figcaption>
-              </figure>
-              <figure class="figure">
-                  <img src="assets/images/ex2nd/fig16.png" class="figure-img img-fluid rounded" alt="fig16.png">
-                  <figcaption class="figure-caption text-center">図１８　PropertiesによるID変更の際に表示されるpop-up</figcaption>
-              </figure>
+              
               <div class="practice">
-                <h3>演習問題2_2:図17に合わせるようにGUIを作成し、項目h記載の動作が行えるようにする。 （a~hは参考方法。他の方法有り）</h3>
+                <h3>演習問題2_2:</h3>
+                図１７と同じ見た目（メニューバーの色は問わない）の新しいGUIを作成する（ａ～ｇは参考方法。他の方法有り）。
                 <ol type="a">
-                  <li><code>activity_main.xml</code>をコピー・ペーストし（Navigationタブにおいて、ファイルに右クリック）、新しい名前を<code>layout_image.xml</code>にする。</li>
-                  <li><code>MainActivity.java</code>をコピー・ペーストし、新しい名前を<code>LayoutImageActivity.java</code>にする。<code>AndroidManifest.xml</code>に新しいActivity（LayoutImageActivity）を追加する。</li>
-                  <li><code>layout_image.xml</code>のボタン１とボタン２をButonから<code>ImageButton</code>または<code>ImageView</code>に変更し、他の属性を下記の通りに変更する。
-                    <ol>
-                      <li><code>width</code>と<code>height</code>が内容にフィットするように変更</li>
-                      <li>IDを<code>play_btn</code>と<code>stop_btn</code>に変更</li>
-                      <li>Windows Explorerを使ってCANVASからDownloadできる<code>mipmap-mdpi.zip</code>ファイルから展開した画像ファイルをコピーし（右クリック→）「Copy」、Android Studioの<code>resources</code>（”res”アイコン）のmipmap-mdpiフォルダにペーストする（右クリック→「Paste」）</li>
-                      <li>各ImageButtonのsrc属性を<code>play_icon_default.png</code>と<code>stop_icon_default.png</code>（3でコピーした画像に含まれている）にする。</li>
-                    </ol>
+                  <li>新しい Layout ファイルを作成し、その名前を <strong>layout_image</strong> とする。新しいLayoutファイルを作成する方法は２つ：「File➡New➡Layout Ressource File」、もしくはもともとあった activity_main.xml をコピー・ペーストする。また、<strong>layout_image</strong> に、全画面（match_parent）を埋める vertical <strong>LinearLayout</strong> を追加する（L1とする）。そのレイアウトをウィンドウに対して中央揃えに設定する。</li>
+                  
+                  <li><strong>MainActivity.java</strong> の onCreate メソッド内、どの Layout ファイルを表示させるかをしているする下記の１行がある。新しく作成したLayoutファイルが表示される用に、修正する。</li>
+                  
+                    <pre><code>setContentView(R.layout.activity_main);</code></pre>
+                  
+                  <li>CANVASから<strong>mipmap-mdpi.zip</strong>ファイルを Download し、パソコンの File Explorer を使って zip アーカイブを展開する。画像ファイルをコピーし（右クリック→）「Copy」、Android Studioのリソース内 <strong>res</strong> の <strong>mipmap</strong> フォルダにペースト（右クリック→「Paste」）する（drag &amp; dropも可）。ペーストの際現れるポップアップにおいて <strong>mipmap-mdpi</strong> サブフォルダを選択する（他のを選ぶと、画像が非常に小さくなってしまうので、注意）</li>
+                  
+                  <li>L1 レイアウトの中に追加する新しい <strong>LinearLayout</strong> （L2とする）と中に追加する新しい TextView を作成する。L2レイアウトの背景属性に "<strong>player_background.png</strong>" を設定する。TextViewの文字が背景画像の絵の内側に表示されるように、L2 レイアウトの padding 属性を調整する。
                   </li>
-                  <li>全てのView（ボタンとテキスト）を新しい<code>LinearLayout</code>(vertical)に入れる。レイアウトをウィンドウに対して中央揃えに設定する。</li>
-                  <li>さらに新しい<code>LinearLayout</code>を作成し、クリックしたボタンのテキストを表示する<code>TextView</code>をそこに入れて、そのレイアウトの背景に“<code>player_background.png</code>”が表示されるようにする（必要なテキストパディングを調整して下さい）。</li>
-                  <li>さらに２つのボタンが横に並ぶように、新しいLinearLayoutを追加し、そのレイアウトがボタン用のレイアウトの上に配置され、中央（layout_gravity属性）になるようにする。</li>
-                  <li>各viewの背景の色（background属性）を統一する</li>
-                  <li>クリック時のテキストを“Let’s Play!”と“Stop playing”に切り替わるようにする。</li>
+                                    
+                  <li>さらに、新しい LinearLayout （L3とする）を作成し、L1 の中に追加する。L3 に追加していく View 要素が<strong>横並び中央揃え</strong>になるように、L3 の属性を適切に設定する。</li>
+                  
+                  <li>２つのボタンを作成し、L3 レイアウトに追加したのち、他の属性を下記の通りに変更する。
+                    <ol>
+                      <li>各ボタンのテキストを削除する。</li>
+                      <li>各ボタンの幅と高さが <strong>"内容にフィットする"</strong> ように該当属性を設定する。</li>
+                      <li>ボタンの ID を<strong>play_btn</strong>と<strong>stop_btn</strong>に変更
+                      </li>                      
+                      <li>２つのボタンの背景属性（background）をそれぞれ <strong>play_icon_default.png</strong> （play_btn）と <strong>stop_icon_default.png</strong> （stop_btn）に設定する（先ほど mipmap リソースにコピーした画像に含まれている）にする。</li>
+                    </ol></li>
+                  
+                  <table width=280 border="1"><caption >Table 1. 各 LinearLayout の入れ子関係</caption>
+                    <tr align="center"><td>L1</td></tr><tr><td><table width=280 border="1"><tr><td>L2 (text &amp; bg)</td></tr></table></td></tr><tr><td><table width=280 border="1"><tr align="center"><td>L3 (2 btn)</td></tr></table></td></tr>
+                  </table>                                
+                  
+                  <!--<li>各viewの背景の色（background属性）を統一する</li>-->
+                  
+                  <li><strong>play_btn</strong> をタップするとき、TextView に "Let’s Play!"、 <strong>stop_btn</strong> をタップするとき、TextView に "Stop playing" が表示されるように、各ボタンの onClick 属性を設定し、必要な method と処理を MainActivity.java に追加する（演習課題2_1-iを参照）。</li>
                 </ol>
               </div>
               <figure class="figure">
                   <img src="assets/images/ex2nd/fig17.png" class="figure-img img-fluid rounded" alt="fig17.png" border="4px">
-                  <figcaption class="figure-caption text-center">図１９　演習問題2_2：hまで実装した際の実行画面スクリーンショット</figcaption>
+                  <figcaption class="figure-caption text-center">図１７　演習問題2_2：「ｇ」まで実装した際の実行画面スクリーンショット</figcaption>
               </figure><br /><br />
             </div>
             <div class="contents">
