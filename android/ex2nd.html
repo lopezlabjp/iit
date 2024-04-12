@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
         <link href="assets/plugins/highlight/styles/default.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="./assets/images/ITX1-icon.png"/>
         <script href="assets/plugins/highlight/highlight.pack.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -333,27 +334,26 @@
                 <h3>演習問題2_2:</h3>
                 図１７と同じ見た目（メニューバーの色は問わない）の新しいGUIを作成する（ａ～ｇは参考方法。他の方法有り）。
                 <ol type="a">
-                  <li>新しい Layout ファイルを作成し、その名前を <strong>layout_image</strong> とする。新しいLayoutファイルを作成する方法は２つ：「File➡New➡Layout Ressource File」、もしくはもともとあった activity_main.xml をコピー・ペーストする。また、<strong>layout_image</strong> に、全画面（match_parent）を埋める vertical <strong>LinearLayout</strong> を追加する（L1とする）。そのレイアウトをウィンドウに対して中央揃えに設定する。</li>
+                  <li>新しい Layout ファイルを作成し、その名前を <strong>layout_image</strong> とする。新しいLayoutファイルを作成する方法は２つ：「File➡New➡Layout Ressource File」、もしくはもともとあった activity_main.xml をコピー・ペーストする。また、<strong>layout_image</strong> に、全画面（match_parent）を埋める vertical <strong>LinearLayout</strong> を追加する（L1 とする）。そのレイアウトをウィンドウに対して中央揃えに設定する（Constraints の設定も忘れずに！）。</li>
                   
-                  <li><strong>MainActivity.java</strong> の onCreate メソッド内、どの Layout ファイルを表示させるかをしているする下記の１行がある。新しく作成したLayoutファイルが表示される用に、修正する。</li>
+                  <li><strong>MainActivity.java</strong> の onCreate メソッド内、どの Layout ファイルを表示させるかをしているする下記の１行がある。新しく作成したLayoutファイルが表示される用に、<strong>修正</strong>する（activity_main を置き換える）。</li>
                   
                     <pre><code>setContentView(R.layout.activity_main);</code></pre>
                   
-                  <li>CANVASから<strong>mipmap-mdpi.zip</strong>ファイルを Download し、パソコンの File Explorer を使って zip アーカイブを展開する。画像ファイルをコピーし（右クリック→）「Copy」、Android Studioのリソース内 <strong>res</strong> の <strong>mipmap</strong> フォルダにペースト（右クリック→「Paste」）する（drag &amp; dropも可）。ペーストの際現れるポップアップにおいて <strong>mipmap-mdpi</strong> サブフォルダを選択する（他のを選ぶと、画像が非常に小さくなってしまうので、注意）</li>
+                  <li>CANVASから <strong>mipmap-mdpi.zip</strong> ファイルを Download し、パソコンの File Explorer を使って zip アーカイブを展開する。画像ファイルをコピーし（右クリック→）「Copy」、Android Studioのリソース内 <strong>res</strong> の <strong>mipmap</strong> フォルダにペースト（右クリック→「Paste」）する（drag &amp; dropも可）。ペーストの際現れるポップアップにおいて <strong>mipmap-mdpi</strong> サブフォルダを選択する（他のを選ぶと、画像が非常に小さくなってしまうので、注意）</li>
                   
-                  <li>L1 レイアウトの中に追加する新しい <strong>LinearLayout</strong> （L2とする）と中に追加する新しい TextView を作成する。L2レイアウトの背景属性に "<strong>player_background.png</strong>" を設定する。TextViewの文字が背景画像の絵の内側に表示されるように、L2 レイアウトの padding 属性を調整する。
-                  </li>
+                  <li>L1 レイアウトの中に追加する新しい <strong>LinearLayout</strong> （L2 とする）と、L2 の中に追加する<strong>新しい TextView</strong> を作成する。L2 レイアウトの背景属性に "<strong>player_background.png</strong>" を設定する。TextViewの文字が背景画像の絵の内側に表示されるように、余白属性（margin）を調整する。 </li>
                                     
                   <li>さらに、新しい LinearLayout （L3とする）を作成し、L1 の中に追加する。L3 に追加していく View 要素が<strong>横並び中央揃え</strong>になるように、L3 の属性を適切に設定する。</li>
                   
-                  <li>２つのボタンを作成し、L3 レイアウトに追加したのち、他の属性を下記の通りに変更する。
+                  <li>２つの <strong>ImageButton</strong> ボタンを作成し、L3 レイアウトに追加したのち、他の属性を下記の通りに変更する。
                     <ol>
-                      <li>各ボタンのテキストを削除する。</li>
-                      <li>各ボタンの幅と高さが <strong>"内容にフィットする"</strong> ように該当属性を設定する。</li>
-                      <li>ボタンの ID を<strong>play_btn</strong>と<strong>stop_btn</strong>に変更
-                      </li>                      
-                      <li>２つのボタンの背景属性（background）をそれぞれ <strong>play_icon_default.png</strong> （play_btn）と <strong>stop_icon_default.png</strong> （stop_btn）に設定する（先ほど mipmap リソースにコピーした画像に含まれている）にする。</li>
-                    </ol></li>
+                      <li> <strong> ImageButton</strong> の ID を<strong>play_btn</strong>と<strong>stop_btn</strong>に変更 </li>
+                      <li>各 <strong>ImageButton</strong> の背景色（background）をレイアウトの背景色と同じにする。</li>
+                      <li>各 <strong>ImageButton</strong> の幅と高さが "内容にフィットする" ように該当属性を設定する。</li>
+                      <li>src 属性より、２つの ImageButton に表示するイメージをそれぞれ <strong>play_icon_default.png</strong> （play_btn）と <strong>stop_icon_default.png</strong> （stop_btn）に設定する（先ほど mipmap リソースにコピーした画像に含まれている）にする。</li>
+                    </ol>
+                  </li>
                   
                   <table width=280 border="1"><caption >Table 1. 各 LinearLayout の入れ子関係</caption>
                     <tr align="center"><td>L1</td></tr><tr><td><table width=280 border="1"><tr><td>L2 (text &amp; bg)</td></tr></table></td></tr><tr><td><table width=280 border="1"><tr align="center"><td>L3 (2 btn)</td></tr></table></td></tr>
@@ -369,51 +369,96 @@
                   <figcaption class="figure-caption text-center">図１７　演習問題2_2：「ｇ」まで実装した際の実行画面スクリーンショット</figcaption>
               </figure><br /><br />
             </div>
+
+              <div class="practice">
+                <h3>演習問題2_3: Action Bar の設定とイベント処理</h3>
+                <p>
+                下記説明の「<strong>ActionBarによるUI実装</strong>」を参考にしつつ、図１８～１９の表示と動作ができるように、ActionBarの設定とイベント処理を実装する。 </p>
+                <ul>
+                  <li><strong>【見た目】</strong>図１８と同じ見た目になるようにメニューバーの作成・表示を実装する（「<strong>ActionBarによるUI実装</strong>」を参考）。<br>
+【check 1】settings, edit, preview, save の４つのメニュー要素があること。<br>
+【check 2】アプリタイトルの前に<strong>アイコン</strong>と<strong>ホームボタン</strong>（色や画像が違ってもOK）が表示されていること。 
+                  </li>
+                  <li><strong>【動作】</strong>戻るボタン、setting、edit、preview、saveの各ボタンをタップする際、"Hello world!”を表示しているTextView内、改行して押したボタンが分かるようなテキストが追加表示されるようにActionBarActivity.javaに必要なメソッド呼び出しや処理を追加する（図 ２２を参照）。<br>
+【hint 1】TextViewオブジェクトにテキストを設定するのはsetText(…)メソッドですが、テキストを追加するには<strong>append(…)</strong>メソッドを用いる。<br>
+【hint 2】「戻る」ボタンのIDは自分で設定したIDではなくAndroidで事前に設定されている：<strong>android.R.id.home</strong>。
+                  </li>
+                  <li><strong>提出（その１）: </strong>タブレットの縦表示（portrait）や、横表示（landscape）でも（どちらでも構わない）、全てのメニュー文字が<strong>常に表示</strong>される状態（図１９左）と、全てのメニューが<strong>常に隠れている</strong>状態（図１９右）の両方のスクリーンショットを提出する（状態の変更には menu_action_bar.xml の調整後実行し直す必要ある）。
+                  </li>
+                  <li><strong>提出（その２）:</strong> 各動作が実装されているできていることが分かるスクリーンショット：play ボタンタップ、ホームボタンタップ、setting/edit/preview/save タップ（図１８を参照）。
+                    </li>
+                  
+                </ul>              
+                <figure class="figure">
+                  <img src="assets/images/ex2nd/fig22.png" class="figure-img img-fluid rounded" alt="fig21.png" border="4px">
+                  <figcaption class="figure-caption text-center">図１８　演習問題2_3完成時の UI と各ボタン・メニュータップ時の動作結果のスクリーンショット</figcaption>
+                </figure>
+                <figure class="figure">
+                  <img src="assets/images/ex2nd/fig21.png" class="figure-img img-fluid rounded" alt="fig19.png">
+                  <figcaption class="figure-caption text-center">図１９　全てのメニューアイテムが常に表示されている（左）と全アイテムが非表示になっている（右）Action Barを設定したときのアプリ実行時スクリーンショット</figcaption>
+                </figure>
+              </div>
+
             <div class="contents">
-              <h2>ActionBarによるUI実装</h2>
+              <h2>Action Bar を用いた UI の実装</h2>
               <p>
-                <strong>Actionbar</strong>とは、Android 2.x以前のタイトルバーを置き換えつつ、ロゴ、ボタン、タブなどを配置できるツールバーである。具体例としてActionBarは下図の赤枠で囲まれたものである。<br />
-                縦向きと横向きで表示のされ方が異なることに注意が必要。
+                <strong>Action Bar</strong> とは、Android 2.x 以前のタイトルバーを置き換えつつ、ロゴ、ボタン、タブなどを配置できるツールバーである。
               </p>
+              具体例としてActionBar は下図の赤枠で囲まれたものである。
+                縦向きと横向きで表示のされ方が異なることに注意が必要。
+              
+              <h4>メニューの作成</h4>
+              <p>メニュー要素は、レイアウトと同じように、xml ファイルのリソースとして事前設定が可能（java で動的に作成することも可）。メニューのリソースファイルは <strong>res/menu</strong> フォルダーに置く。作成した Empty View Activity の初期状態では menu リソースはないため、新規に作成する必要がある。Android Studio の左側に（通常）表示される navigation bar の「res」フォルダーに右クリックし、「New>Android Resource File」にて新規作成できる（図２０を参照）。<br>
+              図２１に示すように、menu タイプのリソースファイルを作成するため、<strong>「Resource type」を「Menu」に設定</strong>する必要がある。OK を押して、<strong>res フォルダーに menu フォルダー</strong>と <strong>menu_action_bar.xml</strong> （図２１設定の名前の場合）ができていることを確認する。</p>
+              <figure class="figure">
+                  <img src="assets/images/ex2nd/fig19.png" class="figure-img img-fluid rounded" alt="fig18.png">
+                <figcaption class="figure-caption text-center">図２０　Android Ressource File の新規作成方法</figcaption>
+              </figure>
+              <figure class="figure">
+                  <img src="assets/images/ex2nd/fig20.png" class="figure-img img-fluid rounded" alt="fig18.png">
+                  <figcaption class="figure-caption text-center">図２１　Menu の XML リソースの設定スクリーンショット</figcaption>
+              </figure>
+              
               <figure class="figure">
                   <img src="assets/images/ex2nd/fig18.png" class="figure-img img-fluid rounded" alt="fig18.png">
-                  <figcaption class="figure-caption text-center">図２０　ActionBarの一例。Landscape表示（上）Portrait表示（下）</figcaption>
+                  <figcaption class="figure-caption text-center">図２２　ActionBarの一例。Landscape表示（上）Portrait表示（下）</figcaption>
               </figure>
-              <p>ActionBarActivityを新たに作成する。ただし、<strong><u>自分の名前の頭文字</u>・<u>自分の学生番号</u></strong>を使用すること。</p>
-              <pre>
-                <code class="java">
-	Activity: Empty Activity
-	Name: <strong>LG</strong> Action Bar Activity
-	Package name: jp.aoyama.<strong>a00001</strong>.lgactionbaractivity
-	Layout name: layout_action_bar.xml　（後で名前変更）
-	Menu name: menu_action_bar.xml　（後で新規作成）
-	Save location: 任意
-	Language: Java
-	Minimum SDK: 使用端末のAndroidバージョン以下を選択
-                </code>
-              </pre>
-              <h4>アクションバーを表示する</h4>
-              <strong>Action Bar</strong>を表示させるため、下記のメソッドを追加する必要があります。
-              <pre>
-                <code class="java">
-      @Override
-      public boolean onCreateOptionsMenu(Menu menu){
-      //Inflate the menu; this adds items to the action bar if it is present.
-      getMenuInflater().inflate(R.menu.menu_action_bar, menu);
-      return true;
-      }
-                </code>
-              </pre>
-              <p>
-                OnCreateOptionsMenu – 親クラスのOnCreateで自動的に呼び出されるメソッドです。MenuInflaterのinstanceを用いてres/menu に作成したmenu_action_bar.xmlの中身をAction barにメニューをinflateさせない（“膨らませる”）とメニューが表示されない。
+              
+              <p>具体例として Action Bar の例は図２２に示す。アイコン・文字の全てが表示される場合もあれば、一部隠れている場合もある。例えば、縦向きと横向きで表示のされ方が異なることに注意が必要。以下はメニューリソースに実際メニュー要素（menu item）を追加した場合のソースコード例（抜粋）。各メニュー要素を item タグにて定義し、その主な属性は次のものがある。
+                <ul>
+                  <li>「<strong>android:title</strong>」メニュー要素の文字列を指定する属性。サンプルコードでは、string.xml で定義されている文字列に設定</li>
+                  <li>「<strong>android:icon</strong>」メニュー要素のアイコンを指定する属性。サンプルコードでは、Android で用意されているアイコンが指定されているが、カスタマイズ可能。"<strong>@android:drawable/ic_menu_</strong>○○" から、一般的な編集・表示・保存のアイコンもある。</li>
+                  <li>「<strong>app:showAsAction</strong>」UI の空きスペースとメニュー要素のテキスト・アイコン表示に必要なスペースによって、どう表示するか（アイコンのみ、テキスト必須等々）を指定する属性。多くのケースで有効なのが「<strong>ifRoom|withText</strong>」。表示されるアイコンを見て、機能が確実に推測できるのであれば<strong>withText</strong>を省略するのも方法の1つである。<br />
+    <strong>always</strong>は表示するスペースがなくても強制的に表示するため、使用する際に注意が必要。</li>   
+              </ul>
               </p>
-              <h4>アクションアイテムを表示する</h4>
+              
               <p>
-                <strong>ActionBar</strong>に表示する<strong>MenuItem</strong>が2つまでなら、上部のActionBarに表示されるため分割されない。3つ目から縦画面では表示されなくなる。<br />
-                分割した場合、5つまでなら表示され、6つ目から表示されなくなる。MenuItemを2つに抑える、または3つ目以降の使用頻度が低いなどの場合は分割しない、横画面専用にする、などの方針をアプリ設計時に行うようにする必要がある。<br />
-                <strong>ActionBar</strong>は従来のメニューを置き換えるものであることから、<strong>アイコン</strong>は、従来のメニューの<u>MenuItem</u>と同じものを使用する。以下は本サンプルの「menu_action_bar.xml」の内容。
-                重要なのは、item要素の「<strong>android:showAsAction</strong>」という属性。この属性を用いてActionBar上でメニューアイテムがどのように配置、表示されるかを指定できる。
+                <strong>Action Bar</strong> に表示する <strong>MenuItem</strong> が2つまでなら、図２２上部の Action Bar に表示されるため分割されない。一方、縦画面では3つ目以降表示されなくなる。
+                分割した場合、5つまでなら表示され、6つ目から表示されなくなる。Menu Item を2つに抑える、または3つ目以降の使用頻度が低いなどの場合は分割しない、横画面専用にする、などの方針をアプリ設計時に行うようにする必要がある。<br />
+                <strong>Action Bar</strong> は従来のメニューを置き換えるものであることから、<strong>アイコン</strong>は、従来のメニューの <u>Menu Item</u> と同じものを使用する。以下は本サンプルの「menu_action_bar.xml」の内容。
+                重要なのは、item要素の「<strong>app:showAsAction</strong>」という属性。この属性を用いて Action Bar 上でメニューアイテムがどのように配置、表示されるかを指定できる。
               </p>
+              
+              <pre><code class="xml">
+        &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        &lt;menu xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            &lt;item android:id="@+id/action_settings" android:title="@string/action_settings"
+                android:icon="@android:drawable/ic_menu_preferences"
+                app:showAsAction="ifRoom|withText" />
+<!--            &lt;item android:id="@+id/action_edit" android:title="@string/action_edit"
+                android:icon="@android:drawable/ic_menu_edit"
+                app:showAsAction="ifRoom|withText" />
+            &lt;item android:id="@+id/action_preview" android:title="@string/action_preview"
+                android:icon="@android:drawable/ic_menu_view"
+                app:showAsAction="ifRoom|withText" />
+            &lt;item android:id="@+id/action_save" android:title="@string/action_save"
+                android:icon="@android:drawable/ic_menu_save"
+                app:showAsAction="ifRoom|withText" />
+-->        &lt;/menu&gt;
+                </code></pre>
+              
               <table class="table">
                 <tr>
                   <th>値</th>
@@ -440,49 +485,31 @@
                   <td>android:actionViewLayoutで指定されているアクションビューと関連付ける。"|"を使用して他の値と同時に指定可能</td>
                 </tr>
               </table>
-              <h5>menu_action_bar.xml</h5>
-              <pre>
-                <code class="xml">
-        &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        &lt;menu xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            tools:context="jp.aoyama.a00001.actionbaractivity">
-            &lt;item android:id="@+id/action_settings" android:title="@string/action_settings"
-                android:icon="@android:drawable/ic_menu_preferences"
-                app:showAsAction="ifRoom|withText" />
-            &lt;item android:id="@+id/action_edit" android:title="@string/action_edit"
-                android:icon="@android:drawable/ic_menu_edit"
-                app:showAsAction="ifRoom|withText" />
-            &lt;item android:id="@+id/action_preview" android:title="@string/action_preview"
-                android:icon="@android:drawable/ic_menu_view"
-                app:showAsAction="ifRoom|withText" />
-            &lt;item android:id="@+id/action_save" android:title="@string/action_save"
-                android:icon="@android:drawable/ic_menu_save"
-                app:showAsAction="ifRoom|withText" />
-        &lt;/menu&gt;
-                </code>
-              </pre>
+                
+              <h4>作成したメニューをAction Bar（タイトルバー）に表示させる</h4>
+    <p><strong>Action Bar</strong>を表示させるため、下記のメソッドを MainActivity に追加する必要があります。</p>
               <p>
-                多くのケースで有効なのが「<strong>ifRoom|withText</strong>」。表示されるアイコンを見て、機能が確実に推測できるのであれば<strong>withText</strong>を省略するのも方法の1つである。<br />
-                <strong>always</strong>は表示するスペースがなくても強制的に表示するため、使用する際に注意が必要。
+              <strong> OnCreateOptionsMenu</strong> は MainActivity の親クラス（Activity もしくは AppCompatActivity）の OnCreate で自動的に呼び出されるメソッドのため、これまで追加しなくても、デフォールトの Action Bar が表示されていた。プロジェクト作成時、Activity のタイトル（Name）を設定した（LG First Android GUI）ため、それだけ表示されている。<br>
+                
               </p>
-              <div class="practice">
-                <h3>演習問題2_3:図 19のように、ActionBarの調整する（aは参考方法。他の方法有り）</h3>
-                <ol type="a">
-                  <li>縦表示でも、常に”save”が表示されるように、または常に全てのメニューが隠れるようにmenu_action_bar.xmlを変更する</li>
-                </ol>
-              </div>
-              <figure class="figure">
-                  <img src="assets/images/ex2nd/fig19.png" class="figure-img img-fluid rounded" alt="fig19.png">
-                  <figcaption class="figure-caption text-center">図２１　“save”アイテムが常に表示されている（左）と全アイテムが非表示になっている（右）Action Barを設定したときのアプリ実行時スクリーンショット</figcaption>
-              </figure>
+              <p>
+                <strong> getMenuInflater()</strong> メソッドから引き出せる MenuInflater の instance を用いてに作成したメニュー（例えば上記作成した menu_action_bar.xml） の中身をAction bar にメニューをinflateさせない（“膨らませる”）とメニューが表示されない。</p>
+              <pre><code class="java">
+      @Override
+      public boolean onCreateOptionsMenu(Menu menu){
+        //Inflate（膨らます）the menu. This adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_action_bar, menu);
+        return true;
+      }
+                </code></pre>
+              
+
               <h4>アプリケーションアイコンに機能を追加する</h4>
               <p>
                 Android 2.3以前のアプリ内でのナビゲーションはシステムの戻るボタン（Back ボタン）を使って行われていた。Android 3.0よりアクションバー（Action Bar）が導入され、<br />
                 第2のナビゲーションメカニズムとして <strong>ホームボタン</strong>（正式に<strong>Upボタン</strong>）が登場した。このボタンはアプリアイコンと左向きのキャラットで構成されている。<br />
                 Action Barにはアプリケーションのブランディングの意味も含め、アプリケーションアイコンが表示されている。<br />
-                このアイコンにナビゲーション機能を持たせるためUpボタン機能を追加する方法としてActionBarオブジェクトの下記メソッドを用いる。
+                このアイコンにナビゲーション機能を持たせるためUpボタン機能を追加する方法として、onCreateOptionsMenu() メソッド内、ActionBar オブジェクトの下記メソッドを用いる。
               </p>
               <ul>
                 <li>setDisplayShowHomeEnabled(boolean)：<strong>アプリアイコン</strong>の表示・非表示させる</li>
@@ -491,32 +518,29 @@
                 <li>setHomeButtonEnabled(boolean)：<strong>タップイベント</strong>を可能・不可能にする</li>
               </ul>
               <p>
-                ActionBarオブジェクトのインスタンスは<strong>getSupportActionBar()</strong>メソッドで取得可能。<br />
-                アプリアイコンがタップされた場合、Activityの<strong>onOptionsItemSelected(…)</strong>メソッドに通知され、これを ハンドリングして、アプリのホーム画面に遷移するように実装できる。<br />
+                ActionBarオブジェクトのインスタンスは <strong>getSupportActionBar()</strong> メソッドで取得可能（例：getSupportActionBar().setHomeButtonEnabled(boolean);）。<br />
+                各メニュー要素のテキストもしくはアイコンがタップされた場合、ボタンと違って、onClick属性は使いません。MainActvity に <strong>onOptionsItemSelected(…)</strong> というメソッドを実装すれば、自動的にそのメソッドに通知される。下記コード例のように、引数の item を使って、どのメニュー要素がタップされたかを判定して、適切な処理を実装する（注意：ホームボタンのIDは「android.R.id.home」）。<br />
+                <pre><code class="java">
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    if(item.id==R.id.action_settings){
+      ...
+    }
+    ...
+  }
+                </code></pre>
+                <!--
                 【注意】：setHomeAsUpEnabled(true)が呼び出されたら、setHomeButtonEnabled(boolean)もtrueで設定される。これはsetHomeAsUpEnabled(false)で解除しても、<br />
                 引き続きsetHomeButtonEnabled(boolean)は有効なままなので、アプリアイコンがタップできてしまい、つまりイベントが通知されてしまう。<br />
-                setHomeAsUpEnabled(false)を行った際にsetHomeButtonEnabled(false)も忘れずに...
+                setHomeAsUpEnabled(false)を行った際にsetHomeButtonEnabled(false)も忘れずに...-->
               </p>
               <figure class="figure">
-                  <img src="assets/images/ex2nd/fig20.png" class="figure-img img-fluid rounded" alt="fig20.png">
+                  <img src="assets/images/ex2nd/fig23.png" class="figure-img img-fluid rounded" alt="fig23">
                   <figcaption class="figure-caption text-center">図２２　「アプリアイコン」や「戻るアイコン」が表示されていない（左）と表示されている（右）場合のスクリーンショット</figcaption>
               </figure>
               <p>Back と Up を使用したナビゲーションについてガイドラインがありますので、詳細は<a class="external-link" href="https://developer.android.com/guide/navigation/navigation-design-graph?hl=ja">Android Developer Site</a>を参照して下さい。<br />
                 さらに<a class="external-link" href="https://developer.android.com/design?hl=ja">Android Design Principles</a>（style、color、navigation等）というものも存在しているので、Google Playで配布予定のApplicationを開発する際、そこを良く勉強しておくことをお薦めします。
               </p>
-              <div class="practice">
-                <h3>演習問題2_3: ActionBarのイベントハンドリング（bは参考方法。他の方法有り）</h3>
-                <ol type="a">
-                  <li value="2">戻るボタン、setting、edit、preview、saveの各ボタンをタップする際、"Hello world!”を表示しているTextView内、改行して押したボタンが分かるようなテキストが追加表示されるようにActionBarActivity.javaに必要なメソッド呼び出しや処理を追加する（図 21を参照）。<br />
-                    【hint 1】TextViewオブジェクトにテキストを設定するのはsetText(…)メソッドですが、テキストを追加するには<strong>append(…)</strong>メソッドを用いる。<br>
-【hint 2】「戻る」ボタンのIDは自分で設定したIDではなくAndroidで事前に設定されている：<strong>android.R.id.home</strong>。</li>
-                </ol>
-              </div>
-              <figure class="figure">
-                  <img src="assets/images/ex2nd/fig21.png" class="figure-img img-fluid rounded" alt="fig21.png" border="4px">
-                  <figcaption class="figure-caption text-center">図２３　演習問題2_3：bの実行結果スクリーンショット</figcaption>
-              </figure>
-            </div>
 
             <div class="contents">
               <h2>Androidアプリで“アニメーション”するための基礎知識</h2>
@@ -671,7 +695,7 @@
                 チェックボックスの使い方については<a class="external-link" href="https://developer.android.com/guide/topics/ui/controls/checkbox.html?hl=ja">Android Developerサイト</a>を参考に。
               </p>
               <figure class="figure">
-                  <img src="assets/images/ex2nd/fig23.png" class="figure-img img-fluid rounded" alt="fig23.png">
+                  <img src="assets/images/ex2nd/fig22.png" class="figure-img img-fluid rounded" alt="fig23.png">
                   <figcaption class="figure-caption text-center">図２５　演習問題2_2の実行例</figcaption>
               </figure>
             </div>
