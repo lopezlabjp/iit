@@ -536,7 +536,7 @@
               </p>
               <figure class="figure">
                   <img src="assets/images/ex2nd/fig23.png" class="figure-img img-fluid rounded" alt="fig23">
-                  <figcaption class="figure-caption text-center">図２２　「アプリアイコン」や「戻るアイコン」が表示されていない（左）と表示されている（右）場合のスクリーンショット</figcaption>
+                  <figcaption class="figure-caption text-center">図２３　「アプリアイコン」や「戻るアイコン」が表示されていない（左）と表示されている（右）場合のスクリーンショット</figcaption>
               </figure>
               <p>Back と Up を使用したナビゲーションについてガイドラインがありますので、詳細は<a class="external-link" href="https://developer.android.com/guide/navigation/navigation-design-graph?hl=ja">Android Developer Site</a>を参照して下さい。<br />
                 さらに<a class="external-link" href="https://developer.android.com/design?hl=ja">Android Design Principles</a>（style、color、navigation等）というものも存在しているので、Google Playで配布予定のApplicationを開発する際、そこを良く勉強しておくことをお薦めします。
@@ -589,9 +589,20 @@
               <p>
                 下記の属性を持った新しいProjectを作成する。ただし、<strong><u>自分の名前の頭文字</u>・<u>自分の学生番号</u></strong>を使用すること。
               </p>
+
+              <div class="practice">
+                <h3>演習問題2_4（任意）: 複数のAnimation種類を自由に組み合わせたテストアプリの作成（a~dは参考方法。他の方法有り）</h3>
+                <ol type="a">
+                  <li>AlphaAnimationExampleを完成させ（"hoge"を埋めたものとXMLレイアウト）実機実行にて動作を確認する（図２４を参照）。</li>
+                
+                  <li value="2">同プロジェクト内に新たなActivity Classとして<strong>MultipleAnimationExample.java</strong>ファイルを作成</li>
+                  <li><strong>MultipleAnimationExample</strong> Class用のレイアウト<strong>layout_multiple_animation.xml</strong>を作成</li>
+                  <li>複数のAnimationを組み合わせるための下記サンプルコード（MultipleAnimationSample.java）を参考にして、図２５のように、<strong>CheckBox</strong>と<strong>EditText</strong>を用いて、<strong>自由にAnimationを組み合わせる</strong>ことができるようにするGUIを作成</li>
+                </ol>
+              </div>              
               <pre>
                 <code class="java">
-      Activity: Empty Activity
+      Activity: Empty View Activity
       Name: <strong>LG</strong> Animation
       Package name: jp.aoyama.<strong>a00001</strong>.lganimation
       Save location: 任意
@@ -631,7 +642,7 @@
                 </code>
               </pre>
               <figure class="figure">
-                  <img src="assets/images/ex2nd/fig22.png" class="figure-img img-fluid rounded" alt="fig22.png">
+                  <img src="assets/images/ex2nd/fig24.png" class="figure-img img-fluid rounded" alt="fig24.png">
                   <figcaption class="figure-caption text-center">図２４　アニメーションの動作確認画面</figcaption>
               </figure>
               <p>
@@ -651,20 +662,7 @@
                   <td>アニメーション終了時の透明度を0.0～1.0の間で指定。0.0は完全透明、1.0は完全不透明</td>
                 </tr>
               </table>
-              <div class="practice">
-                <h3>演習問題2_4: 透明化アニメーション（a~dは参考方法。他の方法有り）</h3>
-                <ol type="a">
-                  <li>AlphaAnimationExampleを完成させ（"hoge"を埋めたものとXMLレイアウト）実機実行にて動作を確認する。</li>
-                </ol>
-              </div>
-              <div class="practice">
-                <h3>演習問題2_4: 複数のAnimation種類を自由に組み合わせたテストアプリの作成）</h3>
-                <ol type="a">
-                  <li value="2">同プロジェクト内に新たなActivity Classとして<strong>MultipleAnimationExample.java</strong>ファイルを作成</li>
-                  <li><strong>MultipleAnimationExample</strong> Class用のレイアウト<strong>layout_multiple_animation.xml</strong>を作成</li>
-                  <li>複数のAnimationを組み合わせるための下記サンプルコード（MultipleAnimationSample.java）を参考にして、図２３のように、<strong>CheckBox</strong>と<strong>EditText</strong>を用いて、<strong>自由にAnimationを組み合わせる</strong>ことができるようにするGUIを作成</li>
-                </ol>
-              </div>
+
               <h5>MultipleAnimationSample.java</h5>
               <pre>
                 <code class="java">
@@ -695,8 +693,8 @@
                 チェックボックスの使い方については<a class="external-link" href="https://developer.android.com/guide/topics/ui/controls/checkbox.html?hl=ja">Android Developerサイト</a>を参考に。
               </p>
               <figure class="figure">
-                  <img src="assets/images/ex2nd/fig22.png" class="figure-img img-fluid rounded" alt="fig23.png">
-                  <figcaption class="figure-caption text-center">図２５　演習問題2_2の実行例</figcaption>
+                  <img src="assets/images/ex2nd/fig25.png" class="figure-img img-fluid rounded" alt="fig25.png">
+                  <figcaption class="figure-caption text-center">図２５　演習問題2_4(d)の実行例</figcaption>
               </figure>
             </div>
             <h3>参考文献</h3>
