@@ -78,31 +78,33 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
   </div>
 	
 	<hr>
-	
+
+    <h4>前提知識</h4>
+    <ul>
+      <li>テンプレートからAndroidStudioプロジェクトを作成し、main layoutを生成する。</li>
+      <li><strong>Layout Editor</strong> を使用して UI 要素（ボタン、テキスト）を作成、配置、および編集する。</li>
+      <li><strong>findViewById()</strong> を使用して、コードからUI要素にアクセスする。</li>
+      <li><strong>Button</strong> のクリックを処理する。</li>
+      <li>様々な<strong>リソース</strong>（layout, string, menu, drawable, etc.）の意味を理解し、作成・編集する。</li>
+      <li>接続されたデバイス・エミュレータでアプリを実行する。</li>
+    </ul>
+	  
+    <h4>この課題で学ぶこと</h4>
+    <ul>
+      <li><strong>Toast</strong> メッセージを表示する。</li>
+      <li>Activity を起動・終了する方法。</li>
+      <li>ユーザからの情報を入力するための様々な View 要素を把握する。</li>
+      <li>画面が変わっても入力された情報を維持する方法（static な Bundle 変数）</li>
+      <li>アプリを閉じても入力された情報を維持する方法（shared preference）</li>
+    </ul>
+	  
+  
 <h3>A. Clickable images / クリック可能な画像</h3>
     <h4>概要</h4>
     <p>Android搭載デバイスの画面に表示されるユーザーインターフェイス（UI）は、<strong>ビュー（View）</strong>と呼ばれるオブジェクトの階層で構成されている。 画面のすべての要素はViewである。Viewクラスは、<strong>すべてのUIコンポーネントの基本的な構成要素</strong>を表す。 Viewは、Button要素をはじめとするインタラクティブなUIコンポーネントを提供するクラスの基本クラスである。<br>
       <strong>Buttonは、ユーザーがタップまたはクリックしてアクションを実行できるUI要素</strong>です。<br>
       <strong> ImageView</strong>などの任意のViewをタップまたはクリックできるUI要素に変えることができます。ImageViewの画像は、プロジェクトの<strong>drawablesフォルダー</strong>に保存する必要があります。<br>
       この実習では、ユーザーがタップまたはクリックできる要素として画像を使用する方法を学習します。 </p>
-	  
-    <h4>前提知識</h4>
-    <ul>
-      <li>テンプレートからAndroidStudioプロジェクトを作成し、main layoutを生成する。</li>
-      <li>接続されたデバイスでアプリを実行する。</li>
-      <li><strong>Layout Editor</strong>とXMLコードを使用してUI要素を作成および編集する。</li>
-      <li><strong>findViewById()</strong> を使用して、コードからUI要素にアクセスする。</li>
-      <li><strong>Button</strong> のクリックを処理する。</li>
-      <!--<li><strong>Toast</strong> メッセージを表示する。</li>-->
-      <li>プロジェクトの <strong>drawable</strong> フォルダに画像を追加する。</li>
-    </ul>
-	  
-    <h4>この課題で学ぶこと</h4>
-    <ul>
-      <li>アクションを実行するためのインタラクティブな要素として画像を使用する方法。</li>
-      <li>レイアウトエディタで<strong>ImageView</strong>要素の属性を設定する方法。</li>
-      <li><strong>onClick()</strong> メソッドを追加して<strong> Toast </strong>メッセージを表示する方法。</li>
-    </ul>
 	  
     <h4>FloatingActionButtonの追加</h4>
     <p>AndroidStudioのアイコンのセットからアイコンを選択できます。次の手順を実行します：
@@ -175,18 +177,19 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
 
   </div>
 	
-  <hr></hr>
+  <hr>
  <div class="practice">
 	<h3>演習問題3_2: </h3>
+   <h5><strong>「Input Control」の説明を参考にしながら、UI が図2~4と同じになるように、「a」～「g」の要素と機能を実装する。</strong></h5>
 		<ol type="a">
-			<li>Tablet の設定にて言語を「<strong>英語（米国）</strong>」を追加し、キーボードを<strong>Qwerty</strong> に指定する。
+			<li>端末/エミュレータの設定にて言語を「<strong>英語（米国）</strong>」を追加し、キーボードを<strong>Qwerty</strong> に指定する（Gboard）。
           </li>
-			<li>メールアドレスを入力するためのキーボードを表示する</li>
-<li>電話番号を入力するためのテンキーを表示する。</li>
-			<li>Name フィールドの入力がででで大文字になるよう android:inputType 属性を変更するる。</li>
-			<li>オプションを選択するための <strong>Radio button</strong> を追加する（１例でも良い）。</li>
-			<li><strong>Radio button</strong> の<strong>onClick</strong>ハンドラーを設定し、<strong>Toast メッセージ</strong>を用いてどのボタンが選択されたかを表示する。</li>
-			<li>値のセットから1つの値を選択するために、電話番号フィールドに <strong>spinner</strong> を追加し、選択した <strong>spinner</strong> の名前が <strong>Toast</strong> で表示させる。</li>
+			<li><strong>名前</strong>を入力するフィールドは、Layout Editor の Palette の「<strong>PlainText</strong>」要素で作成する。名前の頭文字が自動的に大文字入力になるため、属性（attributes）の <strong>inputType</strong> を適切に設定する。</li>
+			<li><strong>学生番号</strong>を入力フィールドは、Layout Editor の Palette の「<strong>Number</strong>」要素で作成する。そうすることで、入力の際テンキーが自動で表示される。</li>
+			<li><strong>メールアドレス</strong>を入力フィールドは、Layout Editor の Palette の「<strong>E-mail</strong>」要素で作成する。そうすることで、入力の際キーボードに「@」キーが自動で表示される。</li>
+<li><strong>電話番号</strong>を入力するフィールドは、Layout Editor の Palette の「<strong>Phone</strong>」要素で作成する。そうすることで、入力の際テンキーが自動で表示される。</li>
+			<li><strong>電話番号の種類</strong>は、家・仕事・携帯・その他」の４つの選択肢を用意する。そのため、Layout Editor の Palette の widget カテゴリにある「<strong>spinner</strong> 」を利用する。電話番号の種類を選定・変更する度に、選択した種類の名前が <strong>Toast</strong> で表示されるようにする。</li>
+			<li><strong>通学手段</strong>（Mobility）は「<strong>RadioButton</strong>」で作成する（横並び、縦並び、どちらでもOK）。１つの RadioButton しか選択できないように、「<strong>RadioGroup</strong>」で囲むこと。RadioButton の <strong>onClick</strong> ハンドラーを設定し、選択する度、どのボタンが選択されたかを <strong>Toast</strong> を用いて表示させる。</li>
 		</ol>
 
 		<table><tr>
@@ -208,7 +211,7 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
 					<figcaption class="figure-caption text-center">図５．課題3_2の完成時スクリーンショット（電話番号入力時）</figcaption>
 				</figure>
 			</td>
-		</tr></table>
+	</tr></table>
 	</div>
 	
 	<h3>Input Control / 入力コントロール</h3>
@@ -225,6 +228,7 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
 	    この課題では、属性を使用して画面上のキーボードの外観を制御し、EditTextのデータ入力のタイプを設定する。 また、<strong>SetActivity</strong>アプリに radio button を追加して、ユーザーが一連のアイテムから1つのアイテムを選択できるようにする。
 	  </p>
 	</div>
+  
   <div class="contents">
 	<h4>この課題で学ぶこと</h4>
 	<ul>
@@ -346,15 +350,40 @@ public class SetActivity extends AppCompatActivity implements　AdapterView.OnIt
 		
 	</p>
 		  
-	
-	  
-    <hr>
       <h4> より詳しい情報は <a href="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts-v2/unit-2-user-experience/lesson-4-user-interaction/4-2-c-input-controls/4-2-c-input-controls.html">Android Developers Guide</a> を参照すること。 </h4> 
   </div>
 
 	<hr>
 
-	<h3>Androidでのデータ永続化</h3>
+	<div class="practice">
+	<h3>演習問題3_3：Saving data into a Bundle</h3>
+    <h5>「Androidでのデータ永続化」の説明を参考にしつつ、Bundle型 static 変数を用いて、「a」～「d」を実装する。<h5>
+		<ol type="a">
+      <li><strong>入力した情報を保存</strong>するための Floating Action Button を用意する（図６を参照：フロッピーディスク形状）。</li>
+      <li><strong>保存ボタンをタップ</strong>したときと、Action Bar の「戻る」ボタンをタップしたとき、各フィールドの値を <strong>Bundle Class </strong>の <strong>static</strong> 変数に保存する。</li>
+			<li>また、MainActivity より SetActivity を呼び出した際、２回目以降（Bundle 変数はnullではなく、データ入っている状態）、Bundle に保存した値で、各フィールドを自動的に入力・設定する（Fieldの種類によって、入力・設定の仕方が少し変わる）。</li>
+      <li>初回設定（SetActivity）を起動する際、図5、２回目以降図6のようになっていることを確認する。</li>
+		</ol>
+      <p>
+      【hint】フィールドによって、「c」で自動入力しやすいように、Bundle に保存するべき内容を考えること。
+        </p>
+		<table><tr>
+			<td align="center">
+				<figure class="figure">
+					<img src="./assets/images/ex3rd/exercise3_2_e-mail_mobile.png" alt="exercise3_2_e-mail_mobile.png" class="figure-img img-fluid rounded" width="60%">
+					<figcaption class="figure-caption text-center">図5．課題3_3において、ActivitySetを初めて表示した際のスクリーンショット</figcaption>
+				</figure>
+			</td>
+			<td align="center">
+				<figure class="figure">
+					<img src="./assets/images/ex3rd/exercise3_3_input.png" alt="exercise3_3_input.png" class="figure-img img-fluid rounded" width="60%">
+					<figcaption class="figure-caption text-center">図6．課題3_3の完成時スクリーンショット（データ入力後、2回目の呼び出し）</figcaption>
+				</figure>
+			</td>
+	  </tr></table>
+    </div>
+
+<h3>Androidでのデータ永続化</h3>
   <div class="content">
     <h4>Bundle について / How to use Bundle</h4>
 	  <p>
@@ -381,29 +410,17 @@ public class SetActivity extends AppCompatActivity implements　AdapterView.OnIt
 	  </p>
 	</div>
 	　<!-- END <h3>Save Data</h3>-->
+    
+
 	<div class="practice">
-	<h3>演習問題3_3：Saving data into a Bundle</h3>
+	<h3>演習問題3_4：Saving data with shared preferences（任意） </h3>
 		<ol type="a">
-			<li>入力した情報を保存するための Floating Action Button を用意し、各フィールドの値を Bundle Class の static 変数に保存する。</li>
-			<li>Action Bar の「戻る」ボタン経由でもデータが保存されるようにする。</li>
-			<li>次に ActivitySet を呼び出した際、各フィールドの値で Bundle に保存した値から自動でなるようにする（初めは図5、入力・保存後の2回目は図6）。</li>
+		  <li>SharedPreference を用いて、設定を一度しか入力しなくて済むようにする。<br>
+			Activity 変更したり、アプリを閉じたりしても、再び「設定」を開いた際、保存した内容が自動入力（表示）される。</li>
 			
 		</ol>
-		<table><tr>
-			<td align="center">
-				<figure class="figure">
-					<img src="./assets/images/ex3rd/exercise3_2_e-mail_mobile.png" alt="exercise3_2_e-mail_mobile.png" class="figure-img img-fluid rounded" width="60%">
-					<figcaption class="figure-caption text-center">図5．課題3_3において、ActivitySetを初めて表示した際のスクリーンショット</figcaption>
-				</figure>
-			</td>
-			<td align="center">
-				<figure class="figure">
-					<img src="./assets/images/ex3rd/exercise3_3_input.png" alt="exercise3_3_input.png" class="figure-img img-fluid rounded" width="60%">
-					<figcaption class="figure-caption text-center">図6．課題3_3の完成時スクリーンショット（データ入力後、2回目の呼び出し）</figcaption>
-				</figure>
-			</td>
-		</tr></table>
-    </div>
+	</div>	
+    
 	<div class="content">
 
 	  <h4>SharedPreferencesでデータを永続化する / Save the default values in shared preferences</h4>
@@ -462,15 +479,6 @@ public class SetActivity extends AppCompatActivity implements　AdapterView.OnIt
 		  つまり、アプリからしかアクセスできない内部ストレージ。</p>
 
 	</div>
-
-	<div class="practice">
-	<h3>演習問題3_4：Saving data with shared preferences（任意） </h3>
-		<ol type="a">
-		  <li>SharedPreference を用いて、設定を一度しか入力しなくて済むようにする。<br>
-			Activity 変更したり、アプリを閉じたりしても、再び「設定」を開いた際、保存した内容が自動入力（表示）される。</li>
-			
-		</ol>
-	</div>	
 
 
 <!--
