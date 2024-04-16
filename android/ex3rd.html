@@ -21,10 +21,11 @@
   </p>
   <p><a href="index.html">ホームへ戻る</a></p>
   <div class="contents">
-    <h3>PREPARATION / 準備</h3>
-    <p> 第2回のプロジェクト、"<strong>LG Action Bar Activity</strong>" 、を続けて使用する。</p>
-    <p><strong>演習問題2_3で作成した以下のActivity と Layout をコピーして、名前を変更せよ。 </strong> 
-		<ul>
+    <h4>第2回のプロジェクト、"<strong>LG First Android GUi</strong>" 、を続けて使用する。</h4>
+
+    <!------ 古いバージョン ----    
+    <p>レイアウトは、<strong>演習問題2_3で作成した Layout をコピーして、名前を変更せよ。 </strong> 
+	<ul>
 			<li>Activity　→　<strong>InputActivity.java</strong><br>
 			InputActivity の package を <strong>jp.aoyama.a00001.xxinputactivity</strong> (a00001は学生番号にちなんだ番号、はxx各自の名前の頭文字)</li>
 			<li>Layout　→　<strong>layout_input.xml</strong><br>
@@ -38,8 +39,10 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
 			<li>build.gradle フィアルにおいて、applicationId を「jp.aoyama.a00001.xxinputactivity」にする。</li>
 	  </ul>
 	  </p>
+---------------------->
+    
 <div class="practice practice-checkpoint">
-	<h3>本日の提出課題一覧</h3>
+	<h3>第3回の提出課題一覧</h3>
 		<ol>
 		<li><strong>演習問題3_1（必須）</strong></li>
 		<li><strong>演習問題3_2（必須）</strong></li>
@@ -48,7 +51,34 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
 		</ol>
 </div>
 	
-<h3>Clickable images / クリック可能な画像</h3>
+<div class="practice">
+	<h3>演習問題3_1: Clickable image から他の Activity を立ち上げる</h3>
+	<ol type="a">
+    <li>下記「A. Clickable images」の説明を参考に、レイアウトの左下に【設定画面】を開くための&nbsp; <strong>FloatingActionButton</strong> &nbsp;型ボタンを追加する。<strong>アイコンを図１左下と同じ形</strong>（歯車マーク）のものにする（色、大きさは問わない）。</li>
+    <li><strong>SetActivity</strong> という名の新しい "Empty Views Activity" を作成する。
+      <ol>
+        <li>SetActivity のレイアウトの名を <strong>activity_set</strong> とする。</li>
+        <li>SetActivity のタイトルを <strong>"Settings"</strong> とする。</li>
+        <li>SetActivity の<strong>戻る（ホーム）ボタン</strong>を表示させる。</li>
+      </ol> 
+    </li>
+	  <li>下記「B. Activity callback」の説明を参考に、「a」で作成した<strong>【設定】ボタンをタップた際</strong>、
+      <ol>
+        <li><strong>SetActivity</strong> を起動させる。</li>
+        <li>“opening user setting”を表示する <strong>Toast</strong> を表示させる。</li>
+        <li>SetActivity の戻る（ホーム）ボタンをタップした時、<strong>アクティビティが終了</strong>（ <strong>finish()</strong> メソッド）し、再び MainActivity が表示されるようにする。</li>
+      </ol>
+    </li>
+	</ol>
+  <p>演習問題3_1で実装するUIと機能の遷移状態は図１にまとめている。</p>
+	<figure class="figure" align="center">
+		<img src="./assets/images/ex3rd/setting_open-close.png" alt="setting_open-close.png" class="figure-img img-fluid rounded" width="60%">    
+	  <figcaption class="figure-caption text-center">図１．課題3_1を実行したときの画面構成（左はMainActivity、右はSetActivity）と機能遷移</figcaption>
+  </div>
+	
+	<hr>
+	
+<h3>A. Clickable images / クリック可能な画像</h3>
     <h4>概要</h4>
     <p>Android搭載デバイスの画面に表示されるユーザーインターフェイス（UI）は、<strong>ビュー（View）</strong>と呼ばれるオブジェクトの階層で構成されている。 画面のすべての要素はViewである。Viewクラスは、<strong>すべてのUIコンポーネントの基本的な構成要素</strong>を表す。 Viewは、Button要素をはじめとするインタラクティブなUIコンポーネントを提供するクラスの基本クラスである。<br>
       <strong>Buttonは、ユーザーがタップまたはクリックしてアクションを実行できるUI要素</strong>です。<br>
@@ -76,46 +106,45 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
     <h4>FloatingActionButtonの追加</h4>
     <p>AndroidStudioのアイコンのセットからアイコンを選択できます。次の手順を実行します：
     <ol>
-      <li><strong>Project > Android</strong>パネルで<strong> res </strong>を展開し、<strong> drawable </strong>フォルダーを右クリック</li>
+      <li><strong>Project > Android</strong>パネルで<strong> res </strong>（リソース）を展開し、<strong> drawable </strong>フォルダーを右クリック</li>
       <li><strong> New > Image Asset </strong>を選択し、イメージアセット設定ダイアログが表示される</li>
       <li>ダイアログの上部にあるドロップダウンメニューで<strong> Action Bar と Tab Icons </strong>を選択</li>
       <li>「名前」フィールドのic_action_nameを<strong> ic_set </strong>に変更</li>
       <li>クリップアート画像をクリックして、以下の クリップアート画像をアイコンとして選択<br>
         <img src="./assets/images/ex3rd/ic_set.png" class="figure-img img-fluid rounded" alt="ic_set.png"> </li>
-      <li><strong>Theme</strong> ドロップダウンメニューから <strong>HOLO_DARK</strong> を選択する。これにより、アイコンが暗い色（または黒）の背景に対して白に設定される。Next をクリックする。</li>
+      <li><strong>Theme</strong> ドロップダウンメニューから <strong>CUSTOM/HOLO_DARK/HOLO_LIGHT</strong> のどちらかを選択する。これにより、アイコンが暗い色（または黒）の背景に対して白に設定される。Next をクリックする。</li>
       <li>次のダイアログで<strong> 完了/Finish </strong>をクリックする。</li>
       <li>Layout Editor のデザインモードにおいて、Palette の Buttons カテゴリーから<strong> FloatingActionButton </strong>を選択し、以下のスクリーンショットと同じ位置におく。<br>
-        アイコン選択の際、Drawable の中に先ほど追加したアイコンを選定</li>
+        アイコン選択の際、<strong>Drawable の中に先ほど追加したアイコンを選定</strong></li>
     </ol>
     <figure class="figure">
       <img width="75%" src="./assets/images/ex3rd/screenshot_1.png" class="figure-img img-fluid rounded" alt="screenshot_1.png">
-      <figcaption class="figure-caption text-center">図１．Floating Action Buttonの配置</figcaption>
+      <figcaption class="figure-caption text-center">図２．Floating Action Buttonの配置</figcaption>
     </figure>
     </p>
 	
-    <h4>Activityの追加</h4>
-    <p> 前のレッスンで学習したように、アクティビティは、ユーザーが単一の焦点を絞ったタスクを実行できるアプリ内の単一の画面を表す。 <strong>InputActivity.java</strong>という1つのアクティビティがすでにある。 次に、<strong>SetActivity.java</strong>という別のアクティビティを追加する。<br>
-      左側の列にある<strong>jp.aoyama.a00001.lginputactivity</strong>フォルダーを右クリック（またはControlキーを押しながらクリック）して、[新規]&gt; [アクティビティ]&gt; [空のアクティビティ]を選択する。
+    <h3>B. Activity callback / 他 Activity の起動と終了</h3>
+    <h4>Activity の追加</h4>
+    <p> 前のレッスンで学習したように、アクティビティは、ユーザーが単一の焦点を絞ったタスクを実行できるアプリ内の単一の画面を表す。 <strong>MAinActivity.java</strong>という1つのアクティビティがすでにある。 次に、<strong>SetActivity.java</strong>という別のアクティビティを追加する。<br>
+      左側の列にある<strong>jp.aoyama.t23428.lgfirstandroidgui</strong>フォルダーを右クリック（またはControlキーを押しながらクリック）して、[New]&gt; [Activity]&gt; [Empty Views Activity] を選択する。
       アクティビティ名を<strong>SetActivity</strong>に、レイアウト名をactivity_setに編集します。 他のオプションはそのままにして、[完了]をクリックする。<br>
       これで、<strong>SetActivity</strong>クラスが<strong>InputActivity</strong>と一緒にjavaフォルダーにリストされ、<strong>activity_set.xml</strong>が <strong>layout</strong> フォルダーにリストされるはず。 </p>
 	
-    <h4>Actionの変更</h4>
+    <h4>Action の変更</h4>
 	<p>
 		このステップでは、FloatingActionButton のアクションを変更して、新しい Activity を起動する。
 		<ol>
-			<li>InputActivityを開く</li>
-			<li>設定アイコンをタップした際、<strong>SetActivity</strong>が開始されるよう、<strong>myBtnClick</strong>（View view）メソッドに<strong>明示的 Intent</strong>の作成コードを追加する（else if 文に囲めて）：</li>
-	<pre><code class="java hljs">
-<!-- public void myBtnClick(View view) {
-	/** これまでのコードそのまま **/
-	else if(v.getId()==R.id.set_btn){-->
+			<li>MainActivity.java を開く</li>
+			<li>設定アイコンをタップした際、 <strong>SetActivity</strong> が起動されるよう、<strong>myBtnClickView view）</strong>メソッド（演習課題2で作成しているはずですが、設定ボタン専用のクリック処理メソッドを作成しても良い）に<strong>明示的 Intent</strong> の作成コードを追加する（必要に応じて else if 文に囲めて）：</li>
+      
+<pre><code class="java hljs">  
 	Intent intent = new Intent(InputActivity.this, SetActivity.class);
 	startActivity(intent);
-<!--	}
-}-->
+  
 </code></pre>
-		  <li>アプリを実行し、設定アイコンを使用する floating action button をタップすると、空白の <strong>Activity</strong> が表示される（<strong>SetActivity</strong>）。</li>
-			<li><strong>finish() </strong>メソッドを使うことで、「戻る」ボタンをタップする際、<strong>InputActivity</strong> に戻れる。</li>
+      
+		  <li>アプリを実行し、設定アイコンを使用する floating action button をタップすると、空白の <strong>Activity</strong> （SetActivity）が表示されることを確認。</li>
+			<li>SetActivity を終了させ、呼び出した Activity（MainActivity）に戻るには、 <strong>finish()</strong> メソッドを使う。今回は、SetActivityの「戻る」ボタンのタップで終了させる。</li>
         </ol>
 	</p>
 	
@@ -139,25 +168,47 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
 		/** 設定ボタンのクリック処理に追加する　**/
 		displayToast(getString(xxxxxxxxx));
 	}
-</code>
-</pre>
+  
+</code></pre>
     </ol>
 
   </div>
-	<div class="practice">
-	<h3>演習問題3_1: Clickable image から他の Activity を立ち上げる</h3>
-	<ol type="a">
-	  <li value="1">上記の説明を参考に、「設定」ボタンを押した際、“opening user setting”を表示する Toast が表示されるうえ、SetActivity という empty activity が表に表示されるようにする（図２）。</li>
-		<li value="2">下記図に合せるようにGUIのレイアウトを作成してください（Activity名：Settings　、「戻る」ボタン有り）。</li>
-		<li value="3">「戻る」ボタンをタップするとき、InputActivity に戻るようにする。</li>
-	</ol>
-	<figure class="figure">
-		<img src="./assets/images/ex3rd/exercise3_1.png" alt="exercise3_1.png" class="figure-img img-fluid rounded" width="50%">
-		<figcaption class="figure-caption text-center">図２．課題3_1(a)の実行時スクリーンショット</figcaption>
-	</figure>
-  </div>
 	
-	<hr>
+  <hr></hr>
+ <div class="practice">
+	<h3>演習問題3_2: </h3>
+		<ol type="a">
+			<li>Tablet の設定にて言語を「<strong>英語（米国）</strong>」を追加し、キーボードを<strong>Qwerty</strong> に指定する。
+          </li>
+			<li>メールアドレスを入力するためのキーボードを表示する</li>
+<li>電話番号を入力するためのテンキーを表示する。</li>
+			<li>Name フィールドの入力がででで大文字になるよう android:inputType 属性を変更するる。</li>
+			<li>オプションを選択するための <strong>Radio button</strong> を追加する（１例でも良い）。</li>
+			<li><strong>Radio button</strong> の<strong>onClick</strong>ハンドラーを設定し、<strong>Toast メッセージ</strong>を用いてどのボタンが選択されたかを表示する。</li>
+			<li>値のセットから1つの値を選択するために、電話番号フィールドに <strong>spinner</strong> を追加し、選択した <strong>spinner</strong> の名前が <strong>Toast</strong> で表示させる。</li>
+		</ol>
+
+		<table><tr>
+			<td align="center">
+				<figure class="figure">
+					<img src="./assets/images/ex3rd/exercise3_2_name.png" alt="exercise3_2_name.png" class="figure-img img-fluid rounded" width="80%">
+					<figcaption class="figure-caption text-center">図３．課題3_2の完成時スクリーンショット（Name入力時）</figcaption>
+				</figure>
+			</td>
+			<td align="center">
+				<figure class="figure">
+					<img src="./assets/images/ex3rd/exercise3_2_e-mail_mobile.png" alt="exercise3_2_e-mail_mobile.png" class="figure-img img-fluid rounded" width="80%">
+					<figcaption class="figure-caption text-center">図４．課題3_2の完成時スクリーンショット（e-mail入力時）</figcaption>
+				</figure>
+			</td>
+			<td align="center">
+				<figure class="figure">
+					<img src="./assets/images/ex3rd/exercise3_2_phone_home.png" alt="exercise3_2_phone_home.png" class="figure-img img-fluid rounded" width="80%">
+					<figcaption class="figure-caption text-center">図５．課題3_2の完成時スクリーンショット（電話番号入力時）</figcaption>
+				</figure>
+			</td>
+		</tr></table>
+	</div>
 	
 	<h3>Input Control / 入力コントロール</h3>
   <div class="contents">
@@ -299,41 +350,7 @@ public class SetActivity extends AppCompatActivity implements　AdapterView.OnIt
     <hr>
       <h4> より詳しい情報は <a href="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts-v2/unit-2-user-experience/lesson-4-user-interaction/4-2-c-input-controls/4-2-c-input-controls.html">Android Developers Guide</a> を参照すること。 </h4> 
   </div>
-	<div class="practice">
-	<h3>演習問題3_2: </h3>
-		<ol type="a">
-			<li>Tablet の設定にて言語を「<strong>英語（米国）</strong>」を追加し、キーボードを<strong>Qwerty</strong> に指定する。
-          </li>
-			<li>メールアドレスを入力するためのキーボードを表示する</li>
-<li>電話番号を入力するためのテンキーを表示する。</li>
-			<li>Name フィールドの入力がででで大文字になるよう android:inputType 属性を変更するる。</li>
-			<li>オプションを選択するための <strong>Radio button</strong> を追加する（１例でも良い）。</li>
-			<li><strong>Radio button</strong> の<strong>onClick</strong>ハンドラーを設定し、<strong>Toast メッセージ</strong>を用いてどのボタンが選択されたかを表示する。</li>
-			<li>値のセットから1つの値を選択するために、電話番号フィールドに <strong>spinner</strong> を追加し、選択した <strong>spinner</strong> の名前が <strong>Toast</strong> で表示させる。</li>
-		</ol>
 
-		<table><tr>
-			<td align="center">
-				<figure class="figure">
-					<img src="./assets/images/ex3rd/exercise3_2_name.png" alt="exercise3_2_name.png" class="figure-img img-fluid rounded" width="80%">
-					<figcaption class="figure-caption text-center">図３．課題3_2の完成時スクリーンショット（Name入力時）</figcaption>
-				</figure>
-			</td>
-			<td align="center">
-				<figure class="figure">
-					<img src="./assets/images/ex3rd/exercise3_2_e-mail_mobile.png" alt="exercise3_2_e-mail_mobile.png" class="figure-img img-fluid rounded" width="80%">
-					<figcaption class="figure-caption text-center">図４．課題3_2の完成時スクリーンショット（e-mail入力時）</figcaption>
-				</figure>
-			</td>
-			<td align="center">
-				<figure class="figure">
-					<img src="./assets/images/ex3rd/exercise3_2_phone_home.png" alt="exercise3_2_phone_home.png" class="figure-img img-fluid rounded" width="80%">
-					<figcaption class="figure-caption text-center">図５．課題3_2の完成時スクリーンショット（電話番号入力時）</figcaption>
-				</figure>
-			</td>
-		</tr></table>
-	</div>
-	
 	<hr>
 
 	<h3>Androidでのデータ永続化</h3>
