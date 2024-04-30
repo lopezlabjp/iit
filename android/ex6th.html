@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-    <title>ITX1:Aoyama Gakuin University</title>
+    <title>ITX1:Aoyama Gakuin University - 6th</title>
     <link rel="stylesheet" type="text/css" href="assets/css/itx1.css">
         <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
@@ -15,6 +15,7 @@
 
 <body>
     <div class="container">
+        <div class="contents">
         <div class="title">
             <h1>第6回:Androidアプリで人間・環境をセンシングする</h1>
             <p style="text-align: right;">
@@ -29,8 +30,67 @@
                 <li>演習問題6_3（任意）</li>
             </ol>
         </div>
+      </div>
+            
+
+    <div class="container">
         <div class="contents">
-            <h3>イントロダクション</h3>
+
+            <h3>プロジェクトの作成</h3>
+            <p>Android アプリケーションプロジェクトを作成します。ただし、<strong>自分の名前の頭文字・自分の学生番号</strong>を使用すること。</p>
+            <table class="table caption-top table-sm" style="padding: 5px; border: solid 1px #ccc;">
+                <caption>下記の属性をもった新しい Android Project を作成する</caption>
+                <thead>
+                    <tr>
+                        <th>属性</th>
+                        <th>値</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td><strong>LG</strong> Sensor Monitor</td>
+                    </tr>
+                    <tr>
+                        <td>Package name</td>
+                        <td>jp.aoyama.<strong>t23428</strong>.<strong>lg</strong>sensorMonitor</td>
+                    </tr>
+                    <tr>
+                        <td>Save location</td>
+                        <td>任意</td>
+                    </tr>
+                    <tr>
+                        <td>Language</td>
+                        <td>Java</td>
+                    </tr>
+                    <tr>
+                        <td>Minimum SDK</td>
+                        <td>使用端末の Android バージョン以下を選択</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      
+              <div class="practice contents">
+            <h3>演習課題6_1: 加速度センサの値取得（必須）</h3>
+                <p>「各センサの共通的な使い方」や「センサデータ取得のための基本コード例」の説明を参考に、以下の内容を実施せよ。</p>
+            <ol type="a">
+              <li>上記の加速度センサ読み取り設定および、データ読み取りのコードを参考にし、図.2のように加速度センサの３軸の値が表示されるように適切なコードを追加する。x軸に重力加速度がかかるような姿勢でスクリショをとること！</li>               
+                
+            </ol>
+
+            <figure class="figure">
+                <img src="assets/images/ex6th/fig1.PNG" class="figure-img img-fluid rounded" alt="fig1.png">
+                <figcaption class="figure-caption text-center">図.1 加速度センサの軸方向</figcaption>
+            </figure>
+
+            <figure class="figure">
+                <img src="assets/images/ex6th/fig2.PNG" class="figure-img img-fluid rounded" alt="fig2.png">
+                <figcaption class="figure-caption text-center">図.2 加速度センサの各軸の値を表示するアプリのスクリーンショット</figcaption>
+            </figure>
+
+        </div>
+      <h3>イントロダクション</h3>
             <p>2014 年 3 月に、Android プラットフォームをウェアラブル端末に拡張する「Android
                 Wear」が発表され、ヘルスケアの観点からウェアラブル端末搭載のセンシング技術が
                 重要な位置付けになることが予想されている。Android は、スマートフォンだけではな
@@ -46,7 +106,6 @@
                     href="https://developer.android.com/guide/topics/media/media-formats?hl=ja">(https://developer.android.com/guide/topics/media/media-formats?hl=ja)</a>
             </p>
 
-        </div>
 
         <div class="contents">
             <h3>各センサの共通的な使い方</h3>
@@ -157,47 +216,9 @@
             </table>
 
         </div>
-
+      
         <div class="contents">
-
-            <h3>プロジェクトの作成</h3>
-            <p>Android アプリケーションプロジェクトを作成します。ただし、<strong>自分の名前の頭文字・自分の学生番号</strong>を使用すること。</p>
-            <table class="table caption-top table-sm" style="padding: 5px; border: solid 1px #ccc;">
-                <caption>下記の属性をもった新しい Android Project を作成する</caption>
-                <thead>
-                    <tr>
-                        <th>属性</th>
-                        <th>値</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Name</td>
-                        <td><strong>LG</strong> Sensor Monitor</td>
-                    </tr>
-                    <tr>
-                        <td>Package name</td>
-                        <td>jp.aoyama.<strong>t23428</strong>.<strong>lg</strong>sensorMonitor</td>
-                    </tr>
-                    <tr>
-                        <td>Save location</td>
-                        <td>任意</td>
-                    </tr>
-                    <tr>
-                        <td>Language</td>
-                        <td>Java</td>
-                    </tr>
-                    <tr>
-                        <td>Minimum SDK</td>
-                        <td>使用端末の Android バージョン以下を選択</td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-        </div>
-        <div class="contents">
-            <h3>センサ関連コードの追加</h3>
+            <h3>センサデータ取得のための基本コード例</h3>
             <p>第1ステップは<strong>SensorManager</strong>のインスタンスを生成し、Activityをセンサ読み取りActivityに設定し、読み取りたいセンサを設定すること。そのため、センサ関連クラスのimportを忘れずに、下記のコードを追加する。
             </p>
 
@@ -225,25 +246,12 @@
                 <p><strong>SensorManager</strong>クラスの<strong>registerListener(...)</strong>メソッドの第2引きすを表2にリストしているセンサタイプ（TYPE_ACCELEROMETER、TYPE_GYROSCOPE等々）で適切に設定していれば、読み取り可能にしたいセンサが選定できる。</p>
             </div>
             
-        </div>
-        <div class="practice contents">
-            <h3>演習課題6_1: メディアの再生（必須）</h3>
-            <ol type="a">
-                <li>上記の加速度センサ読み取り設定および、データ読み取りのコードを参考にし、図.2のように加速度センサの３軸の値が表示されるように適切なコードを追加する。x軸に重力加速度がかかるような姿勢でスクリショをとること！</li>               
-                
-            </ol>
-
-            <figure class="figure">
-                <img src="assets/images/ex6th/fig1.PNG" class="figure-img img-fluid rounded" alt="fig1.png">
-                <figcaption class="figure-caption text-center">図.1 加速度センサの軸方向</figcaption>
-            </figure>
-
-            <figure class="figure">
-                <img src="assets/images/ex6th/fig2.PNG" class="figure-img img-fluid rounded" alt="fig2.png">
-                <figcaption class="figure-caption text-center">図.2 加速度センサの各軸の値を表示するアプリのスクリーンショット</figcaption>
-            </figure>
-
-        </div>
+      </div>
+      <hr>
+      
+<!-------------------------------------------------
+ --------------- Practice 6_2 ---------------------
+-------------------------------------------------->
 
         <div class="practice contents">
             <h3>演習課題6_2: センサの詳細情報取得・表示（必須）</h3>
@@ -300,15 +308,9 @@
             <figure class="figure">
                 <img src="assets/images/ex6th/fig6.PNG" class="figure-img img-fluid rounded" alt="fig6.png">
                 <figcaption class="figure-caption text-center">図.6 センサの値のプロットができるアプリの例のスクリショ</figcaption>
-            </figure>
-    
-
-            
+            </figure>            
 
         </div>
-
-
-
 
     </div>
 

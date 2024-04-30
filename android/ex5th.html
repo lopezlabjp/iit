@@ -2,24 +2,23 @@
 <!DOCTYPE html>
 <html lang="ja"> 
     <head>
-        <title>ITX1:Aoyama Gakuin University</title>
-        <link rel="stylesheet" type="text/css" href="assets/css/itx1.css">
-        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
-        <link href="assets/plugins/highlight/styles/default.css" rel="stylesheet">
-        <script href="assets/plugins/highlight/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    </head>
+        <title>ITX1:Aoyama Gakuin University - 5th</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/itx1.css">
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+	<link href="assets/plugins/highlight/styles/default.css" rel="stylesheet">
+	<script href="assets/plugins/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  </head>
     <body>
         <div class="container">
             <div class="title">
                 <h1>第5回：Android アプリにおけるメディア再生・記録について</h1>
-                <p style="text-align: right;">
-                    最終更新日：2021年5月11日
-                </p>
+                <p style="text-align: right;">最終更新日：2024年4月30日</p>
             </div>
+            <div class="contents">
             <div class="practice practice-checkpoint">
                 <h3>本日の提出課題一覧</h3>
                 <ol>
@@ -28,7 +27,6 @@
                     <li>演習問題5_3（任意）</li>
                 </ol>
             </div>
-            <div class="contents">
                 <h3>イントロダクション</h3>
                 <p>Android プラットフォームは、オーディオやビデオ、画像を簡単にアプリケーションに組み込めるよう、一般的なメディアタイプのエンコーディング/デコーディングの仕組みを提供している。Android はいろんな種類のデータソースからオーディオやビデオを再生できる。本実験では MP3 フォーマットのメディアを操作するがその他に Android がサポートするメディアタイプの詳細なリストについては、<a class="external-link" href="https://developer.android.com/guide/topics/media/media-formats">Android Media Formats</a> を参照して下さい。</p>
                 <p>Android のメディア操作は、「android.media」パッケージで実現する。このパッケージには、オーディオやビデオをアプリケーション内で再生には <strong>MediaPlayer</strong> クラス、記録するためには <strong>MediaRecorder</strong> クラスが用意されている。それぞれのクラスが提供している主なメソッドを下記表1にまとめている。</p>
@@ -222,6 +220,7 @@
                 </div>
                 <div class="practice contents">
                     <h3>演習課題5_1: メディアの再生（必須）</h3>
+                  <p>上記説明を参考に、以下の内容を実施せよ</p>
                     <ol type="a">
                         <li><strong>ファイルシステムから（resource から）メディア取得</strong>のインスタンス生成・再生のコードを適切な場所に追加し、音楽が流れていることを確認する。また、<strong>Thread.sleep(…)</strong> を用いて3秒後自動的に停止するようにする。</li>
                             
@@ -241,6 +240,7 @@
                 
             <div class="practice contents">
                 <h3>演習課題5_2: GUI でメディア再生を制御する（必須）</h3>
+              <p>上記説明を参考に、以下の内容を実施せよ</p>
                 <ol type="a">
                     <li><strong>LG</strong> Audio Player プロジェクトに新しい Activity（<strong>LG</strong>AudioActivity.java）、Layout（<strong>lg</strong>_audio_layout_main.xml）と、menu（<strong>lg</strong>_audio_menu.xml）を作成し、<a href="https://www.ankorobe.com/android/ex2nd.html">第2回</a>で作成した GUI（Layoutと、Button・Action bar のクリック動作）を反映させる。</li>
                     <li>[Play] ボタンをタップするとサウンドの再生が始まる、[Stop] ボタンをタップすると再生が停止するという操作ができるようにプログラムを変更する。</li>
@@ -255,7 +255,18 @@
                   <figcaption class="figure-caption text-center">図5. 一時停止ボタンを配置し、押した際のアプリスクリーンショット</figcaption>
                 </figure>
             </div>
-            <h3>音を記録しファイルに保存する</h3>
+          
+          
+          <hr>
+            <div class="practice">
+                <h3>演習課題5_3: マイクで音を記録・保存する（任意）</h3>
+                <p>下記「音を記録しファイルに保存する」の説明を参考に録音に必要な手順を参考ウェブサイトなどから完成させ、下記のように実装する。</p>
+                <ol type="a">
+                    <li>GUI に記録ボタン（record）を追加し、押した際に記録が開始するようにする。</li>
+                    <li>stop ボタンを押した際、再生中ならば再生を停止、記録中ならば記録を停止・完了するような条件を追加する。</li>
+                </ol>
+            </div>            
+          <h3>音を記録しファイルに保存する</h3>
             <div class="contents">
                 <div>
                     <p>デバイスからのオーディオのキャプチャは、オーディオ/ビデオの再生より少し複雑なる。下記、主な手順をまとめた。</p>
@@ -274,14 +285,7 @@
                         <li>生成した <strong>MediaRecorder</strong> インスタンスの <strong>repare()</strong> メソッドを呼ぶ。</li>
                     </ol>
                 </div>
-                <div class="practice">
-                    <h3>演習課題5_3: マイクで音を記録・保存する（任意）</h3>
-                    <p>上記情報をもとに録音に必要な手順を参考ウェブサイトなどから完成させ、下記のように実装する。</p>
-                    <ol type="a">
-                        <li>GUI に記録ボタン（record）を追加し、押した際に記録が開始するようにする。</li>
-                        <li>stop ボタンを押した際、再生中ならば再生を停止、記録中ならば記録を停止・完了するような条件を追加する。</li>
-                    </ol>
-                </div>
+
             </div>
         </div>
     </body>
