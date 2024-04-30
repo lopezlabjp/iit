@@ -17,17 +17,63 @@
                 <h1>第4回　Input from and Output to Files / ファイルへの入出力</h1>
             </div>
 			  <p style="text-align: right;">
-				最終更新日：2021年4月26日
+				最終更新日：2024年4月30日
 			  </p>
-            <div class="contents">
-<div class="practice practice-checkpoint">
-	<h3>本日の提出課題一覧</h3>
-		<ol>
-		<li><strong>演習問題4_1（必須）</strong></li>
-		<li><strong>演習問題4_2（必須）</strong></li>
-		<li><strong>演習問題4_3（必須）</strong></li>
-		</ol>
+        <div class="contents">
+        <div class="practice practice-checkpoint">
+          <h3>本日の提出課題一覧</h3>
+            <ol>
+            <li><strong>演習問題4_1（必須）</strong></li>
+            <li><strong>演習問題4_2（必須）</strong></li>
+            <li><strong>演習問題4_3（必須）</strong></li>
+            </ol>
+        </div>
+          
+        <div class="practice">
+<h3>演習問題4_1: Write a text file（必須）</h3>
+          <p>「Androidストレージ、内部ストレージへアクセスする」などの説明を参考に、以下の内容を実施せよ。</p>
+	<ol type="a">
+		<li>SetActivity Class において、Save ボタンをタッチした際、演習問題3_4で記録した SharedPreference の中身（Bundleの中身）をテキストファイルに保存させる（結果は図２を参照）。<br>
+		ファイル書式は「<strong>xxsetactivity_pref-20210427_150500.txt</strong>」になるようにすること。
+		<ul>
+		  <li>"xx" は各自の名前の頭文字</li>
+		  <li>"20210427" は保存した年月日（例：2021年4月27日）</li>
+		  <li>"150500" は保存した時刻（例：15時5分0秒）</li>
+		  <li>現在の年月日と時刻は <a href="https://docs.oracle.com/javase/10/docs/api/java/util/Date.html">Date</a> class のオブジェクトから  取得できる。</li>
+		  <li>Date オブジェクトを好みの文字列書式に出力するため、<a href="https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a> classを用いる（使い方は先のリンクから調べること）。</li>
+		</ul>
+		</li>
+		<li>InputActivity Class において、メニューバーの「SAVE」メニューを推した際、演習問題2_3で実装した“クリックしたボタンとメニューの名前をTextViewに表示する”の TextView オブジェクトの中身をテキストファイルに保存させる（結果は図３を参照）。<br>
+		ファイル書式は「<strong>xxinputactivity_content-20210427_150500.txt</strong>」になるようにすること（“20210427_150500”は「a.」の指示と同様、クリック日時になるようにする）。</li>
+	</ol>
+
+	<table><tr>
+		<td align="center">
+			<figure class="figure">
+				<img src="./assets/images/ex4th/device_explorer_data_files.png" alt="device_explorer_data_files.png" class="figure-img img-fluid rounded" width="80%">
+				<figcaption class="figure-caption text-center">図１．保存後、Device Exlplorer にて確認できるアプリケーションのデータファイル。</figcaption>
+			</figure>
+		</td>
+		</tr><tr>
+		<td align="center">
+			<figure class="figure">
+				<img src="./assets/images/ex4th/preferences_file.png" alt="preferences_file.png" class="figure-img img-fluid rounded" width="100%">
+				<figcaption class="figure-caption text-center">図２．Preference の中身を保存したテキストファイル</figcaption>
+			</figure>
+		</td></tr><tr>
+		<td align="center">
+			<figure class="figure">
+				<img src="./assets/images/ex4th/content_file.png" alt="content_file.png" class="figure-img img-fluid rounded" width="100%">
+				<figcaption class="figure-caption text-center">図３．TextViewの中身を保存したテキストファイル</figcaption>
+			</figure>
+		</td>
+
+	</tr></table>
 </div>
+
+  
+          
+          
                 <h3>Androidのストレージ</h3>
                 <p>
 					Android は、他のプラットフォームのディスクベース ファイル システムと同様のファイル システムを使用しています。システムには、アプリデータの保存方法として次のような選択肢が用意されている（<a href="https://developer.android.com/training/data-storage">Android Developers Guide</a>を参照）。<br>
@@ -64,10 +110,10 @@
 	
 		  <div class="contents">
 				<h3>アプリ固有のファイルにアクセスする</h3>
-				<p>多くの場合、アプリが作成するファイルは、他のアプリがアクセスする必要のないファイルまたはアクセスすべきでないファイルです。このようなアプリ固有のファイルには、以下の保存場所が用意されています。<br>
+			<p>多くの場合、アプリが作成するファイルは、他のアプリがアクセスする必要のないファイルまたはアクセスすべきでないファイルです。このようなアプリ固有のファイルには、以下の保存場所が用意されています。<br>
 				ユーザーがアプリをアンインストールすると、アプリ固有のストレージに保存されているファイルは削除されます。そのため、アプリから独立して保持されることをユーザーが期待するファイルは、このストレージに保存すべきではありません。たとえば、ユーザーがアプリで写真を撮影した場合、通常はアプリをアンインストールした後でも写真にアクセスすることを望みます。その種のファイルは、共有ストレージを使用して適切なメディア コレクションに保存する必要があります。
 				</p>
-				<h4>内部ストレージからアクセスする	</h4>
+				<h4>内部ストレージへアクセスする </h4>
 				<p>
 					内部ストレージ内にはアプリごとにディレクトリが用意されており、アプリはそこでアプリ固有のファイルを整理できます。1 つのディレクトリはアプリの永続ファイル用に設計されています。<br>
 					もう 1 つのディレクトリにはアプリのキャッシュ ファイルを格納します。これらのディレクトリ内のファイルを読み書きするためのシステム権限は必要ありません。
@@ -92,7 +138,7 @@
 			<p>
 					File API を使用する代わりに、openFileOutput() を呼び出して、filesDir ディレクトリ内のファイルへの書き込みを行う FileOutputStream を取得することもできます。<br>
 					次のコード スニペットは、ファイルにテキストを書き込む方法を示しています。
-				</p>
+			</p>
 
 <pre><code class="java hljs">
 	String fileContents = "Hello world!";
@@ -155,53 +201,35 @@
 				<p>外部キャッシュ ディレクトリからファイルを削除するには、ファイルを表す File オブジェクトで delete() メソッドを使用します。</p>
 				<p>Media Contents のように、特定のアプリ内でのみユーザーに価値を提供するメディア ファイルを使用する場合は、次のコード スニペットに示すように、外部ストレージ内のアプリ固有のディレクトリに保存することをおすすめします。</p>
 
-			</div>
-
-<div class="practice">
-<h3>演習問題4_1: Write a text file（必須）</h3>
-	<ol type="a">
-		<li>SetActivity Class において、Save ボタンをタッチした際、演習問題3_4で記録した SharedPreference の中身（Bundleの中身）をテキストファイルに保存させる（結果は図２を参照）。<br>
-		ファイル書式は「<strong>xxsetactivity_pref-20210427_150500.txt</strong>」になるようにすること。
-		<ul>
-		  <li>"xx" は各自の名前の頭文字</li>
-		  <li>"20210427" は保存した年月日（例：2021年4月27日）</li>
-		  <li>"150500" は保存した時刻（例：15時5分0秒）</li>
-		  <li>現在の年月日と時刻は <a href="https://docs.oracle.com/javase/10/docs/api/java/util/Date.html">Date</a> class のオブジェクトから  取得できる。</li>
-		  <li>Date オブジェクトを好みの文字列書式に出力するため、<a href="https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a> classを用いる（使い方は先のリンクから調べること）。</li>
-		</ul>
-		</li>
-		<li>InputActivity Class において、メニューバーの「SAVE」メニューを推した際、演習問題2_3で実装した“クリックしたボタンとメニューの名前をTextViewに表示する”の TextView オブジェクトの中身をテキストファイルに保存させる（結果は図３を参照）。<br>
-		ファイル書式は「<strong>xxinputactivity_content-20210427_150500.txt</strong>」になるようにすること（“20210427_150500”は「a.」の指示と同様、クリック日時になるようにする）。</li>
-	</ol>
-
-	<table><tr>
-		<td align="center">
-			<figure class="figure">
-				<img src="./assets/images/ex4th/device_explorer_data_files.png" alt="device_explorer_data_files.png" class="figure-img img-fluid rounded" width="80%">
-				<figcaption class="figure-caption text-center">図１．保存後、Device Exlplorer にて確認できるアプリケーションのデータファイル。</figcaption>
-			</figure>
-		</td>
-		</tr><tr>
-		<td align="center">
-			<figure class="figure">
-				<img src="./assets/images/ex4th/preferences_file.png" alt="preferences_file.png" class="figure-img img-fluid rounded" width="100%">
-				<figcaption class="figure-caption text-center">図２．Preference の中身を保存したテキストファイル</figcaption>
-			</figure>
-		</td></tr><tr>
-		<td align="center">
-			<figure class="figure">
-				<img src="./assets/images/ex4th/content_file.png" alt="content_file.png" class="figure-img img-fluid rounded" width="100%">
-				<figcaption class="figure-caption text-center">図３．TextViewの中身を保存したテキストファイル</figcaption>
-			</figure>
-		</td>
-
-	</tr></table>
-</div>
+	</div>
 
 
 <!------------------------------------------------------->
 <!----------------Get and Display Files List------------->
 <!------------------------------------------------------->
+
+<div class="practice">
+<h3>演習問題4_2: Access to application's files（必須）</h3>
+<p>「ファイルリストの取得と表示」の説明を参考に、以下の内容を実施せよ。</p>
+
+  <ol type="a">
+	  <li><strong>menu_action_bar.xml</strong> にある「Preview」メニュを「<strong>Open</strong>」に置き換える（表示される文字列とIDの変更）。</li>
+	<li>新しいレイアウトファイル、<strong>open_layout.xml</strong> を作成し、その中に <strong>ListView</strong> コンポネントを入れる（「Palette → Legacy」から見つかる） 。</li>
+	  <li>「Open」 メニューをタッチした時、InputActivity において、setContentViewメソッドを用いて、 content view が open_layout になるようにする。</li>
+	  <li>ListView にアプリで保存したファイルのリストが表示されるようにする（図４を参照）。</li>
+	</ol>
+	
+	<table><tr>
+		<td align="center">
+			<figure class="figure">
+				<img src="./assets/images/ex4th/files_list.png" alt="files_list.png" class="figure-img img-fluid rounded" width="60%">
+				<figcaption class="figure-caption text-center">図４．これまで保存したファイルのリスト表示結果。</figcaption>
+			</figure>
+		</td>
+	</tr></table>
+
+</div>	
+
 <h3>ファイルリストの取得と表示 / Get and Display Files List</h3>
 <div class="contents">
 	<p><strong>fileList() </strong>を呼び出すことにより、アプリケーションの file directory 内のすべてのファイル名を含む配列を取得できる。</p>
@@ -248,28 +276,36 @@
 </pre>
 </div>
 
-<div class="practice">
-<h3>演習問題4_2: Access to application's files（必須）</h3>
-  <ol type="a">
-	  <li><strong>menu_action_bar.xml</strong> にある「Preview」メニュを「<strong>Open</strong>」に置き換える（表示される文字列とIDの変更）。</li>
-	<li>新しいレイアウトファイル、<strong>open_layout.xml</strong> を作成し、その中に <strong>ListView</strong> コンポネントを入れる（「Palette → Legacy」から見つかる） 。</li>
-	  <li>「Open」 メニューをタッチした時、InputActivity において、setContentViewメソッドを用いて、 content view が open_layout になるようにする。</li>
-	  <li>ListView にアプリで保存したファイルのリストが表示されるようにする（図４を参照）。</li>
-	</ol>
-	
-	<table><tr>
-		<td align="center">
-			<figure class="figure">
-				<img src="./assets/images/ex4th/files_list.png" alt="files_list.png" class="figure-img img-fluid rounded" width="60%">
-				<figcaption class="figure-caption text-center">図４．これまで保存したファイルのリスト表示結果。</figcaption>
-			</figure>
-		</td>
-	</tr></table>
-
-</div>	
 <!------------------------------------------------------->
 <!-------------------Read a File Content----------------->
 <!------------------------------------------------------->
+<div class="practice">
+	<h3>演習問題4_3: Read a text file（必須）</h3>
+  <p>「ファイルの中身を読み込む」の説明を参考に、以下の内容を実施せよ。</p>
+
+	<ol type="a">
+		<li>演習問題4_2で作成した list view のファイルにタッチしたとき、content view が layout_input に戻り、TextView に、タッチしたファイルの名前が表示されるようにする（図５を参照）。
+		</li>
+		<li>
+			「Edit」メニューをタッチしたとき、TextView に、ファイルの中身が表示されるようにする（図６を参照）。
+		</li>
+	</ol>
+			
+	<table><tr>
+		<td align="center">
+			<figure class="figure">
+				<img src="./assets/images/ex4th/opening_content_file.png" alt="opening_content_file.png" class="figure-img img-fluid rounded" width="80%">
+				<figcaption class="figure-caption text-center">図５．前画面でファイルを選択した後、そのファイル名がTextView に表示される結果</figcaption>
+			</figure>
+		</td>
+		<td align="center">
+			<figure class="figure">
+				<img src="./assets/images/ex4th/viewing_content_file.png" alt="viewing_content_file.png" class="figure-img img-fluid rounded" width="80%">
+				<figcaption class="figure-caption text-center">図６．「Edit」メニューをタッチした際、TextView に開いたファイルの中身を表示させた結果</figcaption>
+			</figure>
+		</td>
+	</tr></table>
+</div>
 <h3>ファイルの中身を読み込む / Read a File Content</h3>
 <div class="contents">
 <p>
@@ -301,31 +337,7 @@
 </code></pre>	
 </p>
 </div>
-<div class="practice">
-	<h3>演習問題4_3: Read a text file（必須）</h3>
-	<ol type="a">
-		<li>演習問題4_2で作成した list view のファイルにタッチしたとき、content view が layout_input に戻り、TextView に、タッチしたファイルの名前が表示されるようにする（図５を参照）。
-		</li>
-		<li>
-			「Edit」メニューをタッチしたとき、TextView に、ファイルの中身が表示されるようにする（図６を参照）。
-		</li>
-	</ol>
-			
-	<table><tr>
-		<td align="center">
-			<figure class="figure">
-				<img src="./assets/images/ex4th/opening_content_file.png" alt="opening_content_file.png" class="figure-img img-fluid rounded" width="80%">
-				<figcaption class="figure-caption text-center">図５．前画面でファイルを選択した後、そのファイル名がTextView に表示される結果</figcaption>
-			</figure>
-		</td>
-		<td align="center">
-			<figure class="figure">
-				<img src="./assets/images/ex4th/viewing_content_file.png" alt="viewing_content_file.png" class="figure-img img-fluid rounded" width="80%">
-				<figcaption class="figure-caption text-center">図６．「Edit」メニューをタッチした際、TextView に開いたファイルの中身を表示させた結果</figcaption>
-			</figure>
-		</td>
-	</tr></table>
-</div>	
+	
 
         </div>
     </body>
