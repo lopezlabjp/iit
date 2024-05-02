@@ -131,17 +131,17 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
     <p> 前のレッスンで学習したように、アクティビティは、ユーザーが単一の焦点を絞ったタスクを実行できるアプリ内の単一の画面を表す。 <strong>MAinActivity.java</strong>という1つのアクティビティがすでにある。 次に、<strong>SetActivity.java</strong>という別のアクティビティを追加する。<br>
       左側の列にある<strong>jp.aoyama.t23428.lgfirstandroidgui</strong>フォルダーを右クリック（またはControlキーを押しながらクリック）して、[New]&gt; [Activity]&gt; [Empty Views Activity] を選択する。
       アクティビティ名を<strong>SetActivity</strong>に、レイアウト名をactivity_setに編集します。 他のオプションはそのままにして、[完了]をクリックする。<br>
-      これで、<strong>SetActivity</strong>クラスが<strong>InputActivity</strong>と一緒にjavaフォルダーにリストされ、<strong>activity_set.xml</strong>が <strong>layout</strong> フォルダーにリストされるはず。 </p>
+      これで、<strong>SetActivity</strong>クラスが<strong>MainActivity</strong>と一緒にjavaフォルダーにリストされ、<strong>activity_set.xml</strong>が <strong>layout</strong> フォルダーにリストされるはず。 </p>
 	
     <h4>Action の変更</h4>
 	<p>
 		このステップでは、FloatingActionButton のアクションを変更して、新しい Activity を起動する。
 		<ol>
 			<li>MainActivity.java を開く</li>
-			<li>設定アイコンをタップした際、 <strong>SetActivity</strong> が起動されるよう、<strong>myBtnClickView view）</strong>メソッド（演習課題2で作成しているはずですが、設定ボタン専用のクリック処理メソッドを作成しても良い）に<strong>明示的 Intent</strong> の作成コードを追加する（必要に応じて else if 文に囲めて）：</li>
+			<li>設定アイコンをタップした際、 <strong>SetActivity</strong> が起動されるよう、<strong>myBtnClick(View view）</strong>メソッド（演習課題2で作成しているはずですが、設定ボタン専用のクリック処理メソッドを作成しても良い）に<strong>明示的 Intent</strong> の作成コードを追加する（必要に応じて else if 文に囲めて）：</li>
       
 <pre><code class="java hljs">  
-	Intent intent = new Intent(InputActivity.this, SetActivity.class);
+	Intent intent = new Intent(MainActivity.this, SetActivity.class);
 	startActivity(intent);
   
 </code></pre>
@@ -156,7 +156,7 @@ tools:context="jp.aoyama.a00001.xxinputactivity.InputActivity"
     このタスクでは、画像・ボタンがタップされた際示す<strong>Toast</strong>メッセージを表示する方法を学ぶ。 </p>
 	<ol>
 	  <li><strong>string.xml</strong> リソースに Toast が表示するメッセージ、"<strong>opening user setting</strong>"、を用意する。</li>
-	  <li><strong>InputActivity</strong> を開き、以下の <strong>displayToast()</strong> メソッドを追加する。&nbsp;</li>
+	  <li><strong>MainActivity</strong> を開き、以下の <strong>displayToast()</strong> メソッドを追加する。&nbsp;</li>
 <pre>
 <code class="java hljs">
 	public void displayToast(String message) {
@@ -431,7 +431,7 @@ public class SetActivity extends AppCompatActivity implements　AdapterView.OnIt
 			<strong> SharedPreferences</strong> とは、<strong>boolean</strong>, <strong>float</strong>, <strong>int</strong>, <strong>long</strong>, <strong>String</strong> などのデータ型について、キーと値のペアを読み書きできるAPI。キーと値のペアは内部ストレージにxmlファイルとして保存される。初回アクセス以降はメモリ上に展開されたキャッシュからデータを取得するため、高速にアクセスできる。 </p>
 			<p>
 		API名「<strong>SharedPreferences</strong>」から誤解されることもあるが、厳密には「ユーザー設定」を保存するためのものではなく、ユーザーのハイスコアなどの単純なデータを保存する際に使われる。たとえば、下記のコードは、リソース文字列 <strong>R.string.preference_file_key</strong> で識別される共有環境設定ファイルにアクセスして、プライベート モードで開きます。これにより、この共有環境設定ファイルにアクセスできるのは、このアプリだけになります。共有環境設定ファイルに名前を付ける場合、対象アプリを一意に識別できる名前を使用してください。簡単な方法としては、アプリ ID をプレフィックスとしてファイル名の先頭に付ける方法があります。<br>
-				例: "jp.aoyama.a00001.xxinputactivity.PREFERENCE_FILE_KEY"</p>
+				例: "jp.aoyama.a00001.xxmainactivity.PREFERENCE_FILE_KEY"</p>
 		
 <pre>
 <code class="java hljs">
@@ -475,7 +475,7 @@ public class SetActivity extends AppCompatActivity implements　AdapterView.OnIt
 
 	  <p>
 		  AndroidStudio の <strong>Device File Explorer からxmlファイルが実際に保存されていることが確認できる</strong>。<br>
-		  「SharedPreferences」ファイルは、アプリのパッケージ内、<strong>Device File Explorer &gt; data &gt; data &gt; xxinputactivity</strong> 、の「<strong>shared_prefs</strong>」フォルダ内にある。<br>
+		  「SharedPreferences」ファイルは、アプリのパッケージ内、<strong>Device File Explorer &gt; data &gt; data &gt; xxmainactivity</strong> 、の「<strong>shared_prefs</strong>」フォルダ内にある。<br>
 		  つまり、アプリからしかアクセスできない内部ストレージ。</p>
 
 	</div>
@@ -591,7 +591,7 @@ AppDatabase
 
 		<h4>ローカル データベースにデータを保存する</h4>
 	  <p>
-				アプリバーの[UP]ナビゲーションボタンをSetActivityに追加するには、AndroidManifest.xmlファイルでその宣言を編集して、SetActivityの親をInputActivityとして定義する必要がある。 
+				アプリバーの[UP]ナビゲーションボタンをSetActivityに追加するには、AndroidManifest.xmlファイルでその宣言を編集して、SetActivityの親をMainActivityとして定義する必要がある。 
 	  </p>
 <pre>
 <code class="xml hljs">
