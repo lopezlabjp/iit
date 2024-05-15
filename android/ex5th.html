@@ -20,7 +20,7 @@
             </div>
             <div class="contents">
             <div class="practice practice-checkpoint">
-                <h3>本日の提出課題一覧</h3>
+                <h3>本日の課題一覧（チェックのみ提出不要）</h3>
                 <ol>
                     <li><strong>演習問題5_1（必須）</strong></li>
                     <li><strong>演習問題5_2（必須）</strong></li>
@@ -89,7 +89,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="contents">
+<!--            <div class="contents">
                 <h3>Task 1: プロジェクトの作成</h3>
                 <p>Android アプリケーションプロジェクトを作成します。ただし、<strong>自分の名前の頭文字・自分の学生番号</strong>を使用すること。</p>
                 <table class="table caption-top table-sm" style="padding: 5px; border: solid 1px #ccc;">
@@ -123,7 +123,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div>-->
             <div class="contents">
                 <h3>音楽ファイルを再生する</h3>
                 <p>Android では、アプリケーションのリソースに保存されているファイルから再生することもできるし、ファイルシステムに保存されているファイルからでも、ネットワークを介したストリーミング再生をすることもできる。本実験では、まずリソースに保存されているファイルからメディアを再生する方法を実施する。</p>
@@ -242,9 +242,9 @@
                 <h3>演習課題5_2: GUI でメディア再生を制御する（必須）</h3>
               <p>上記説明を参考に、以下の内容を実施せよ</p>
                 <ol type="a">
-                    <li><strong>LG</strong> Audio Player プロジェクトに新しい Activity（<strong>LG</strong>AudioActivity.java）、Layout（<strong>lg</strong>_audio_layout_main.xml）と、menu（<strong>lg</strong>_audio_menu.xml）を作成し、<a href="https://www.ankorobe.com/android/ex2nd.html">第2回</a>で作成した GUI（Layoutと、Button・Action bar のクリック動作）を反映させる。</li>
-                    <li>[Play] ボタンをタップするとサウンドの再生が始まる、[Stop] ボタンをタップすると再生が停止するという操作ができるようにプログラムを変更する。</li>
-                    <li>GUI に一時停止（pause）ボタンを追加し、押した際再生中のメディアファイルが一時停止するようにボタンクリック時処理を追加する。その動作を確認する。（結果見た目は図5を参照）</li>
+                    <!--<li><strong>LG</strong> Audio Player プロジェクトに新しい Activity（<strong>LG</strong>AudioActivity.java）、Layout（<strong>lg</strong>_audio_layout_main.xml）と、menu（<strong>lg</strong>_audio_menu.xml）を作成し、<a href="https://www.ankorobe.com/android/ex2nd.html">第2回</a>で作成した GUI（Layoutと、Button・Action bar のクリック動作）を反映させる。</li>-->
+                    <li>[<strong>Play</strong>] ボタンをタップするとサウンドの再生が始まる、[<strong>Stop</strong>] ボタンをタップすると再生が停止するという操作ができるようにプログラムを変更する。</li>
+                    <li>GUI に<strong>一時停止</strong>（pause）ボタンを追加し、押した際再生中のメディアファイルが一時停止するようにボタンクリック時処理を追加する。その動作を確認する。（結果見た目は図5を参照）</li>
 					<li>メディアの永さや、一時停止した際の経過時間はインスタンスの <strong>get???() </strong>メソッド（どのメソッドか見つけること）で取得し、ミリ秒で取得した値を"分:秒"の文字列に変換・表示する。</li>
                 </ol>
             </div>
@@ -280,7 +280,7 @@
                         <li>MediaRecorder インスタンスの <strong>setOutputFormat(...)</strong> メソッドを使用して出力するファイルのフォーマットをセットする。フォーマットは <strong>MediaRecorder.OutputFormat.***</strong> から選定する。</li>
                         <li>MediaRecorder インスタンスの <strong>setAudioEncoder(...)</strong> メソッドを使用してオーディオのエンコーダーをセットする。エンコーダは <strong>MediaRecorder.AudioEncoder .***</strong> から選定する</li>
                         <li>
-                            書きこむファイル名とそのパスも設定する（該当するメソッドを自分で探すこと）。 【注意】 場合によって「設定＞アプリ＞<strong>LG</strong>AudioPlayer＞許可」にてストレージを ON にして下さい。
+                            書きこむファイル名とそのパスも設定する（該当するメソッドを自分で探すこと）。 【注意】 場合によって「設定＞アプリ＞MainActivity＞許可」にてストレージを ON にして下さい。
                         </li>
                         <li>生成した <strong>MediaRecorder</strong> インスタンスの <strong>repare()</strong> メソッドを呼ぶ。</li>
                     </ol>
