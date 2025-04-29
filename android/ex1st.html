@@ -16,7 +16,7 @@
         <div class="title">
           <h1>第１回：Android Studioアプリケーション開発</h1>
           <p style="text-align: right;">
-            最終更新日：2024年3月11日
+            最終更新日：2025年4月29日
           </p>
           <p><a href="index.html">ホームへ戻る</a></p>
         </div>
@@ -341,17 +341,17 @@
             </h4>
             <p>onCreate()は、システムが最初にActivityを作成したときに呼び出されます。Activityが作成されると、Activityは作成済みの状態になります。 onCreate()メソッドでは、Activityのライフサイクルの全期間で1回のみ実行する必要がある基本的なアプリの起動ロジックを実行します。例えば、onCreate() の実装では、データをリストにバインドし、Activityを ViewModel に関連付け、一部のクラススコープ変数をインスタンス化します。このメソッドはパラメータsavedInstanceStateを受け取ります。これは、Activityの以前に保存された状態を含むBundleオブジェクトです。Activityがこれまで存在しなかった場合、Bundleオブジェクトの値はnullになります。</p>
             <h4>
-                <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#onstart">onStart()</a>
-            </h4>
-            <p>Activityが<strong>開始状態</strong>になると、システムはこのコールバックを呼び出します。アプリがActivityをフォアグラウンドに移動して操作可能な状態にする準備を行うと、onStart() の呼び出しによってActivityがユーザーに表示されます。 たとえば、このメソッドでは、UI を保持するコードをアプリが初期化します。</p>
-            <h4>
-                <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#onresume">onResume()</a>
+              <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#onstart">onStart()</a>
+          </h4>
+          <p>Activityが<strong>開始状態</strong>になると、システムはこのコールバックを呼び出します。アプリがActivityをフォアグラウンドに移動して操作可能な状態にする準備を行うと、onStart() の呼び出しによってActivityがユーザーに表示されます。 たとえば、このメソッドでは、UI を保持するコードをアプリが初期化します。</p>
+          <h4>
+              <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#onresume">onResume()</a>
             </h4>
             <p>Activityが<strong>再開状態（実行状態）</strong>になるとフォアグラウンドに移動し、システムは onResume() コールバックを呼び出します。これは、アプリがユーザーと対話する状態です。フォーカスがアプリから他の対象に移動する状況が発生するまで、アプリはこの状態を保持します。このようなイベントには、電話の着信、別のActivityへのユーザーの移動、デバイス画面をオフにする操作などがあります。</p>
             <p>Activityが再開状態に移行すると、Activityのライフサイクルに関連付けられているライフサイクル対応コンポーネントは、すべて ON_RESUME イベントを受け取ります。この時点で、ライフサイクル コンポーネントは、コンポーネントが表示されフォアグラウンドにある状態で実行する必要がある機能（カメラ プレビューの開始など）を有効にできます。</p>
             <p>onResume()後の再開状態（実行状態）では、Activityがフォアグラウンドで実行され、ユーザはそこで操作を行うことができます。</p>
             <p>割り込みイベントが発生すると、Activityは一時停止状態になり、システムは onPause() コールバックを呼び出します。</p>
-            <h4>
+          <h4>
                 <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#onpause">onPause()</a>
             </h4>
             <p>ユーザーがActivityを離れることを最初に示すために、システムはこのメソッドを呼び出します（Activityが破棄されることを意味するとは限りません）。これは、Activityがフォアグラウンドにないことを示します（ユーザーがマルチウィンドウ モードの場合は、Activityが引き続き表示されます）。 Activityが<strong>一時停止状態</strong>であり、間もなく再開する予定である場合は、onPause() メソッドを使用して、続行しない（または適度に続行する）必要がある操作を一時停止または調整します。</p>
@@ -362,6 +362,11 @@
             <p>ユーザーに表示されなくなったActivityは、<strong>停止状態</strong>になり、システムは onStop() コールバックを呼び出します。これは、新たに開始されたActivityが画面全体を占有する場合などに発生します。Activityの実行が終了し、間もなく消滅する場合に、システムによって onStop() も呼び出されることがあります。</p>
             <p>Activityが停止状態に移行すると、Activityのライフサイクルに関連付けられているライフサイクル対応コンポーネントは、ON_STOP イベントを受け取ります。この時点で、ライフサイクル コンポーネントは、コンポーネントが画面に表示されていない間に実行する必要のない機能を停止できます。</p>
             <p>onStop後の停止状態では、Activityは完全に隠され、ユーザには表示されません。バックグラウンドに存在するとみなされます。 停止状態の間、Activity インスタンスとメンバ変数のようなそのすべての状態情報は保持されますが、Activity インスタンスは一切のコードを実行できません。</p>
+            <h4>
+              <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle">onRestart()</a>
+            </h4>（リンク先の図を参照）
+            <p>名前そのままActivityの<strong>再表示</strong>の際に呼び出される。これが呼び出された後にはonStart()->onResume()と続いて呼び出される。アプリキル（Destroy）される時には呼ばれることはない。</p>
+  
             <h4>
                 <a class="external-link" href="https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ja#ondestroy">onDestroy()</a>
             </h4>
