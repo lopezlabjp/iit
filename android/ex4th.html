@@ -45,8 +45,8 @@
 		  <li>Date オブジェクトを好みの文字列書式に出力するため、<a href="https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a> classを用いる（使い方は先のリンクから調べること）。</li>
 		</ul>
 		</li>
-		<li>InputActivity Class において、メニューバーの「SAVE」メニューを推した際、<strong>演習問題2_3で実装した</strong>“クリックしたボタンとメニューの名前を<strong>TextView</strong>に表示する”の TextView オブジェクトの中身をテキストファイルに保存させる（結果は図３を参照）。<br>
-ファイル書式は「<strong>xxinputactivity_content-20210427_150500.txt</strong>」になるようにすること（“20210427_150500”は「a.」の指示と同様、クリック日時になるようにする）。</li>
+		<li>MainActivity Class において、メニューバーの「SAVE」メニューを推した際、<strong>演習問題2_3で実装した</strong>“クリックしたボタンとメニューの名前を<strong>TextView</strong>に表示する”の TextView オブジェクトの中身をテキストファイルに保存させる（結果は図３を参照）。<br>
+ファイル書式は「<strong>xxmainactivity_content-20210427_150500.txt</strong>」になるようにすること（“20210427_150500”は「a.」の指示と同様、クリック日時になるようにする）。</li>
 	</ol>
 
 	<table><tr>
@@ -217,7 +217,7 @@
   <ol type="a">
 	  <li><strong>menu_action_bar.xml</strong> にある「Preview」メニュを「<strong>Open</strong>」に置き換える（表示される文字列とIDの変更）。</li>
 	<li>新しいレイアウトファイル、<strong>open_layout.xml</strong> を作成し、その中に <strong>ListView</strong> コンポネントを入れる（「Palette → Legacy」から見つかる） 。</li>
-	  <li>「Open」 メニューをタッチした時、InputActivity において、setContentViewメソッドを用いて、 content view が open_layout になるようにする。</li>
+	  <li>「Open」 メニューをタッチした時、MainActivity において、setContentViewメソッドを用いて、 content view が open_layout になるようにする。</li>
 	  <li>ListView にアプリで保存したファイルのリストが表示されるようにする（図４を参照）。</li>
 	</ol>
 	
@@ -286,7 +286,7 @@
   <p>「ファイルの中身を読み込む」の説明を参考に、以下の内容を実施せよ。</p>
 
 	<ol type="a">
-		<li>演習問題4_2で作成した list view のファイルにタッチしたとき、content view が layout_input に戻り、TextView に、タッチしたファイルの名前が表示されるようにする（図５を参照）。
+		<li>演習問題4_2で作成した list view のファイルにタッチしたとき、content view が activity_main.xml レイアウトに戻り、TextView に、タッチしたファイルの名前が表示されるようにする（図５を参照）。
 		</li>
 		<li>
 			「Edit」メニューをタッチしたとき、TextView に、ファイルの中身が表示されるようにする（図６を参照）。
