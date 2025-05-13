@@ -4,93 +4,97 @@
 <head>
     <title>ITX1:Aoyama Gakuin University - 6th</title>
     <link rel="stylesheet" type="text/css" href="assets/css/itx1.css">
-        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
-        <link href="assets/plugins/highlight/styles/default.css" rel="stylesheet">
-        <script href="assets/plugins/highlight/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+    <link href="assets/plugins/highlight/styles/default.css" rel="stylesheet">
+    <script href="assets/plugins/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container">
         <div class="contents">
-        <div class="title">
-            <h1>第6回:Androidアプリで人間・環境をセンシングする</h1>
+            <div class="title">
+                <h1>第6回:Androidアプリで人間・環境をセンシングする</h1>
+
+            </div>
             <p style="text-align: right;">
                 最終更新日：2024年4月30日
             </p>
+            <p><a href="index.html">ホームへ戻る</a></p>
+            <div class="practice practice-checkpoint">
+                <h3>本日の提出課題一覧</h3>
+                <ol>
+                    <li><strong>演習問題6_1（必須）</strong></li>
+                    <li><strong>演習問題6_2（必須）</strong></li>
+                    <li>演習問題6_3（任意）</li>
+                </ol>
+            </div>
         </div>
-        <div class="practice practice-checkpoint">
-            <h3>本日の提出課題一覧</h3>
-            <ol>
-                <li><strong>演習問題6_1（必須）</strong></li>
-                <li><strong>演習問題6_2（必須）</strong></li>
-                <li>演習問題6_3（任意）</li>
-            </ol>
-        </div>
-      </div>
-            
 
-    <div class="container">
-        <div class="contents">
 
-            <h3>プロジェクトの作成</h3>
-            <p>Android アプリケーションプロジェクトを作成します。ただし、<strong>自分の名前の頭文字・自分の学生番号</strong>を使用すること。</p>
-            <table class="table caption-top table-sm" style="padding: 5px; border: solid 1px #ccc;">
-                <caption>下記の属性をもった新しい Android Project を作成する</caption>
-                <thead>
-                    <tr>
-                        <th>属性</th>
-                        <th>値</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Name</td>
-                        <td><strong>LG</strong> Sensor Monitor</td>
-                    </tr>
-                    <tr>
-                        <td>Package name</td>
-                        <td>jp.aoyama.<strong>t23428</strong>.<strong>lg</strong>sensorMonitor</td>
-                    </tr>
-                    <tr>
-                        <td>Save location</td>
-                        <td>任意</td>
-                    </tr>
-                    <tr>
-                        <td>Language</td>
-                        <td>Java</td>
-                    </tr>
-                    <tr>
-                        <td>Minimum SDK</td>
-                        <td>使用端末の Android バージョン以下を選択</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-      
-              <div class="practice contents">
-            <h3>演習課題6_1: 加速度センサの値取得（必須）</h3>
+        <div class="container">
+            <div class="contents">
+
+                <h3>プロジェクトの作成</h3>
+                <p>Android アプリケーションプロジェクトを作成します。ただし、<strong>自分の名前の頭文字・自分の学生番号</strong>を使用すること。</p>
+                <table class="table caption-top table-sm" style="padding: 5px; border: solid 1px #ccc;">
+                    <caption>下記の属性をもった新しい Android Project を作成する</caption>
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>値</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td><strong>LG</strong> Sensor Monitor</td>
+                        </tr>
+                        <tr>
+                            <td>Package name</td>
+                            <td>jp.aoyama.<strong>t23428</strong>.<strong>lg</strong>sensorMonitor</td>
+                        </tr>
+                        <tr>
+                            <td>Save location</td>
+                            <td>任意</td>
+                        </tr>
+                        <tr>
+                            <td>Language</td>
+                            <td>Java</td>
+                        </tr>
+                        <tr>
+                            <td>Minimum SDK</td>
+                            <td>使用端末の Android バージョン以下を選択</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="practice contents">
+                <h3>演習課題6_1: 加速度センサの値取得（必須）</h3>
                 <p>「各センサの共通的な使い方」や「センサデータ取得のための基本コード例」の説明を参考に、以下の内容を実施せよ。</p>
-            <ol type="a">
-              <li>上記の加速度センサ読み取り設定および、データ読み取りのコードを参考にし、図.2のように加速度センサの３軸の値が表示されるように適切なコードを追加する。x軸に重力加速度がかかるような姿勢でスクリショをとること！</li>               
-                
-            </ol>
+                <ol type="a">
+                    <li>上記の加速度センサ読み取り設定および、データ読み取りのコードを参考にし、図.2のように加速度センサの３軸の値が表示されるように適切なコードを追加する。x軸に重力加速度がかかるような姿勢でスクリショをとること！
+                    </li>
 
-            <figure class="figure">
-                <img src="assets/images/ex6th/fig1.PNG" class="figure-img img-fluid rounded" alt="fig1.png">
-                <figcaption class="figure-caption text-center">図.1 加速度センサの軸方向</figcaption>
-            </figure>
+                </ol>
 
-            <figure class="figure">
-                <img src="assets/images/ex6th/fig2.PNG" class="figure-img img-fluid rounded" alt="fig2.png">
-                <figcaption class="figure-caption text-center">図.2 加速度センサの各軸の値を表示するアプリのスクリーンショット</figcaption>
-            </figure>
+                <figure class="figure">
+                    <img src="assets/images/ex6th/fig1.PNG" class="figure-img img-fluid rounded" alt="fig1.png">
+                    <figcaption class="figure-caption text-center">図.1 加速度センサの軸方向</figcaption>
+                </figure>
 
-        </div>
-      <h3>イントロダクション</h3>
+                <figure class="figure">
+                    <img src="assets/images/ex6th/fig2.PNG" class="figure-img img-fluid rounded" alt="fig2.png">
+                    <figcaption class="figure-caption text-center">図.2 加速度センサの各軸の値を表示するアプリのスクリーンショット</figcaption>
+                </figure>
+
+            </div>
+            <h3>イントロダクション</h3>
             <p>2014 年 3 月に、Android プラットフォームをウェアラブル端末に拡張する「Android
                 Wear」が発表され、ヘルスケアの観点からウェアラブル端末搭載のセンシング技術が
                 重要な位置付けになることが予想されている。Android は、スマートフォンだけではな
@@ -107,181 +111,185 @@
             </p>
 
 
-        <div class="contents">
-            <h3>各センサの共通的な使い方</h3>
-            <h4>センサ操作関連クラス</h4>
+            <div class="contents">
+                <h3>各センサの共通的な使い方</h3>
+                <h4>センサ操作関連クラス</h4>
 
-            <table class="table caption-top">
-                <caption>表1. センサ操作関連クラスとその説明一覧</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">クラス名</th>
-                        <th scope="col">概要</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <table class="table caption-top">
+                    <caption>表1. センサ操作関連クラスとその説明一覧</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">クラス名</th>
+                            <th scope="col">概要</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    <tr>
+                        <tr>
 
-                        <td>Sensor</td>
-                        <td>センサーを表すクラス。 getSensorList（int）を使用して、使用可能なセンサーのリストを取得します。</td>
-                    </tr>
-                    <tr>
-                        <td>SensorManager</td>
-                        <td>Androidプラットフォーム内で利用可能なセンサーへのアクセスを許可するクラス。</td>
-                    </tr>
-                    <tr>
-                        <td>SensorEventListener</td>
-                        <td>センサー値が変更されたときにSensorManagerから通知を受信するために使用されるインターフェース。アプリケーションはこのインターフェースを実装して、ハードウェアで利用可能な複数のセンサーを監視することができる。
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SensorEvent</td>
-                        <td>このクラスはセンサーイベントを表し、センサータイプ（加速度計、向きなど）、タイムスタンプ、精度、センサーのデータなどの情報を保持します。</td>
-                    </tr>
-                </tbody>
-            </table>
+                            <td>Sensor</td>
+                            <td>センサーを表すクラス。 getSensorList（int）を使用して、使用可能なセンサーのリストを取得します。</td>
+                        </tr>
+                        <tr>
+                            <td>SensorManager</td>
+                            <td>Androidプラットフォーム内で利用可能なセンサーへのアクセスを許可するクラス。</td>
+                        </tr>
+                        <tr>
+                            <td>SensorEventListener</td>
+                            <td>センサー値が変更されたときにSensorManagerから通知を受信するために使用されるインターフェース。アプリケーションはこのインターフェースを実装して、ハードウェアで利用可能な複数のセンサーを監視することができる。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SensorEvent</td>
+                            <td>このクラスはセンサーイベントを表し、センサータイプ（加速度計、向きなど）、タイムスタンプ、精度、センサーのデータなどの情報を保持します。</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <h4>Androidがサポートするセンサ一覧</h4>
-            <p>Android端末には多くのセンサが搭載されています。どのセンサが搭載されているかはSensorManagerクラスが管理している。<strong>SensorManager.getSensorList(int)</strong>で扱うことができるセンサのリストを取得できる
-            </p>
-            <table class="table caption-top">
-                <caption>表2. Android端末で主にサポートされているセンサ（全端末に全センサされている訳ではない）</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">種類</th>
-                        <th scope="col">センサタイプ(定数)</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <h4>Androidがサポートするセンサ一覧</h4>
+                <p>Android端末には多くのセンサが搭載されています。どのセンサが搭載されているかはSensorManagerクラスが管理している。<strong>SensorManager.getSensorList(int)</strong>で扱うことができるセンサのリストを取得できる
+                </p>
+                <table class="table caption-top">
+                    <caption>表2. Android端末で主にサポートされているセンサ（全端末に全センサされている訳ではない）</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">種類</th>
+                            <th scope="col">センサタイプ(定数)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    <tr>
+                        <tr>
 
-                        <td>加速度</td>
-                        <td>TYPE_ACCELEROMETER</td>
-                    </tr>
-                    <tr>
-                        <td>周辺温度</td>
-                        <td>TYPE_AMBIENT_TEMPERATURE</td>
-                    </tr>
-                    <tr>
-                        <td>重力</td>
-                        <td>TYPE_GRAVITY</td>
-                    </tr>
-                    <tr>
-                        <td>ジャイロスコープ</td>
-                        <td>TYPE_GYROSCOPE</td>
-                    </tr>
-                    <tr>
-                        <td>輝度（照度）</td>
-                        <td>TYPE_GYROSCOPE</td>
-                    </tr>
-                    <tr>
-                        <td>重力加速度を除いた加速度</td>
-                        <td>TYPE_GYROSCOPE</td>
-                    </tr>
-                    <tr>
-                        <td>磁界（磁気）</td>
-                        <td>TYPE_GYROSCOPE</td>
-                    </tr>
-                    <tr>
-                        <td>方位</td>
-                        <td>TYPE_GYROSCOPE</td>
-                    </tr>
-                    <tr>
-                        <td>気圧</td>
-                        <td>TYPE_PRESSURE</td>
-                    </tr>
-                    <tr>
-                        <td>近接</td>
-                        <td>TYPE_PROXIMITY</td>
-                    </tr>
-                    <tr>
-                        <td>温度</td>
-                        <td>TYPE_RELATIVE_HUMIDITY</td>
-                    </tr>
-                    <tr>
-                        <td>回転ベクトル</td>
-                        <td>TYPE_ROTATION_VECTOR</td>
-                    </tr>
-                    <tr>
-                        <td>ステップカウンター</td>
-                        <td>TYPE_STEP_COUNTER</td>
-                    </tr>
-                    <tr>
-                        <td>ステップ感知</td>
-                        <td>TYPE_STEP_DETECTOR</td>
-                    </tr>
-                </tbody>
-            </table>
+                            <td>加速度</td>
+                            <td>TYPE_ACCELEROMETER</td>
+                        </tr>
+                        <tr>
+                            <td>周辺温度</td>
+                            <td>TYPE_AMBIENT_TEMPERATURE</td>
+                        </tr>
+                        <tr>
+                            <td>重力</td>
+                            <td>TYPE_GRAVITY</td>
+                        </tr>
+                        <tr>
+                            <td>ジャイロスコープ</td>
+                            <td>TYPE_GYROSCOPE</td>
+                        </tr>
+                        <tr>
+                            <td>輝度（照度）</td>
+                            <td>TYPE_GYROSCOPE</td>
+                        </tr>
+                        <tr>
+                            <td>重力加速度を除いた加速度</td>
+                            <td>TYPE_GYROSCOPE</td>
+                        </tr>
+                        <tr>
+                            <td>磁界（磁気）</td>
+                            <td>TYPE_GYROSCOPE</td>
+                        </tr>
+                        <tr>
+                            <td>方位</td>
+                            <td>TYPE_GYROSCOPE</td>
+                        </tr>
+                        <tr>
+                            <td>気圧</td>
+                            <td>TYPE_PRESSURE</td>
+                        </tr>
+                        <tr>
+                            <td>近接</td>
+                            <td>TYPE_PROXIMITY</td>
+                        </tr>
+                        <tr>
+                            <td>温度</td>
+                            <td>TYPE_RELATIVE_HUMIDITY</td>
+                        </tr>
+                        <tr>
+                            <td>回転ベクトル</td>
+                            <td>TYPE_ROTATION_VECTOR</td>
+                        </tr>
+                        <tr>
+                            <td>ステップカウンター</td>
+                            <td>TYPE_STEP_COUNTER</td>
+                        </tr>
+                        <tr>
+                            <td>ステップ感知</td>
+                            <td>TYPE_STEP_DETECTOR</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-        </div>
-      
-        <div class="contents">
-            <h3>センサデータ取得のための基本コード例</h3>
-            <p>第1ステップは<strong>SensorManager</strong>のインスタンスを生成し、Activityをセンサ読み取りActivityに設定し、読み取りたいセンサを設定すること。そのため、センサ関連クラスのimportを忘れずに、下記のコードを追加する。
-            </p>
-
-            <div>
-                <h5><u>実現するInterfaceの宣言とセンサ読み取り設定</u></h5>
-                <figure class="figure">
-                    <img src="assets/images/ex6th/code1.PNG" class="figure-img img-fluid rounded" alt="fig1.png">
-                    
-                </figure>
-            </div>
-            <div>
-                <p>次に読み取り設定したセンサの値を取得する。そのため、上記に追加した<strong>onSensorChanged(...)</strong>メソッドの<Strong>SensorEvent</Strong>型引きすを用いて、下記サンプルコードのように値を取得する。取得できる値の数はセンサの種類によって異なるため、気を付ける必要がある。例えば加速度センサ、ジャイロセンサ等の場合３つの値が取得できるが、温度や照度等の場合は１つの値しかない。</p>
-                <figure class="figure">
-                    <img src="assets/images/ex6th/code2.PNG" class="figure-img img-fluid rounded" alt="fig1.png">
-                    
-                </figure>
             </div>
 
-            <div>
-                <p>に説明しているように、SensorEventクラスObjectから、読み取り中センサに関する様々な情報（名前、消費電力等々）が取得できる。そのため、<strong>onSensorChanged(．．．)</Strong>の引数として渡される<strong>SensorEvent</strong>インスタンスeventからイベントを発した<strong><i>event</i></strong>のObjectを抽出し、下記の形のようなメソッドを用いる。</p>
-                <pre><code class="java">
+            <div class="contents">
+                <h3>センサデータ取得のための基本コード例</h3>
+                <p>第1ステップは<strong>SensorManager</strong>のインスタンスを生成し、Activityをセンサ読み取りActivityに設定し、読み取りたいセンサを設定すること。そのため、センサ関連クラスのimportを忘れずに、下記のコードを追加する。
+                </p>
+
+                <div>
+                    <h5><u>実現するInterfaceの宣言とセンサ読み取り設定</u></h5>
+                    <figure class="figure">
+                        <img src="assets/images/ex6th/code1.PNG" class="figure-img img-fluid rounded" alt="fig1.png">
+
+                    </figure>
+                </div>
+                <div>
+                    <p>次に読み取り設定したセンサの値を取得する。そのため、上記に追加した<strong>onSensorChanged(...)</strong>メソッドの<Strong>SensorEvent</Strong>型引きすを用いて、下記サンプルコードのように値を取得する。取得できる値の数はセンサの種類によって異なるため、気を付ける必要がある。例えば加速度センサ、ジャイロセンサ等の場合３つの値が取得できるが、温度や照度等の場合は１つの値しかない。
+                    </p>
+                    <figure class="figure">
+                        <img src="assets/images/ex6th/code2.PNG" class="figure-img img-fluid rounded" alt="fig1.png">
+
+                    </figure>
+                </div>
+
+                <div>
+                    <p>に説明しているように、SensorEventクラスObjectから、読み取り中センサに関する様々な情報（名前、消費電力等々）が取得できる。そのため、<strong>onSensorChanged(．．．)</Strong>の引数として渡される<strong>SensorEvent</strong>インスタンスeventからイベントを発した<strong><i>event</i></strong>のObjectを抽出し、下記の形のようなメソッドを用いる。
+                    </p>
+                    <pre><code class="java">
                     event.sensor.getXXXX()
                                         </code></pre>
-                <p>ここでXXXXは取得したい情報に合ったメソッドになるので、上手にコードアシストを活用して、適切なメソッドを見つける。</p>
-                <p><strong>SensorManager</strong>クラスの<strong>registerListener(...)</strong>メソッドの第2引きすを表2にリストしているセンサタイプ（TYPE_ACCELEROMETER、TYPE_GYROSCOPE等々）で適切に設定していれば、読み取り可能にしたいセンサが選定できる。</p>
+                    <p>ここでXXXXは取得したい情報に合ったメソッドになるので、上手にコードアシストを活用して、適切なメソッドを見つける。</p>
+                    <p><strong>SensorManager</strong>クラスの<strong>registerListener(...)</strong>メソッドの第2引きすを表2にリストしているセンサタイプ（TYPE_ACCELEROMETER、TYPE_GYROSCOPE等々）で適切に設定していれば、読み取り可能にしたいセンサが選定できる。
+                    </p>
+                </div>
+
             </div>
-            
-      </div>
-      <hr>
-      
-<!-------------------------------------------------
+            <hr>
+
+            <!-------------------------------------------------
  --------------- Practice 6_2 ---------------------
 -------------------------------------------------->
 
-        <div class="practice contents">
-            <h3>演習課題6_2: センサの詳細情報取得・表示（必須）</h3>
-            <!--<p><strong>HUAWEIタブレットの方は加速度のみ</strong>
+            <div class="practice contents">
+                <h3>演習課題6_2: センサの詳細情報取得・表示（必須）</h3>
+                <!--<p><strong>HUAWEIタブレットの方は加速度のみ</strong>
             </p>-->
-            <ol type="a">
-				<li>図.3のように加速度センサの下記詳細情報を取得・表示し、スクリーンショットをとる。
-                    <ul>
-                        <li>種類、名前、販売先、バージョン、分解能、最大レンジ、消費電力、値。</li>
-                        <li>必要があれば例外処理（Exception）に必要なコードも追加</li>
-                        <li>現在時刻をミリ秒単位で教えてくれる<strong>System.currentTimeMillis()</strong>メソッドを用いて、実際に観測しているサンプリング間隔を算出し、表示する</li>
-                    </ul>
-                    <br>
-                    
-                </li>
-				<!--
+                <ol type="a">
+                    <li>図.3のように加速度センサの下記詳細情報を取得・表示し、スクリーンショットをとる。
+                        <ul>
+                            <li>種類、名前、販売先、バージョン、分解能、最大レンジ、消費電力、値。</li>
+                            <li>必要があれば例外処理（Exception）に必要なコードも追加</li>
+                            <li>現在時刻をミリ秒単位で教えてくれる<strong>System.currentTimeMillis()</strong>メソッドを用いて、実際に観測しているサンプリング間隔を算出し、表示する
+                            </li>
+                        </ul>
+                        <br>
+
+                    </li>
+                    <!--
                 <li>図.4のように照度センサを表示させ、値が０になるようにし、スクリショをとる。</li>
                 <li>GUIを変更し、図.5のように各センサのボタンを押せばそのセンサの情報のみ表示されるようにする。
                     
                 </li>
 				-->
-                
-            </ol>        
-           
-            <figure class="figure">
-                <img src="assets/images/ex6th/fig3.PNG" class="figure-img img-fluid rounded" alt="fig3.png">
-                <figcaption class="figure-caption text-center">図.3 加速度センサの詳細な情報取得・表示</figcaption>
-            </figure>
 
-<!--            <figure class="figure">
+                </ol>
+
+                <figure class="figure">
+                    <img src="assets/images/ex6th/fig3.PNG" class="figure-img img-fluid rounded" alt="fig3.png">
+                    <figcaption class="figure-caption text-center">図.3 加速度センサの詳細な情報取得・表示</figcaption>
+                </figure>
+
+                <!--            <figure class="figure">
                 <img src="assets/images/ex6th/fig4.PNG" class="figure-img img-fluid rounded" alt="fig2.png">
                 <figcaption class="figure-caption text-center">図.2 照度センサの詳細な情報取得・表示</figcaption>
             </figure>
@@ -291,28 +299,28 @@
                 <figcaption class="figure-caption text-center">図.3 ボタンを押すとそのセンサの情報・値が表示されるアプリ</figcaption>
             </figure>
 -->
-            
+
+
+            </div>
+            <div class="practice contents">
+                <h3>演習課題6_3: センサデータのプロット（任意）</h3>
+                <p><strong>HUAWEIタブレットの方は加速度のみ</strong>
+                </p>
+                <ol type="a">
+                    <li>図.6のようにボタンにて選択したセンサの値がプロットされるようにする。</li>
+
+
+                </ol>
+
+
+                <figure class="figure">
+                    <img src="assets/images/ex6th/fig6.PNG" class="figure-img img-fluid rounded" alt="fig6.png">
+                    <figcaption class="figure-caption text-center">図.6 センサの値のプロットができるアプリの例のスクリショ</figcaption>
+                </figure>
+
+            </div>
 
         </div>
-        <div class="practice contents">
-            <h3>演習課題6_3: センサデータのプロット（任意）</h3>
-            <p><strong>HUAWEIタブレットの方は加速度のみ</strong>
-            </p>
-            <ol type="a">
-                <li>図.6のようにボタンにて選択したセンサの値がプロットされるようにする。</li>
-                    
-                
-            </ol>
-           
-
-            <figure class="figure">
-                <img src="assets/images/ex6th/fig6.PNG" class="figure-img img-fluid rounded" alt="fig6.png">
-                <figcaption class="figure-caption text-center">図.6 センサの値のプロットができるアプリの例のスクリショ</figcaption>
-            </figure>            
-
-        </div>
-
-    </div>
 
 </body>
 
