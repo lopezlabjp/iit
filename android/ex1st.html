@@ -97,6 +97,40 @@
         </div>
 
         <div class="contents">
+            <h3>エミュレーターが動かない場合の対処法</h3>
+            
+            <h4>１．エミュレーターが起動しない場合</h4>
+            <ul>
+                <li>まずは，Android Studioを再起動します．<span style="color: #e53935; font-size: 0.9em;"><br>※この際すべてのファイルの変更が保存されていることに注意してください．</span></li>
+                <li><span style="color: #e53935; font-size: 0.9em;">起動後はエミュレーターを動かしたり，appを走らせたりしないこと！</span></li>
+                <li>
+                    まずはDeviceManagerの画面を開いて，3点リーダーをクリックしてWipe Dataを選択します
+                    <figure class="figure">
+                        <img width="600" src="assets/images/ex1st/device_manager_menu.png" class="figure-img img-fluid rounded" alt="Device Managerの3点リーダーからWipe Dataを選択">
+                    </figure>
+                </li>
+                <li>Wipe Dataが成功したことを確認してから，エミュレーターを起動もしくはappを走らせてください</li>
+            </ul>
+
+            <h4>2. エミュレーターは起動するが，Googleの起動画面の後に黒い画面が表示されてしまう場合</h4>
+            <ul>
+                <li>一度，エミュレーターや走らせているappを停止します．<span style="color: #e53935; font-size: 0.9em;"><br>※この際，停止ができずぐるぐるしてしまう．または停止後起動できない場合は上記1番の対処法を取ってください</span></li>
+                <li>
+                    DeviceManagerの画面を開いて，3点リーダーをクリックしてEditを選択します
+                    <figure class="figure">
+                        <img width="600" src="assets/images/ex1st/device_manager_menu.png" class="figure-img img-fluid rounded" alt="Device Managerの3点リーダーからEditを選択">
+                    </figure>
+                </li>
+                <li>
+                    Config -&gt; GraphicsをAutomaticからSoftwareにします
+                    <figure class="figure">
+                        <img width="600" src="assets/images/ex1st/config_graphics.png" class="figure-img img-fluid rounded" alt="GraphicsをAutomaticからSoftwareに変更">
+                    </figure>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contents">
             <h3>Task 2: プロジェクト作成とアプリの実行</h3>
             <p>Task 2では、最初のAndroidアプリ「Hello World」を作成し、アンドロイドデバイス（実機）もしくはエミュレータ上で実行します。</p>
             <ol>
